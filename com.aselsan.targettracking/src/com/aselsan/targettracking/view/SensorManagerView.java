@@ -26,6 +26,9 @@ import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
+import com.aselsan.targettracking.sensornetwork.SensorManager;
+
+
 public class SensorManagerView extends ViewPart {
 	public static final String ID = "com.aselsan.targettracking.sensormanagerview";
 	private org.eclipse.swt.graphics.Image image;
@@ -56,40 +59,61 @@ public class SensorManagerView extends ViewPart {
 		{
 			sensorList.add(sensorManager.getSensorList().get(i));
 		}
-		shell = new Shell();
-		button = new Button(parent, SWT.PUSH);
+		
+		button = new Button(shell, SWT.PUSH);
 		button.setText("Add Sensor");
-		shell = new Shell();
-		shell.setVisible(false);
-		shell.setLayout(new GridLayout(2, false));
-		
-		Label IDLabel = new Label(shell, SWT.NONE);
-		IDLabel.setText("ID:");
-		
-		Text IDText = new Text(shell, SWT.BORDER);
-		gridData.horizontalAlignment = SWT.FILL;
-		gridData.grabExcessHorizontalSpace = true;
-		IDText.setLayoutData(gridData);
-		IDText.setText("");
-		
-		Label macLabel = new Label(shell, SWT.NONE);
-		macLabel.setText("Mac:");
-		
-		Text macText = new Text(shell, SWT.BORDER);
-		gridData = new GridData();
-		gridData.horizontalAlignment = SWT.FILL;
-		gridData.grabExcessHorizontalSpace = true;
-		macText.setLayoutData(gridData);
-		macText.setText("");
-		
-		
-
-		
 		button.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				// Handle the selection event
 				System.out.println("Called!");
+				
+				shell = new Shell();
+				shell.setVisible(false);
+				shell.setLayout(new GridLayout(2, false));
+				
+				Label IDLabel = new Label(shell, SWT.NONE);
+				IDLabel.setText("ID:");
+				
+				Text IDText = new Text(shell, SWT.BORDER);
+				gridData.horizontalAlignment = SWT.FILL;
+				gridData.grabExcessHorizontalSpace = true;
+				IDText.setLayoutData(gridData);
+				IDText.setText("");
+				
+				Label macLabel = new Label(shell, SWT.NONE);
+				macLabel.setText("Mac:");
+				
+				Text macText = new Text(shell, SWT.BORDER);
+				gridData = new GridData();
+				gridData.horizontalAlignment = SWT.FILL;
+				gridData.grabExcessHorizontalSpace = true;
+				macText.setLayoutData(gridData);
+				macText.setText("");
+				
+				Label xCoorLabel = new Label(shell, SWT.NONE);
+				xCoorLabel.setText("Mac:");
+				
+				Text xCoorText = new Text(shell, SWT.BORDER);
+				gridData = new GridData();
+				gridData.horizontalAlignment = SWT.FILL;
+				gridData.grabExcessHorizontalSpace = true;
+				xCoorText.setLayoutData(gridData);
+				xCoorText.setText("");
+				
+				Label yCoorLabel = new Label(shell, SWT.NONE);
+				xCoorLabel.setText("Mac:");
+				
+				Text yCoorText = new Text(shell, SWT.BORDER);
+				gridData = new GridData();
+				gridData.horizontalAlignment = SWT.FILL;
+				gridData.grabExcessHorizontalSpace = true;
+				yCoorText.setLayoutData(gridData);
+				yCoorText.setText("");
+				
+				button = new Button(shell, SWT.PUSH);
+				button.setText("Add Sensor");
+				
 				
 			}
 		});
