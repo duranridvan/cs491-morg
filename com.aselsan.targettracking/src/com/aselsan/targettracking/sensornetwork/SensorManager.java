@@ -31,4 +31,8 @@ public class SensorManager {
 		sensorList.remove(id);
 	}
 	
+	public List<Sensor> getSensorList(){
+		return new ArrayList<Sensor>(sensorList.values());
+	}
+	
 }
