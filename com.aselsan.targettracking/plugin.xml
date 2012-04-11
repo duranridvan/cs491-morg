@@ -27,6 +27,12 @@
             name="sensormanagerview"
             restorable="true">
       </view>
+      <view
+            class="com.aselsan.targettracking.view.GISView"
+            id="com.aselsan.targettracking.gisview"
+            name="gisview"
+            restorable="true">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
@@ -35,8 +41,16 @@
          <view
                id="com.aselsan.targettracking.sensormanagerview"
                minimized="false"
+               ratio="0.5f"
                relationship="stack"
                relative="org.eclipse.ui.editorss">
+         </view>
+         <view
+               id="com.aselsan.targettracking.gisview"
+               minimized="false"
+               ratio="0.5f"
+               relationship="left"
+               relative="com.aselsan.targettracking.sensormanagerview">
          </view>
       </perspectiveExtension>
    </extension>
