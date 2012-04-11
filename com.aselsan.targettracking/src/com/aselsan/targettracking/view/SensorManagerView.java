@@ -18,7 +18,6 @@ import org.eclipse.ui.part.ViewPart;
 
 import com.aselsan.targettracking.sensornetwork.SensorManager;
 
-
 public class SensorManagerView extends ViewPart {
 	public static final String ID = "com.aselsan.targettracking.sensormanagerview";
 	private org.eclipse.swt.graphics.Image image;
@@ -70,6 +69,7 @@ public class SensorManagerView extends ViewPart {
 				System.out.println("Called!");
 				
 				final Shell shell = new Shell();
+				
 				shell.setVisible(false);
 				shell.setLayout(new GridLayout(2, false));
 				
@@ -119,9 +119,11 @@ public class SensorManagerView extends ViewPart {
 					public void widgetSelected(SelectionEvent e) {
 						sensorManager.addSensor(macText.getText(), new Point(Integer.parseInt(xCoorText.getText()),Integer.parseInt(yCoorText.getText())));
 						shell.close();
+						shell.dispose();
 						refreshList();
 					}
 				});
+				shell.pack();
 				shell.setVisible(true);
 				
 				

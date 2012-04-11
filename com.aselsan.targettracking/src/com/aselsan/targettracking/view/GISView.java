@@ -5,9 +5,14 @@ import java.io.IOException;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
+import com.aselsan.targettracking.sensornetwork.SensorManager;
+
 
 
 public class GISView extends ViewPart{
+	
+	public static final String ID = "com.aselsan.targettracking.gisview";
+	SensorManager sensors;
 	
 	public GISView() throws IOException {
 		
@@ -20,7 +25,7 @@ public class GISView extends ViewPart{
 	 */
 	@Override
 	public void createPartControl(final Composite parent) {
-
+		
 	}
 
 	/**

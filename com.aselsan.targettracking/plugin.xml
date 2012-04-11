@@ -38,20 +38,6 @@
          point="org.eclipse.ui.perspectiveExtensions">
       <perspectiveExtension
             targetID="*">
-         <view
-               id="com.aselsan.targettracking.sensormanagerview"
-               minimized="false"
-               ratio="0.5f"
-               relationship="stack"
-               relative="org.eclipse.ui.editorss">
-         </view>
-         <view
-               id="com.aselsan.targettracking.gisview"
-               minimized="false"
-               ratio="0.5f"
-               relationship="left"
-               relative="com.aselsan.targettracking.sensormanagerview">
-         </view>
       </perspectiveExtension>
    </extension>
    <extension
