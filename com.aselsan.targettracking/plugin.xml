@@ -22,11 +22,6 @@
    <extension
          point="org.eclipse.ui.views">
       <view
-            name="View"
-            class="com.aselsan.targettracking.View"
-            id="com.aselsan.targettracking.view">
-      </view>
-      <view
             class="com.aselsan.targettracking.view.SensorManagerView"
             id="com.aselsan.targettracking.sensormanagerview"
             name="sensormanagerview"
@@ -38,16 +33,10 @@
       <perspectiveExtension
             targetID="*">
          <view
-               standalone="true"
-               minimized="false"
-               relative="org.eclipse.ui.editorss"
-               relationship="left"
-               id="com.aselsan.targettracking.view">
-         </view>
-         <view
                id="com.aselsan.targettracking.sensormanagerview"
                minimized="false"
-               relationship="stack">
+               relationship="stack"
+               relative="org.eclipse.ui.editorss">
          </view>
       </perspectiveExtension>
    </extension>
