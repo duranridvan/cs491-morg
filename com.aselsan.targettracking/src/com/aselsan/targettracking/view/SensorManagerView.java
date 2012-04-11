@@ -73,15 +73,6 @@ public class SensorManagerView extends ViewPart {
 				shell.setVisible(false);
 				shell.setLayout(new GridLayout(2, false));
 				
-				Label IDLabel = new Label(shell, SWT.NONE);
-				IDLabel.setText("ID:");
-				
-				Text IDText = new Text(shell, SWT.BORDER);
-				gridData.horizontalAlignment = SWT.FILL;
-				gridData.grabExcessHorizontalSpace = true;
-				IDText.setLayoutData(gridData);
-				IDText.setText("");
-				
 				Label macLabel = new Label(shell, SWT.NONE);
 				macLabel.setText("Mac:");
 				
@@ -111,16 +102,25 @@ public class SensorManagerView extends ViewPart {
 				gridData.grabExcessHorizontalSpace = true;
 				yCoorText.setLayoutData(gridData);
 				yCoorText.setText("");
-				
-				
+								
 				button = new Button(shell, SWT.PUSH);
 				button.setText("Add Sensor");
 				button.addSelectionListener(new SelectionAdapter() {
 					public void widgetSelected(SelectionEvent e) {
+						boolean success = true;
+						try{
 						sensorManager.addSensor(macText.getText(), new Point(Integer.parseInt(xCoorText.getText()),Integer.parseInt(yCoorText.getText())));
-						shell.close();
-						shell.dispose();
-						refreshList();
+						} catch (Exception e1) {
+							Label labelError = new Label(shell,SWT.BORDER);
+							labelError.setText("Enter a number for X Coordinate and Y Coordinate");
+							success = false;
+						}
+						if(success)
+						{
+							shell.close();
+							shell.dispose();
+							refreshList();
+						}
 					}
 				});
 				shell.pack();
