@@ -26,10 +26,22 @@ public class SensorManagerView extends ViewPart {
 	private Button button;
 	private GridData gridData;
 	private SensorManager sensorManager;
+	private List sensorList;
 	public SensorManagerView(){
 		image = com.aselsan.targettracking.Activator.getImageDescriptor("icons/arkaplan.jpg").createImage();
 		sensorManager = new SensorManager();
 	}
+	private void refreshList(){
+		for(int i = 0 ; i < sensorList.getItemCount() ; i++)
+		{
+			sensorList.remove(i);
+		}
+		for(int i = 0 ; i < sensorManager.getSensorList().size() ; i++)
+		{
+			sensorList.add(sensorManager.getSensorList().get(i).toString());
+		}
+	}
+	
 	
 	public void createPartControl(final Composite parent) {
 		gridData = new GridData();
@@ -37,7 +49,7 @@ public class SensorManagerView extends ViewPart {
 		fillLayout = new FillLayout();
 		fillLayout.type = SWT.VERTICAL;
 		parent.setLayout(fillLayout);
-		List sensorList = new List(parent, SWT.BORDER | SWT.MULTI);
+		sensorList = new List(parent, SWT.BORDER | SWT.MULTI);
 		gridData.horizontalSpan = 2;
 		gridData.horizontalAlignment = SWT.FILL;
 		gridData.grabExcessHorizontalSpace = true;
@@ -107,7 +119,7 @@ public class SensorManagerView extends ViewPart {
 					public void widgetSelected(SelectionEvent e) {
 						sensorManager.addSensor(macText.getText(), new Point(Integer.parseInt(xCoorText.getText()),Integer.parseInt(yCoorText.getText())));
 						shell.close();
-						parent.redraw();
+						refreshList();
 					}
 				});
 				shell.setVisible(true);
