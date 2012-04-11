@@ -107,12 +107,22 @@ public class SensorManagerView extends ViewPart {
 				button.setText("Add Sensor");
 				button.addSelectionListener(new SelectionAdapter() {
 					public void widgetSelected(SelectionEvent e) {
+						
 						boolean success = true;
+						boolean emptyTextField = false;
 						try{
+						if(macText.getText()== "" || xCoorText.getText()== "" || yCoorText.getText() == "")
+						{	
+							emptyTextField = true;
+							throw new Exception();
+						}
 						sensorManager.addSensor(macText.getText(), new Point(Integer.parseInt(xCoorText.getText()),Integer.parseInt(yCoorText.getText())));
 						} catch (Exception e1) {
 							Label labelError = new Label(shell,SWT.BORDER);
-							labelError.setText("Enter a number for X Coordinate and Y Coordinate");
+							if(emptyTextField)
+								labelError.setText("You cannot leave Mac,X Coordinate,Y Coordinate fields empty");
+							else
+								labelError.setText("Enter a number for X Coordinate and Y Coordinate");
 							success = false;
 						}
 						if(success)
