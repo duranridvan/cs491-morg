@@ -27,4 +27,8 @@ public class Sensor {
 	public Point getLocation(){
 		return this.location;
 	}
+	
+	public String toString(){
+		return id + "-) (" + location.x + "," +location.y + ")";
+	}
 }
