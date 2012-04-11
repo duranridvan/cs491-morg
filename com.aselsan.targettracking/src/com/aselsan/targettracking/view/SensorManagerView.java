@@ -1,29 +1,19 @@
 package com.aselsan.targettracking.view;
 
-import org.eclipse.jface.viewers.IStructuredContentProvider;
-import org.eclipse.jface.viewers.ITableLabelProvider;
-import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.jface.viewers.Viewer;
+
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.MouseEvent;
-import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Layout;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.ISharedImages;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
 import com.aselsan.targettracking.sensornetwork.SensorManager;
@@ -36,13 +26,12 @@ public class SensorManagerView extends ViewPart {
 	private Button button;
 	private GridData gridData;
 	private SensorManager sensorManager;
-	private Shell shell;
 	public SensorManagerView(){
 		image = com.aselsan.targettracking.Activator.getImageDescriptor("icons/arkaplan.jpg").createImage();
 		sensorManager = new SensorManager();
 	}
 	
-	public void createPartControl(Composite parent) {
+	public void createPartControl(final Composite parent) {
 		gridData = new GridData();
 		parent.setBackgroundImage(image);
 		fillLayout = new FillLayout();
@@ -57,10 +46,10 @@ public class SensorManagerView extends ViewPart {
 		sensorList.setLayoutData(gridData);
 		for(int i = 0 ; i < sensorManager.getSensorList().size() ; i++)
 		{
-			sensorList.add(sensorManager.getSensorList().get(i));
+			sensorList.add(sensorManager.getSensorList().get(i).toString());
 		}
 		
-		button = new Button(shell, SWT.PUSH);
+		button = new Button(parent, SWT.PUSH);
 		button.setText("Add Sensor");
 		button.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -68,7 +57,7 @@ public class SensorManagerView extends ViewPart {
 				// Handle the selection event
 				System.out.println("Called!");
 				
-				shell = new Shell();
+				final Shell shell = new Shell();
 				shell.setVisible(false);
 				shell.setLayout(new GridLayout(2, false));
 				
@@ -84,7 +73,7 @@ public class SensorManagerView extends ViewPart {
 				Label macLabel = new Label(shell, SWT.NONE);
 				macLabel.setText("Mac:");
 				
-				Text macText = new Text(shell, SWT.BORDER);
+				final Text macText = new Text(shell, SWT.BORDER);
 				gridData = new GridData();
 				gridData.horizontalAlignment = SWT.FILL;
 				gridData.grabExcessHorizontalSpace = true;
@@ -92,9 +81,9 @@ public class SensorManagerView extends ViewPart {
 				macText.setText("");
 				
 				Label xCoorLabel = new Label(shell, SWT.NONE);
-				xCoorLabel.setText("Mac:");
+				xCoorLabel.setText("X Coordinate:");
 				
-				Text xCoorText = new Text(shell, SWT.BORDER);
+				final Text xCoorText = new Text(shell, SWT.BORDER);
 				gridData = new GridData();
 				gridData.horizontalAlignment = SWT.FILL;
 				gridData.grabExcessHorizontalSpace = true;
@@ -102,17 +91,26 @@ public class SensorManagerView extends ViewPart {
 				xCoorText.setText("");
 				
 				Label yCoorLabel = new Label(shell, SWT.NONE);
-				xCoorLabel.setText("Mac:");
+				yCoorLabel.setText("Y Coordinate:");
 				
-				Text yCoorText = new Text(shell, SWT.BORDER);
+				final Text yCoorText = new Text(shell, SWT.BORDER);
 				gridData = new GridData();
 				gridData.horizontalAlignment = SWT.FILL;
 				gridData.grabExcessHorizontalSpace = true;
 				yCoorText.setLayoutData(gridData);
 				yCoorText.setText("");
 				
+				
 				button = new Button(shell, SWT.PUSH);
 				button.setText("Add Sensor");
+				button.addSelectionListener(new SelectionAdapter() {
+					public void widgetSelected(SelectionEvent e) {
+						sensorManager.addSensor(macText.getText(), new Point(Integer.parseInt(xCoorText.getText()),Integer.parseInt(yCoorText.getText())));
+						shell.close();
+						parent.redraw();
+					}
+				});
+				shell.setVisible(true);
 				
 				
 			}
