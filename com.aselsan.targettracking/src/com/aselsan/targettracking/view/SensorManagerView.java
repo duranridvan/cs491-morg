@@ -17,7 +17,7 @@ import org.eclipse.ui.part.ViewPart;
 
 import com.aselsan.targettracking.sensornetwork.SensorManager;
 
-public class SensorManagerView extends ViewPart {
+public class SensorManagerView extends ViewPart implements SensorManager.Listener{
 	public static final String ID = "com.aselsan.targettracking.sensormanagerview";
 	//private org.eclipse.swt.graphics.Image image;
 	private GridLayout gridLayout;
@@ -28,12 +28,10 @@ public class SensorManagerView extends ViewPart {
 	public SensorManagerView(){
 		//image = com.aselsan.targettracking.Activator.getImageDescriptor("icons/arkaplan.jpg").createImage();
 		sensorManager = SensorManager.getInstance();
+		sensorManager.addListener(this);
 	}
 	private void refreshList(){
-		for(int i = 0 ; i < sensorList.getItemCount() ; i++)
-		{
-			sensorList.remove(i);
-		}
+		sensorList.removeAll();
 		for(int i = 0 ; i < sensorManager.getSensorList().size() ; i++)
 		{
 			sensorList.add(sensorManager.getSensorList().get(i).toString());
@@ -117,28 +115,45 @@ public class SensorManagerView extends ViewPart {
 						}
 						sensorManager.addSensor(macText.getText(), new Point(Integer.parseInt(xCoorText.getText()),Integer.parseInt(yCoorText.getText())));
 						} catch (Exception e1) {
-							Label labelError = new Label(shell,SWT.BORDER);
 							if(emptyTextField)
 							{	
-								Shell dialogError = new Shell(shell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+								final Shell dialogError = new Shell(shell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 								dialogError.setText("WARNING");
+								dialogError.setLayout(gridLayout);
 								Text warningText = new Text(dialogError,SWT.SINGLE);
 								warningText.setText("You cannot leave Mac,X Coordinate,Y Coordinate fields empty");
 								Button buttonOK = new Button(dialogError, SWT.PUSH);
-								buttonOK.setText("Add Sensor");
-								button.addSelectionListener(new SelectionAdapter() {
+								buttonOK.setText("OK");
+								buttonOK.addSelectionListener(new SelectionAdapter() {
 									@Override
 									public void widgetSelected(SelectionEvent e) {
+										dialogError.close();
+										dialogError.dispose();
 									}
 								});
 								dialogError.pack();
-								dialogError.setSize(200, 200);
+								dialogError.setSize(400, 100);
 				                dialogError.open();
-				               
 							}
 							else
-							{	
-								labelError.setText("Enter a number for X Coordinate and Y Coordinate");
+							{																	
+								final Shell dialogError = new Shell(shell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+								dialogError.setText("WARNING");
+								dialogError.setLayout(gridLayout);
+								Text warningText = new Text(dialogError,SWT.SINGLE);
+								warningText.setText("You should enter a number for Mac,X Coordinate,Y Coordinate fields");
+								Button buttonOK = new Button(dialogError, SWT.PUSH);
+								buttonOK.setText("OK");
+								buttonOK.addSelectionListener(new SelectionAdapter() {
+									@Override
+									public void widgetSelected(SelectionEvent e) {
+										dialogError.close();
+										dialogError.dispose();
+									}
+								});
+								dialogError.pack();
+								dialogError.setSize(400, 100);
+				                dialogError.open();							
 							}
 							success = false;
 						}
@@ -146,15 +161,12 @@ public class SensorManagerView extends ViewPart {
 						{
 							shell.close();
 							shell.dispose();
-							refreshList();
 						}
 					}
 				});
 				shell.pack();
 				shell.setSize(350,200);
 				shell.setVisible(true);
-				
-				
 			}
 		});
 	}
@@ -164,5 +176,8 @@ public class SensorManagerView extends ViewPart {
 	 */
 	public void setFocus() {
 		//viewer.getControl().setFocus();
+	}
+	@Override
+	public void sensorManagerUpdate() {
 	}
 }
