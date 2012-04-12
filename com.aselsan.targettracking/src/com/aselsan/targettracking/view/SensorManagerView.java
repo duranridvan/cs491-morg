@@ -179,5 +179,6 @@ public class SensorManagerView extends ViewPart implements SensorManager.Listene
 	}
 	@Override
 	public void sensorManagerUpdate() {
+		refreshList();
 	}
 }
