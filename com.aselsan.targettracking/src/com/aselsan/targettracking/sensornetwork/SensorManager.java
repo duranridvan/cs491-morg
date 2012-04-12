@@ -12,7 +12,8 @@ public class SensorManager {
 	//TODO: database integration
 	//private DatabaseManager db;
 	int count;
-	public SensorManager(){
+	private static SensorManager instance = null;
+	private SensorManager(){
 		sensorList = new HashMap<Integer,Sensor>();
 		count=0;
 	}
@@ -35,4 +36,9 @@ public class SensorManager {
 		return new ArrayList<Sensor>(sensorList.values());
 	}
 	
+	static public SensorManager getInstance(){
+		if(instance == null)
+			return instance = new SensorManager();
+		return instance;
+	}
 }
