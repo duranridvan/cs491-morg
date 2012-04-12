@@ -5,7 +5,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -20,15 +19,15 @@ import com.aselsan.targettracking.sensornetwork.SensorManager;
 
 public class SensorManagerView extends ViewPart {
 	public static final String ID = "com.aselsan.targettracking.sensormanagerview";
-	private org.eclipse.swt.graphics.Image image;
-	private FillLayout fillLayout;
+	//private org.eclipse.swt.graphics.Image image;
+	private GridLayout gridLayout;
 	private Button button;
 	private GridData gridData;
 	private SensorManager sensorManager;
 	private List sensorList;
 	public SensorManagerView(){
-		image = com.aselsan.targettracking.Activator.getImageDescriptor("icons/arkaplan.jpg").createImage();
-		sensorManager = new SensorManager();
+		//image = com.aselsan.targettracking.Activator.getImageDescriptor("icons/arkaplan.jpg").createImage();
+		sensorManager = SensorManager.getInstance();
 	}
 	private void refreshList(){
 		for(int i = 0 ; i < sensorList.getItemCount() ; i++)
@@ -43,11 +42,12 @@ public class SensorManagerView extends ViewPart {
 	
 	
 	public void createPartControl(final Composite parent) {
+		
+		//parent.setBackgroundImage(image);
+		gridLayout = new GridLayout();
+		gridLayout.numColumns = 1;
+		parent.setLayout(gridLayout);
 		gridData = new GridData();
-		parent.setBackgroundImage(image);
-		fillLayout = new FillLayout();
-		fillLayout.type = SWT.VERTICAL;
-		parent.setLayout(fillLayout);
 		sensorList = new List(parent, SWT.BORDER | SWT.MULTI);
 		gridData.horizontalSpan = 2;
 		gridData.horizontalAlignment = SWT.FILL;
@@ -66,7 +66,6 @@ public class SensorManagerView extends ViewPart {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				// Handle the selection event
-				System.out.println("Called!");
 				
 				final Shell shell = new Shell();
 				
@@ -120,9 +119,27 @@ public class SensorManagerView extends ViewPart {
 						} catch (Exception e1) {
 							Label labelError = new Label(shell,SWT.BORDER);
 							if(emptyTextField)
-								labelError.setText("You cannot leave Mac,X Coordinate,Y Coordinate fields empty");
+							{	
+								Shell dialogError = new Shell(shell, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+								dialogError.setText("WARNING");
+								Text warningText = new Text(dialogError,SWT.SINGLE);
+								warningText.setText("You cannot leave Mac,X Coordinate,Y Coordinate fields empty");
+								Button buttonOK = new Button(dialogError, SWT.PUSH);
+								buttonOK.setText("Add Sensor");
+								button.addSelectionListener(new SelectionAdapter() {
+									@Override
+									public void widgetSelected(SelectionEvent e) {
+									}
+								});
+								dialogError.pack();
+								dialogError.setSize(200, 200);
+				                dialogError.open();
+				               
+							}
 							else
+							{	
 								labelError.setText("Enter a number for X Coordinate and Y Coordinate");
+							}
 							success = false;
 						}
 						if(success)
@@ -134,6 +151,7 @@ public class SensorManagerView extends ViewPart {
 					}
 				});
 				shell.pack();
+				shell.setSize(350,200);
 				shell.setVisible(true);
 				
 				
