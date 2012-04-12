@@ -24,6 +24,6 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 		configurer.setShellStyle(SWT.DIALOG_TRIM);
 		configurer.setShowCoolBar(false);
 		configurer.setShowStatusLine(false);
-		configurer.setTitle("RCP Application");
+		configurer.setTitle("Target Tracking");
 	}
 }
