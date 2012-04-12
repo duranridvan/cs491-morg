@@ -5,6 +5,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
 import org.eclipse.swt.events.MouseMoveListener;
+import org.eclipse.swt.events.PaintEvent;
+import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.widgets.Shell;
 
 public class SoftwareJoystick extends Joystick {
@@ -16,7 +18,18 @@ public class SoftwareJoystick extends Joystick {
 		mousePressed = false;
 		buttonPressed = true;
 		joystickView = new Shell(SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
-		joystickView.setSize(200, 200);		
+		joystickView.setSize(207, 229);	
+		joystickView.addPaintListener(new PaintListener(){
+
+			@Override
+			public void paintControl(PaintEvent e) {
+				// TODO Auto-generated method stub
+				
+	            e.gc.drawLine(0, 100, 200, 100);
+	            e.gc.drawLine(100, 0, 100, 200);
+			}
+			
+		});
 		joystickView.addMouseListener(new MouseListener() {
 				
 			@Override
@@ -52,8 +65,11 @@ public class SoftwareJoystick extends Joystick {
 			@Override
 			public void mouseMove(MouseEvent e) {
 				// TODO Auto-generated method stub
-				if(mousePressed)
-					joystickEventManager.move(1,1);
+				if(mousePressed){
+					int x = (e.x - 100) / 10;
+					int y = (e.y - 100) / 10;
+					joystickEventManager.move(x,y);
+				}
 			}
 			
 		});
