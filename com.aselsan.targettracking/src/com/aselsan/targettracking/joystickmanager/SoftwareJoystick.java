@@ -10,9 +10,11 @@ import org.eclipse.swt.widgets.Shell;
 public class SoftwareJoystick extends Joystick {
 	private Shell joystickView;
 	private boolean mousePressed;
+	private boolean buttonPressed;
 	public SoftwareJoystick(){
 		super();	
 		mousePressed = false;
+		buttonPressed = true;
 		joystickView = new Shell(SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 		joystickView.setSize(200, 200);		
 		joystickView.addMouseListener(new MouseListener() {
@@ -20,7 +22,16 @@ public class SoftwareJoystick extends Joystick {
 			@Override
 			public void mouseDoubleClick(MouseEvent e) {
 				// TODO Auto-generated method stub
-				joystickEventManager.buttonPressed();
+				if(buttonPressed)
+				{	
+					joystickEventManager.buttonPressed();
+					buttonPressed = false;
+				}
+				else
+				{	
+					joystickEventManager.buttonReleased();
+					buttonPressed = true;
+				}
 			}
 
 			@Override
