@@ -1,45 +1,52 @@
 package com.aselsan.targettracking.joystickmanager;
 
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.events.MouseMoveListener;
 import org.eclipse.swt.widgets.Shell;
 
-import com.aselsan.targettracking.View;
-
 public class SoftwareJoystick extends Joystick {
-	private JoystickEventManager joystickEventManager;
 	private Shell joystickView;
-	
+	private boolean mousePressed;
 	public SoftwareJoystick(){
-		super(joystickEventManager);	
-		joystickView = new Shell();
-		
-		joystickView.setVisible(false);
-		joystickView.setLayout(new GridLayout(2, false));
-	
+		super();	
+		mousePressed = false;
+		joystickView = new Shell(SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+		joystickView.setSize(200, 200);		
 		joystickView.addMouseListener(new MouseListener() {
-
+				
 			@Override
 			public void mouseDoubleClick(MouseEvent e) {
 				// TODO Auto-generated method stub
-				joystickEventManager.button
+				joystickEventManager.buttonPressed();
 			}
 
 			@Override
 			public void mouseDown(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+				mousePressed = true;
 			}
 
 			@Override
 			public void mouseUp(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+				mousePressed = false;
 			}
 		});
+		
+		joystickView.addMouseMoveListener(new MouseMoveListener(){
+
+			@Override
+			public void mouseMove(MouseEvent e) {
+				// TODO Auto-generated method stub
+				if(mousePressed)
+					joystickEventManager.move(50,40);
+			}
+			
+		});
+		joystickView.open();
 		
 	}
 	

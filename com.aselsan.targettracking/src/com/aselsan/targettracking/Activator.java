@@ -4,6 +4,8 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import com.aselsan.targettracking.joystickmanager.SoftwareJoystick;
+
 /**
  * The activator class controls the plug-in life cycle
  */
@@ -19,6 +21,7 @@ public class Activator extends AbstractUIPlugin {
 	 * The constructor
 	 */
 	public Activator() {
+		
 	}
 
 	/*
@@ -27,6 +30,7 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
+		new SoftwareJoystick();
 		plugin = this;
 	}
 

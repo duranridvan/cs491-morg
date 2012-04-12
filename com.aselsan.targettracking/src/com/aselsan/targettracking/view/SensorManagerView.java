@@ -3,6 +3,7 @@ package com.aselsan.targettracking.view;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -65,7 +66,6 @@ public class SensorManagerView extends ViewPart implements SensorManager.Listene
 				// Handle the selection event
 				
 				final Shell shell = new Shell();
-				
 				shell.setVisible(false);
 				shell.setLayout(new GridLayout(2, false));
 				
