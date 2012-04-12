@@ -42,7 +42,7 @@ public class SoftwareJoystick extends Joystick {
 			public void mouseMove(MouseEvent e) {
 				// TODO Auto-generated method stub
 				if(mousePressed)
-					joystickEventManager.move(50,40);
+					joystickEventManager.move(1,1);
 			}
 			
 		});
