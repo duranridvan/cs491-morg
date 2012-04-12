@@ -32,12 +32,10 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 	}
 	@Override
 	public void buttonPressed() {
-		System.out.println("buttonPressed");
 		isButtonPressed = true;
 	}
 	@Override
 	public void buttonReleased() {
-		System.out.println("ButtonReleased");
 		isButtonPressed = false;
 	}
 	@Override

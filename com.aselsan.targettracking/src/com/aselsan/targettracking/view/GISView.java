@@ -64,7 +64,9 @@ public class GISView extends ViewPart{
 	            	placeSensor(e.gc, s);
 	            }
 	            for(Point[] line : lines){
+	            	e.gc.setLineWidth(4);
 	            	e.gc.drawLine(line[0].x, line[0].y, line[1].x, line[1].y);
+	            	e.gc.setLineWidth(1);
 	            }
 	            int cx = cursorPosition.x - cursorImage.getBounds().width/2;
 	            int cy = cursorPosition.y - cursorImage.getBounds().height/2;
