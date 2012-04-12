@@ -9,6 +9,7 @@ import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
@@ -24,14 +25,18 @@ import com.aselsan.targettracking.sensornetwork.Sensor;
 public class GISView extends ViewPart{
 	
 	public static final String ID = "com.aselsan.targettracking.gisview";
-	private Image bgimage,sensorImage;
+	private Image bgimage,sensorImage,cursorImage;
 	private Canvas canvas;
 	private Collection<Sensor> sensors = null;
+	private List<Point[]> lines;
+	private Point cursorPosition;
 	public GISView() throws IOException {
 		sensorImage = Activator.getImageDescriptor("images/sensor.gif").createImage();
 		bgimage = Activator.getImageDescriptor("images/grass2.jpg").createImage();
+		cursorImage = Activator.getImageDescriptor("images/drawcursor.gif").createImage();
 		sensors = new ArrayList<Sensor>();
 		new GISController(this);
+		lines = new ArrayList<Point[]>();
 	}
 
 
@@ -41,7 +46,6 @@ public class GISView extends ViewPart{
 	 */
 	@Override
 	public void createPartControl(final Composite parent) {
-		
 		parent.setLayout(new FillLayout());
 		canvas = new Canvas(parent, 0);
 		canvas.setBackgroundImage(bgimage);
@@ -59,6 +63,13 @@ public class GISView extends ViewPart{
 	            for(Sensor s : sensors){
 	            	placeSensor(e.gc, s);
 	            }
+	            for(Point[] line : lines){
+	            	e.gc.drawLine(line[0].x, line[0].y, line[1].x, line[1].y);
+	            }
+	            int cx = cursorPosition.x - cursorImage.getBounds().width/2;
+	            int cy = cursorPosition.y - cursorImage.getBounds().height/2;
+	            e.gc.drawImage(cursorImage,cx,cy);
+	            
 	            
 	            //e.gc.drawImage(sensorImage, 10, 10, 10, 10);
 	            //e.gc.drawLine(0,0,clientArea.width,clientArea.height); 
@@ -74,7 +85,15 @@ public class GISView extends ViewPart{
 	public void setFocus() {
 	}
 
-
+	public void drawLine(Point p1,Point p2){
+		Point[] line = new Point[2];
+		line[0]=p1; line[1]=p2;
+		lines.add(line);
+	}
+	
+	public void updateCursorPosition(Point p){
+		cursorPosition = p;
+	}
 	public void updateSensorList(Collection<Sensor> sensorlist){
 		sensors = sensorlist;	
 	}
