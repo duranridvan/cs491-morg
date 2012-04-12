@@ -1,6 +1,8 @@
 package com.aselsan.targettracking.view;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.swt.events.PaintEvent;
@@ -14,22 +16,22 @@ import org.eclipse.ui.part.ViewPart;
 
 
 import com.aselsan.targettracking.Activator;
-import com.aselsan.targettracking.sensornetwork.SensorManager;
+import com.aselsan.targettracking.gis.GISController;
 import com.aselsan.targettracking.sensornetwork.Sensor;
 
 
 
-public class GISView extends ViewPart implements SensorManager.Listener{
+public class GISView extends ViewPart{
 	
 	public static final String ID = "com.aselsan.targettracking.gisview";
 	private Image bgimage,sensorImage;
-	private SensorManager sensorManager;
 	private Canvas canvas;
+	private Collection<Sensor> sensors = null;
 	public GISView() throws IOException {
 		sensorImage = Activator.getImageDescriptor("images/sensor.gif").createImage();
 		bgimage = Activator.getImageDescriptor("images/grass2.jpg").createImage();
-		sensorManager = SensorManager.getInstance();
-		sensorManager.addListener(this);
+		sensors = new ArrayList<Sensor>();
+		new GISController(this);
 	}
 
 
@@ -54,10 +56,10 @@ public class GISView extends ViewPart implements SensorManager.Listener{
 			public void paintControl(PaintEvent e) {
 
 	            //Rectangle clientArea = parent.getClientArea();
-	            List<Sensor> sensors = sensorManager.getSensorList();
 	            for(Sensor s : sensors){
 	            	placeSensor(e.gc, s);
 	            }
+	            
 	            //e.gc.drawImage(sensorImage, 10, 10, 10, 10);
 	            //e.gc.drawLine(0,0,clientArea.width,clientArea.height); 
 			}
@@ -73,8 +75,10 @@ public class GISView extends ViewPart implements SensorManager.Listener{
 	}
 
 
-	@Override
-	public void sensorManagerUpdate() {
+	public void updateSensorList(Collection<Sensor> sensorlist){
+		sensors = sensorlist;	
+	}
+	public void update() {
 		canvas.redraw();
 		canvas.update();
 		
