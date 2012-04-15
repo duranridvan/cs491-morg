@@ -24,7 +24,7 @@ public class SensorEventManager {
 		listeners.remove(listener);
 	}
 	
-	public void alarm(int sensorId,int strength){
+	public void alarm(int sensorId,double strength){
 		for(SensorEventListener listener: listeners)
 			listener.alarm(sensorId, strength);
 	}
