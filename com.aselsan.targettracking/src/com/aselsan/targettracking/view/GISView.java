@@ -10,7 +10,9 @@ import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
@@ -31,7 +33,9 @@ public class GISView extends ViewPart{
 	private Collection<Sensor> sensors = null;
 	private List<Point[]> lines;
 	private Point cursorPosition;
-	public GISView() throws IOException, ClassNotFoundException, SQLException {
+	private Image drawingArea=null;
+	public GISView() throws IOException {
+
 		sensorImage = Activator.getImageDescriptor("images/sensor.gif").createImage();
 		bgimage = Activator.getImageDescriptor("images/grass2.jpg").createImage();
 		cursorImage = Activator.getImageDescriptor("images/drawcursor.gif").createImage();
@@ -60,14 +64,20 @@ public class GISView extends ViewPart{
 			@Override
 			public void paintControl(PaintEvent e) {
 
-	            //Rectangle clientArea = parent.getClientArea();
+
+				//Rectangle clientArea = parent.getClientArea();
 	            for(Sensor s : sensors){
 	            	placeSensor(e.gc, s);
 	            }
+	            /*
 	            for(Point[] line : lines){
 	            	e.gc.setLineWidth(4);
 	            	e.gc.drawLine(line[0].x, line[0].y, line[1].x, line[1].y);
 	            	e.gc.setLineWidth(1);
+	            }*/
+	            
+	            if(drawingArea!=null){
+	            	e.gc.drawImage(drawingArea, 0, 0);
 	            }
 	            int cx = cursorPosition.x - cursorImage.getBounds().width/2;
 	            int cy = cursorPosition.y - cursorImage.getBounds().height/2;
@@ -78,6 +88,8 @@ public class GISView extends ViewPart{
 	            //e.gc.drawLine(0,0,clientArea.width,clientArea.height); 
 			}
 		});
+	    System.out.println(canvas.getBounds());
+
 	    
 
 	}
@@ -89,8 +101,21 @@ public class GISView extends ViewPart{
 	}
 
 	public void drawLine(Point p1,Point p2){
+		if(drawingArea == null){
+			Image i = new Image(canvas.getDisplay(),canvas.getBounds());
+			ImageData id = i.getImageData();
+			id.transparentPixel = id.palette.getPixel(new RGB(255, 255, 255));
+			drawingArea = new Image(canvas.getDisplay(), id);
+			i.dispose();
+			
+		}
 		Point[] line = new Point[2];
 		line[0]=p1; line[1]=p2;
+		GC gc = new GC(drawingArea);
+		gc.setLineWidth(4);
+		gc.drawLine(p1.x, p1.y, p2.x, p2.y);
+		gc.setLineWidth(1);
+		gc.dispose();
 		lines.add(line);
 	}
 	
