@@ -17,7 +17,7 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 	private List<Point> points;
 	private boolean isButtonPressed = false;
 	private Point currentPosition;
-	public GISController(GISView view) {
+	public GISController(GISView view) {	
 		this.view = view;
 		sensorManager = SensorManager.getInstance();
 		sensorManager.addListener(this);

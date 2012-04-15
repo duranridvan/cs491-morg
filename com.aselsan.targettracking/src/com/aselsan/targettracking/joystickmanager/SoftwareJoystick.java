@@ -8,76 +8,64 @@ import org.eclipse.swt.events.MouseMoveListener;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.part.ViewPart;
 
-public class SoftwareJoystick extends Joystick {
-	private Shell joystickView;
+import com.aselsan.targettracking.view.SoftwareJoystickView;
+
+public class SoftwareJoystick extends Joystick implements MouseListener, MouseMoveListener{
 	private boolean mousePressed;
 	private boolean buttonPressed;
-	public SoftwareJoystick(){
-		super();	
+	private SoftwareJoystickView view;
+	private int width,height;
+	public SoftwareJoystick(SoftwareJoystickView view){
+		this.view = view;
+		width = view.x;
+		height = view.y;
 		mousePressed = false;
 		buttonPressed = true;
-		joystickView = new Shell(SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
-		joystickView.setSize(207, 229);	
-		joystickView.addPaintListener(new PaintListener(){
-
-			@Override
-			public void paintControl(PaintEvent e) {
-				// TODO Auto-generated method stub
-				
-	            e.gc.drawLine(0, 100, 200, 100);
-	            e.gc.drawLine(100, 0, 100, 200);
-			}
-			
-		});
-		joystickView.addMouseListener(new MouseListener() {
-				
-			@Override
-			public void mouseDoubleClick(MouseEvent e) {
-				// TODO Auto-generated method stub
-				if(buttonPressed)
-				{	
-					joystickEventManager.buttonPressed();
-					buttonPressed = false;
-				}
-				else
-				{	
-					joystickEventManager.buttonReleased();
-					buttonPressed = true;
-				}
-			}
-
-			@Override
-			public void mouseDown(MouseEvent e) {
-				// TODO Auto-generated method stub
-				mousePressed = true;
-			}
-
-			@Override
-			public void mouseUp(MouseEvent e) {
-				// TODO Auto-generated method stub
-				mousePressed = false;
-			}
-		});
-		
-		joystickView.addMouseMoveListener(new MouseMoveListener(){
-
-			@Override
-			public void mouseMove(MouseEvent e) {
-				// TODO Auto-generated method stub
-				if(mousePressed){
-					int x = (e.x - 100) / 10;
-					int y = (e.y - 100) / 10;
-					joystickEventManager.move(x,y);
-				}
-			}
-			
-		});
-		joystickView.open();
+		//joystickView = new Shell(SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
+		//joystickView.setSize(207, 229);	
+		//joystickView.open();
 		
 	}
 	
+	@Override
+	public void mouseMove(MouseEvent e) {
+		// TODO Auto-generated method stub
+		if(mousePressed){
+			int x = (e.x - width/2) / (width/10);
+			int y = (e.y - height/2) / (height/10);
+			joystickEventManager.move(x,y);
+		}
+	}
+
 	
+	@Override
+	public void mouseDoubleClick(MouseEvent e) {
+		// TODO Auto-generated method stub
+		if(buttonPressed)
+		{	
+			joystickEventManager.buttonPressed();
+			buttonPressed = false;
+		}
+		else
+		{	
+			joystickEventManager.buttonReleased();
+			buttonPressed = true;
+		}
+	}
+
+	@Override
+	public void mouseDown(MouseEvent e) {
+		// TODO Auto-generated method stub
+		mousePressed = true;
+	}
+
+	@Override
+	public void mouseUp(MouseEvent e) {
+		// TODO Auto-generated method stub
+		mousePressed = false;
+	}
 	
 
 }

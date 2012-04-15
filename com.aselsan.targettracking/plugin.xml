@@ -33,6 +33,12 @@
             name="gisview"
             restorable="true">
       </view>
+      <view
+            class="com.aselsan.targettracking.view.SoftwareJoystickView"
+            id="com.aselsan.targettracking.softwarejoystickview"
+            name="Joystick"
+            restorable="true">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
