@@ -44,6 +44,7 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 		Point newPoint = new Point(currentPosition.x+x,currentPosition.y+y);
 		if(isButtonPressed){
 			view.drawLine(currentPosition,newPoint);
+			GISEventManager.getInstance().positionChanged(newPoint);
 		}
 		view.updateCursorPosition(newPoint);
 		currentPosition = newPoint;

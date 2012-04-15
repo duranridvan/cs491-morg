@@ -7,9 +7,15 @@ import org.eclipse.swt.graphics.Point;
 
 public class GISEventManager {
 	private Collection<GISEventListener> listeners;
-	
+	private static GISEventManager instance = null; 
 	private GISEventManager(){
 		listeners = new ArrayList<GISEventListener>();
+	}
+	
+	public static GISEventManager getInstance(){
+		if(instance==null)
+			instance = new GISEventManager();
+		return instance;
 	}
 	
 	public void addListener(GISEventListener listener){
