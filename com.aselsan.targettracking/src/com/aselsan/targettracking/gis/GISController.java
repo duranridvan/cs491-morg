@@ -1,5 +1,6 @@
 package com.aselsan.targettracking.gis;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 	private List<Point> points;
 	private boolean isButtonPressed = false;
 	private Point currentPosition;
-	public GISController(GISView view){
+	public GISController(GISView view) throws ClassNotFoundException, SQLException{
 		this.view = view;
 		sensorManager = SensorManager.getInstance();
 		sensorManager.addListener(this);

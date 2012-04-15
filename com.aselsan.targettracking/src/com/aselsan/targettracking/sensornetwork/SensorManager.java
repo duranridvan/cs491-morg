@@ -1,5 +1,7 @@
 package com.aselsan.targettracking.sensornetwork;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -8,10 +10,12 @@ import java.util.Map;
 
 import org.eclipse.swt.graphics.Point;
 
+import com.aselsan.targettracking.databasemanager.DatabaseManager;
+
 public class SensorManager {
 	private Map<Integer,Sensor> sensorList;
 	//TODO: database integration
-	//private DatabaseManager db;
+	private DatabaseManager db;
 	int count;
 	private static SensorManager instance = null;
 	private Collection<Listener> listeners;
@@ -19,6 +23,7 @@ public class SensorManager {
 		sensorList = new HashMap<Integer,Sensor>();
 		count=0;
 		listeners = new ArrayList<SensorManager.Listener>();
+		db = DatabaseManager.getInstance();	
 	}
 	
 	public void addListener(Listener l){
@@ -38,6 +43,7 @@ public class SensorManager {
 		sensorList.put(count,new Sensor(count,mac,location));
 		int ret = count++;
 		notifyListeners();
+		//db.addSensor(new Sensor(count,mac,location));
 		return ret;
 	}
 	
@@ -51,7 +57,7 @@ public class SensorManager {
 	}
 	
 	
-	static public SensorManager getInstance(){
+	static public SensorManager getInstance() {
 		if(instance == null)
 			return instance = new SensorManager();
 		return instance;

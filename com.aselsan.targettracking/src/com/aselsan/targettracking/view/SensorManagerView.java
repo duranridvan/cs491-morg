@@ -1,5 +1,7 @@
 package com.aselsan.targettracking.view;
 
+import java.sql.SQLException;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -25,7 +27,7 @@ public class SensorManagerView extends ViewPart implements SensorManager.Listene
 	private GridData gridData;
 	private SensorManager sensorManager;
 	private List sensorList;
-	public SensorManagerView(){
+	public SensorManagerView() {
 		//image = com.aselsan.targettracking.Activator.getImageDescriptor("icons/arkaplan.jpg").createImage();
 		sensorManager = SensorManager.getInstance();
 		sensorManager.addListener(this);

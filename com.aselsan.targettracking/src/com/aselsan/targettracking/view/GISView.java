@@ -1,6 +1,7 @@
 package com.aselsan.targettracking.view;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -30,7 +31,7 @@ public class GISView extends ViewPart{
 	private Collection<Sensor> sensors = null;
 	private List<Point[]> lines;
 	private Point cursorPosition;
-	public GISView() throws IOException {
+	public GISView() throws IOException, ClassNotFoundException, SQLException {
 		sensorImage = Activator.getImageDescriptor("images/sensor.gif").createImage();
 		bgimage = Activator.getImageDescriptor("images/grass2.jpg").createImage();
 		cursorImage = Activator.getImageDescriptor("images/drawcursor.gif").createImage();
