@@ -11,11 +11,10 @@ import com.aselsan.targettracking.gis.GISEventManager;
 public class SimulationSensorNetwork extends SensorNetwork implements
 		GISEventListener {
 	SensorManager sM = SensorManager.getInstance();
-	SensorEventManager sEm;
 	public final double tresholdDistance = 200;
 	private static SimulationSensorNetwork instance = null;
 	public SimulationSensorNetwork() {
-		sEm = SensorEventManager.getInstance();
+		super();
 		GISEventManager.getInstance().addListener(this);
 		System.out.println("HOP");
 	}
@@ -37,11 +36,11 @@ public class SimulationSensorNetwork extends SensorNetwork implements
 		for(int i= 0; i<list.size(); i++){
 			int sX = list.get(i).getLocation().x;
 			int sY = list.get(i).getLocation().y;
-			distancesToSensors[i] = Math.sqrt((sY-pY)*(sY-pY)-(sX-pX)*(sX-pX)); 
+			distancesToSensors[i] = Math.sqrt((sY-pY)*(sY-pY)+(sX-pX)*(sX-pX)); 
 		}
 		for(int i=0; i<distancesToSensors.length; i++){
 			if(distancesToSensors[i] < tresholdDistance){
-				System.out.println("HOP");
+				System.out.println(p + " " + distancesToSensors[i]);
 				list.get(i).isAlarm = true;
 				eventManager.alarm(list.get(i).getId(), 1000/distancesToSensors[i]+1, System.currentTimeMillis());
 			}else

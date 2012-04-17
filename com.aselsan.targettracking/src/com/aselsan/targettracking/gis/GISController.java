@@ -20,6 +20,8 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 	private List<Point> points;
 	private boolean isButtonPressed = false;
 	private Point currentPosition;
+	private long ltime = 0;
+	private GISEventManager em;
 	public GISController(GISView view) {	
 		this.view = view;
 		sensorManager = SensorManager.getInstance();
@@ -30,6 +32,7 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 		JoystickEventManager.getInstance().addListener(this);
 		new SimulationSensorNetwork();
 		SensorEventManager.getInstance().addListener(this);
+		em = GISEventManager.getInstance();
 	}
 	@Override
 	public void sensorManagerUpdate() {
@@ -46,9 +49,14 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 	}
 	@Override
 	public void move(int x, int y) {
+		long ctime = System.currentTimeMillis();
 		Point newPoint = new Point(currentPosition.x+x,currentPosition.y+y);
 		if(isButtonPressed){
 			view.drawLine(currentPosition,newPoint);
+			if(ctime - ltime >= 500){
+				em.positionChanged(newPoint);
+				ltime = ctime;
+			}
 		}
 		view.updateCursorPosition(newPoint);
 		currentPosition = newPoint;
