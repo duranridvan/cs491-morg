@@ -6,18 +6,29 @@ import java.util.Arrays;
 import org.eclipse.swt.graphics.Point;
 
 import com.aselsan.targettracking.gis.GISEventListener;
+import com.aselsan.targettracking.gis.GISEventManager;
 
 public class SimulationSensorNetwork extends SensorNetwork implements
 		GISEventListener {
 	SensorManager sM = SensorManager.getInstance();
-	public final double tresholdDistance = 50;
-	public SimulationSensorNetwork(SensorEventManager eM) {
-		super(eM);
-		// TODO Auto-generated constructor stub
+	SensorEventManager sEm;
+	public final double tresholdDistance = 200;
+	private static SimulationSensorNetwork instance = null;
+	public SimulationSensorNetwork() {
+		sEm = SensorEventManager.getInstance();
+		GISEventManager.getInstance().addListener(this);
+		System.out.println("HOP");
+	}
+	
+	public static SimulationSensorNetwork getInstance(){
+		if(instance == null)
+			instance = new SimulationSensorNetwork();
+		return instance;
 	}
 
 	@Override
 	public void positionChanged(Point p) {
+		System.out.println("psiton");
 		// TODO Auto-generated method stub
 		ArrayList<Sensor> list = (ArrayList<Sensor>) sM.getSensorList();
 		double[] distancesToSensors = new double[list.size()];
@@ -30,6 +41,7 @@ public class SimulationSensorNetwork extends SensorNetwork implements
 		}
 		for(int i=0; i<distancesToSensors.length; i++){
 			if(distancesToSensors[i] < tresholdDistance){
+				System.out.println("HOP");
 				list.get(i).isAlarm = true;
 				eventManager.alarm(list.get(i).getId(), 1000/distancesToSensors[i]+1, System.currentTimeMillis());
 			}else

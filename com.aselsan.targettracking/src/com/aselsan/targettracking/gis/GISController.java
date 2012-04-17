@@ -9,16 +9,17 @@ import org.eclipse.swt.graphics.Point;
 import com.aselsan.targettracking.joystickmanager.JoystickEventListener;
 import com.aselsan.targettracking.joystickmanager.JoystickEventManager;
 import com.aselsan.targettracking.sensornetwork.SensorEventListener;
+import com.aselsan.targettracking.sensornetwork.SensorEventManager;
 import com.aselsan.targettracking.sensornetwork.SensorManager;
+import com.aselsan.targettracking.sensornetwork.SimulationSensorNetwork;
 import com.aselsan.targettracking.view.GISView;
 
-public class GISController implements SensorManager.Listener, JoystickEventListener {
+public class GISController implements SensorManager.Listener, JoystickEventListener, SensorEventListener {
 	GISView view;
 	private SensorManager sensorManager;
 	private List<Point> points;
 	private boolean isButtonPressed = false;
 	private Point currentPosition;
-	private long lastTime=0;
 	public GISController(GISView view) {	
 		this.view = view;
 		sensorManager = SensorManager.getInstance();
@@ -27,6 +28,8 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 		currentPosition = new Point(0, 0);
 		view.updateCursorPosition(currentPosition);
 		JoystickEventManager.getInstance().addListener(this);
+		new SimulationSensorNetwork();
+		SensorEventManager.getInstance().addListener(this);
 	}
 	@Override
 	public void sensorManagerUpdate() {
@@ -43,19 +46,18 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 	}
 	@Override
 	public void move(int x, int y) {
-		long ctime = System.currentTimeMillis();
-		
 		Point newPoint = new Point(currentPosition.x+x,currentPosition.y+y);
 		if(isButtonPressed){
 			view.drawLine(currentPosition,newPoint);
-			if(ctime - lastTime > 500){
-				GISEventManager.getInstance().positionChanged(newPoint);
-				lastTime = ctime;
-			}
 		}
 		view.updateCursorPosition(newPoint);
 		currentPosition = newPoint;
 		view.update();
+	}
+	@Override
+	public void alarm(int sensorId, double strength, long time) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

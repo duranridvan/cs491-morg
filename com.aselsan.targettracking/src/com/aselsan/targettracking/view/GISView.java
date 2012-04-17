@@ -37,7 +37,7 @@ public class GISView extends ViewPart{
 	public GISView() throws IOException {
 
 		sensorImage = Activator.getImageDescriptor("images/sensor.gif").createImage();
-		alarmImage = Activator.getImageDescriptor("images/sensor.gif").createImage();
+		alarmImage = Activator.getImageDescriptor("images/sensorAlarm.gif").createImage();
 		bgimage = Activator.getImageDescriptor("images/grass2.jpg").createImage();
 		cursorImage = Activator.getImageDescriptor("images/drawcursor.gif").createImage();
 		sensors = new ArrayList<Sensor>();
