@@ -28,7 +28,7 @@ import com.aselsan.targettracking.sensornetwork.Sensor;
 public class GISView extends ViewPart{
 	
 	public static final String ID = "com.aselsan.targettracking.gisview";
-	private Image bgimage,sensorImage,cursorImage;
+	private Image bgimage,sensorImage,cursorImage, alarmImage;
 	private Canvas canvas;
 	private Collection<Sensor> sensors = null;
 	private List<Point[]> lines;
@@ -37,6 +37,7 @@ public class GISView extends ViewPart{
 	public GISView() throws IOException {
 
 		sensorImage = Activator.getImageDescriptor("images/sensor.gif").createImage();
+		alarmImage = Activator.getImageDescriptor("images/sensor.gif").createImage();
 		bgimage = Activator.getImageDescriptor("images/grass2.jpg").createImage();
 		cursorImage = Activator.getImageDescriptor("images/drawcursor.gif").createImage();
 		sensors = new ArrayList<Sensor>();
@@ -58,8 +59,13 @@ public class GISView extends ViewPart{
 	    	void placeSensor(GC gc, Sensor s){
 	    		int destx = s.getLocation().x-15;
 	    		int desty = s.getLocation().y-15;
-	    		gc.drawImage(sensorImage, 0, 0, sensorImage.getBounds().width, sensorImage.getBounds().height,
+	    		if(!s.isAlarm)
+	    			gc.drawImage(sensorImage, 0, 0, sensorImage.getBounds().width, sensorImage.getBounds().height,
 	    				destx, desty, 30,30);
+	    		else
+	    			gc.drawImage(alarmImage, 0, 0, alarmImage.getBounds().width, alarmImage.getBounds().height,
+		    				destx, desty, 30,30);
+	    			
 	    	}
 			@Override
 			public void paintControl(PaintEvent e) {

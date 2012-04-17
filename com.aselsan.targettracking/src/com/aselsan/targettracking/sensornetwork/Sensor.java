@@ -6,10 +6,12 @@ public class Sensor {
 	private int id;
 	private String mac;
 	private Point location;
+	public boolean isAlarm;
 	public Sensor(int id,String mac, Point location){
 		this.id = id;
 		this.mac = mac;
 		this.location=location;
+		isAlarm = false;
 	}
 	
 	public Sensor(int id,String mac,int x,int y){
@@ -26,6 +28,10 @@ public class Sensor {
 	
 	public Point getLocation(){
 		return this.location;
+	}
+	
+	public void addAlarm(){
+		isAlarm = true;
 	}
 	
 	public String toString(){

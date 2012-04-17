@@ -8,6 +8,7 @@ import org.eclipse.swt.graphics.Point;
 
 import com.aselsan.targettracking.joystickmanager.JoystickEventListener;
 import com.aselsan.targettracking.joystickmanager.JoystickEventManager;
+import com.aselsan.targettracking.sensornetwork.SensorEventListener;
 import com.aselsan.targettracking.sensornetwork.SensorManager;
 import com.aselsan.targettracking.view.GISView;
 
@@ -56,4 +57,6 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 		currentPosition = newPoint;
 		view.update();
 	}
+
+	
 }

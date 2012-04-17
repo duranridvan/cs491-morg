@@ -24,9 +24,9 @@ public class SensorEventManager {
 		listeners.remove(listener);
 	}
 	
-	public void alarm(int sensorId,double strength){
+	public void alarm(int sensorId,double strength, long time){
 		for(SensorEventListener listener: listeners)
-			listener.alarm(sensorId, strength);
+			listener.alarm(sensorId, strength, System.currentTimeMillis());
 	}
 	
 }

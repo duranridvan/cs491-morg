@@ -30,8 +30,10 @@ public class SimulationSensorNetwork extends SensorNetwork implements
 		}
 		for(int i=0; i<distancesToSensors.length; i++){
 			if(distancesToSensors[i] < tresholdDistance){
-				eventManager.alarm(list.get(i).getId(), 1000/distancesToSensors[i]+1);
-			}
+				list.get(i).isAlarm = true;
+				eventManager.alarm(list.get(i).getId(), 1000/distancesToSensors[i]+1, System.currentTimeMillis());
+			}else
+				list.get(i).isAlarm = false;
 		}
 	}
 	
