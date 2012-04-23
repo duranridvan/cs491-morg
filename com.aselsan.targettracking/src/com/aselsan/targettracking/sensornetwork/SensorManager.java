@@ -55,6 +55,7 @@ public class SensorManager {
 	}
 	
 	public List<Sensor> getSensorList(){
+		
 		return new ArrayList<Sensor>(sensorList.values());
 	}
 	

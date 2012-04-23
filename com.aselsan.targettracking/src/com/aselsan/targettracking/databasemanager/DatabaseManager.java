@@ -57,79 +57,7 @@ public class DatabaseManager {
 		}
 	}
 	
-	public int addSensor(Sensor sensor){	
-		try{
-			st = connection.prepareStatement("INSERT INTO sensor(sensorid,mac,location) VALUES(?,?,?)");
-			st.setObject(1, sensor.getId());
-			st.setObject(2, sensor.getMac());
-			int x = sensor.getLocation().x;
-			int y = sensor.getLocation().y;
-			st.setObject(3, new PGpoint(x,y));
-			st.executeUpdate();
-			st.close();
-		}catch(SQLException e){
-			System.out.println(" Could not add the sensor ");
-			e.printStackTrace();
-			disconnect();
-			return 0;
-		}
-		disconnect();
-		return sensor.getId();               
-    }
 	
-	public int addAlarm(int id,int sensorId,int strength){
-		try{
-			st = connection.prepareStatement("INSERT INTO alarm(eventId,sensorId,strength) VALUES(?,?,?)");
-			st.setObject(1, id);
-			st.setObject(2, sensorId);
-			st.setObject(3, strength);
-			st.executeUpdate();
-			st.close();
-		}catch(SQLException e){
-			System.out.println(" Could not add the alarm ");
-			e.printStackTrace();
-			disconnect();
-			return 0;
-		}
-		disconnect();
-		return id;
-	}
-	
-	public int addRoute(int id, List<Point> route, boolean isReal){
-		try{
-			st = connection.prepareStatement("INSERT INTO route(id,route,isReal) VALUES(?,?,?)");
-			st.setObject(1, id);
-			st.setObject(2, route);
-			st.setObject(3, isReal);
-			st.executeUpdate();
-			st.close();
-		}catch(SQLException e){
-			System.out.println(" Could not add the alarm ");
-			e.printStackTrace();
-			disconnect();
-			return 0;
-		}
-		disconnect();
-		return id;
-		
-	}
-	
-	public List<Sensor> getSensors() throws SQLException{
-			
-		Statement stmt = connection.createStatement();
-		ResultSet rs1 = stmt.executeQuery("SELECT sensorid FROM sensor");
-		int i = 0;
-		Object o = rs1.getObject(i);
-		System.out.println("kk");
-		while(o != null)
-		{
-			System.out.println("Sensor id =  "+ o.toString());
-			i++;
-			o = rs1.getObject(i);		
-		}	
-		return null;
-	
-}
 	static public DatabaseManager getInstance() {
 		if(instance == null)
 			try {
