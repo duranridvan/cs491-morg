@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
@@ -17,6 +18,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.part.ViewPart;
 
+import com.aselsan.targettracking.sensornetwork.Sensor;
 import com.aselsan.targettracking.sensornetwork.SensorManager;
 
 public class SensorManagerView extends ViewPart implements SensorManager.Listener{
@@ -24,19 +26,22 @@ public class SensorManagerView extends ViewPart implements SensorManager.Listene
 	//private org.eclipse.swt.graphics.Image image;
 	private GridLayout gridLayout;
 	private Button button;
+	private Button deleteButton;
 	private GridData gridData;
 	private SensorManager sensorManager;
 	private List sensorList;
-	public SensorManagerView() throws SQLException {
+	public SensorManagerView() {
 		//image = com.aselsan.targettracking.Activator.getImageDescriptor("icons/arkaplan.jpg").createImage();
 		sensorManager = SensorManager.getInstance();
 		sensorManager.addListener(this);
 	}
 	private void refreshList(){
 		sensorList.removeAll();
-		for(int i = 0 ; i < sensorManager.getSensorList().size() ; i++)
+		java.util.List<Sensor> list = sensorManager.getSensorList();
+		for(int i = 0 ; i < list.size() ; i++)
 		{
-			sensorList.add(sensorManager.getSensorList().get(i).toString());
+			String s = list.get(i).toString();
+			sensorList.add(s);
 		}
 	}
 	
@@ -55,12 +60,45 @@ public class SensorManagerView extends ViewPart implements SensorManager.Listene
 		gridData.verticalAlignment = SWT.FILL;
 		gridData.grabExcessVerticalSpace = true;
 		sensorList.setLayoutData(gridData);
+		sensorList.addSelectionListener(new SelectionListener() {
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				deleteButton.setEnabled(true);
+				
+			}
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 		for(int i = 0 ; i < sensorManager.getSensorList().size() ; i++)
 		{
 			sensorList.add(sensorManager.getSensorList().get(i).toString());
 		}
 		
 		button = new Button(parent, SWT.PUSH);
+		deleteButton = new Button(parent, SWT.PUSH);
+		deleteButton.setText("Delete Sensor");
+		deleteButton.setEnabled(false);
+		deleteButton.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				int index = sensorList.getSelectionIndex() ;
+				String item = sensorList.getItem(index);				
+				int id = Integer.parseInt( item.substring(0, item.indexOf("-")));
+				try {
+					sensorManager.deleteSensor(id);
+					deleteButton.setEnabled(false);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			
+		});
 		button.setText("Add Sensor");
 		button.addSelectionListener(new SelectionAdapter() {
 			@Override

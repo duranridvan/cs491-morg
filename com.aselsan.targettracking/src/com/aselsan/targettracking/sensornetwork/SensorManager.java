@@ -16,14 +16,16 @@ public class SensorManager {
 	private Map<Integer,Sensor> sensorList;
 	//TODO: database integration
 	private DatabaseManager db;
-	int count;
 	private static SensorManager instance = null;
 	private Collection<Listener> listeners;
 	private SensorManager(){
-		sensorList = new HashMap<Integer,Sensor>();
-		count=0;
-		listeners = new ArrayList<SensorManager.Listener>();
 		db = DatabaseManager.getInstance();		
+		sensorList = new HashMap<Integer,Sensor>();
+		int size = db.getSensors().size();
+		List<Sensor> list = db.getSensors(); 
+		for(int i = 0 ; i < size ; i++)
+			sensorList.put(list.get(i).getId(),list.get(i));
+		listeners = new ArrayList<SensorManager.Listener>();
 	}
 	
 	public void addListener(Listener l){
@@ -41,12 +43,19 @@ public class SensorManager {
 	
 	public synchronized int addSensor(String mac,Point location) throws SQLException{
 		
-		Sensor s = new Sensor(count,mac,location);
-		sensorList.put(count,s);
-		int ret = count++;
+		int id = db.addSensor(mac,location);
+		Sensor s = new Sensor(id,mac,location);
+		sensorList.put(id,s);
 		notifyListeners();
-		db.addSensor(s);
-		return ret;
+		return id;
+	}
+	
+	public synchronized int deleteSensor(int sensorId) throws SQLException{
+		
+		int id = db.deleteSensor(sensorId);
+		sensorList.remove(id);
+		notifyListeners();
+		return id;
 	}
 	
 	public synchronized void removeSensor(int id){
@@ -55,7 +64,6 @@ public class SensorManager {
 	}
 	
 	public List<Sensor> getSensorList(){
-		
 		return new ArrayList<Sensor>(sensorList.values());
 	}
 	
