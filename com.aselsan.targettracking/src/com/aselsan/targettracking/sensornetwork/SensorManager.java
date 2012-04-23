@@ -1,7 +1,7 @@
 package com.aselsan.targettracking.sensornetwork;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -23,7 +23,7 @@ public class SensorManager {
 		sensorList = new HashMap<Integer,Sensor>();
 		count=0;
 		listeners = new ArrayList<SensorManager.Listener>();
-		db = DatabaseManager.getInstance();	
+		db = DatabaseManager.getInstance();		
 	}
 	
 	public void addListener(Listener l){
@@ -39,11 +39,14 @@ public class SensorManager {
 		return sensorList.get(id);
 	}
 	
-	public synchronized int addSensor(String mac,Point location){
-		sensorList.put(count,new Sensor(count,mac,location));
+	public synchronized int addSensor(String mac,Point location) throws SQLException{
+		
+		Sensor s = new Sensor(count,mac,location);
+		sensorList.put(count,s);
 		int ret = count++;
 		notifyListeners();
-		//db.addSensor(new Sensor(count,mac,location));
+		db.connectDatabase("jdbc:postgresql://127.0.0.1:5432/", "postgres", "bric26", "postgres");
+		db.addSensor(s);
 		return ret;
 	}
 	
