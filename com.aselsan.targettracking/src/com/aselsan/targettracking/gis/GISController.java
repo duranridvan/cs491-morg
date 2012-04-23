@@ -22,7 +22,7 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 	private Point currentPosition;
 	private long ltime = 0;
 	private GISEventManager em;
-	public GISController(GISView view) {	
+	public GISController(GISView view) throws SQLException {	
 		this.view = view;
 		sensorManager = SensorManager.getInstance();
 		sensorManager.addListener(this);

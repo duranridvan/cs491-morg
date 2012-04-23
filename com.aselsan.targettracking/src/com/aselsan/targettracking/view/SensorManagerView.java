@@ -27,7 +27,7 @@ public class SensorManagerView extends ViewPart implements SensorManager.Listene
 	private GridData gridData;
 	private SensorManager sensorManager;
 	private List sensorList;
-	public SensorManagerView() {
+	public SensorManagerView() throws SQLException {
 		//image = com.aselsan.targettracking.Activator.getImageDescriptor("icons/arkaplan.jpg").createImage();
 		sensorManager = SensorManager.getInstance();
 		sensorManager.addListener(this);

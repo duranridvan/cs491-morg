@@ -34,7 +34,7 @@ public class GISView extends ViewPart{
 	private List<Point[]> lines;
 	private Point cursorPosition;
 	private Image drawingArea=null;
-	public GISView() throws IOException {
+	public GISView() throws IOException, SQLException {
 
 		sensorImage = Activator.getImageDescriptor("images/sensor.gif").createImage();
 		alarmImage = Activator.getImageDescriptor("images/sensorAlarm.gif").createImage();

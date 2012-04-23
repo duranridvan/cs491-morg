@@ -45,7 +45,6 @@ public class SensorManager {
 		sensorList.put(count,s);
 		int ret = count++;
 		notifyListeners();
-		db.connectDatabase("jdbc:postgresql://127.0.0.1:5432/", "postgres", "bric26", "postgres");
 		db.addSensor(s);
 		return ret;
 	}

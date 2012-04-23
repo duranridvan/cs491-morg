@@ -21,9 +21,10 @@ public class DatabaseManager {
 	private PreparedStatement st;
 	private Statement stmt = null;
 	
-	private DatabaseManager(){
+	private DatabaseManager() throws SQLException{
 		connection = null;
 		st = null;
+		connectDatabase("jdbc:postgresql://127.0.0.1:5432/", "postgres", "bric26", "postgres");
 	}
 	
 	public void connectDatabase(String host,String username,String password,String dbname) throws SQLException
@@ -131,7 +132,12 @@ public class DatabaseManager {
 }
 	static public DatabaseManager getInstance() {
 		if(instance == null)
-			return instance = new DatabaseManager();
+			try {
+				return instance = new DatabaseManager();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		return instance;
 	}
 	
