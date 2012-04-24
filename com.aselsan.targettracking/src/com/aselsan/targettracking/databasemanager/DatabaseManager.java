@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.swt.graphics.Point;
+import org.postgresql.geometric.PGpath;
 import org.postgresql.geometric.PGpoint;
 
 import com.aselsan.targettracking.sensornetwork.Sensor;
@@ -105,7 +106,6 @@ public class DatabaseManager {
 		}catch(SQLException e){
 			System.out.println(" Could not add the alarm ");
 			e.printStackTrace();
-			disconnect();
 			return 0;
 		}
 		return id;
@@ -113,19 +113,23 @@ public class DatabaseManager {
 	
 	public int addRoute(int id, List<Point> route, boolean isReal){
 		try{
-			st = connection.prepareStatement("INSERT INTO route(id,route,isReal) VALUES(?,?,?)");
+			
+			st = connection.prepareStatement("INSERT INTO route(eventid,route,isreal) VALUES(?,?,?)");
 			st.setObject(1, id);
-			st.setObject(2, route);
+			int size = route.size();
+			PGpoint[] points = new PGpoint[size];
+			for(int i = 0; i < size ; i++)
+				points[i] = new PGpoint(route.get(i).x,route.get(i).y);
+			PGpath path = new PGpath(points,true);
+			st.setObject(2, path);
 			st.setObject(3, isReal);
 			st.executeUpdate();
 			st.close();
 		}catch(SQLException e){
-			System.out.println(" Could not add the alarm ");
+			System.out.println(" Could not add the route ");
 			e.printStackTrace();
-			disconnect();
 			return 0;
 		}
-		disconnect();
 		return id;
 		
 	}
