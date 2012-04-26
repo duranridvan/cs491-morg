@@ -13,6 +13,7 @@ import org.eclipse.swt.graphics.Point;
 import org.postgresql.geometric.PGpath;
 import org.postgresql.geometric.PGpoint;
 
+import com.aselsan.targettracking.Alarm;
 import com.aselsan.targettracking.sensornetwork.Sensor;
 
 public class DatabaseManager {
@@ -134,6 +135,60 @@ public class DatabaseManager {
 		
 	}
 	
+public List<List<Point>> getRoutes(){
+		
+		List<List<Point>> list = new ArrayList();
+		try {
+			stmt = connection.createStatement();
+		} catch (SQLException e4) {
+			// TODO Auto-generated catch block
+			e4.printStackTrace();
+		}
+		ResultSet rs1 = null;
+		try {
+			PreparedStatement stmt1 = connection.prepareStatement("SELECT eventid FROM route ");
+			rs1 = stmt1.executeQuery();
+		} catch (SQLException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		}
+		ResultSet rs2 = null;
+		try {
+			PreparedStatement stmt2 = connection.prepareStatement("SELECT route FROM route ");
+			rs2 = stmt2.executeQuery();
+		} catch (SQLException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		ResultSet rs3 = null;
+		try {
+			PreparedStatement stmt3 = connection.prepareStatement("SELECT isreal FROM route ");
+			rs3 = stmt3.executeQuery();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try{
+		
+		while(rs1.next() && rs2.next() && rs3.next())
+		{			
+			ArrayList<Point> pointList = new ArrayList();
+			PGpath path = (PGpath) rs2.getObject(1);
+			PGpoint[] pointArray = path.points;
+			int size = pointArray.length;
+			for(int i = 0; i< size ; i++)
+				pointList.add(new Point((int)pointArray[i].x,(int) pointArray[i].y));
+			list.add(pointList);
+							
+		}
+		}
+		catch(SQLException e){	
+			e.printStackTrace();
+		}
+		return list;
+	
+}
+	
 	public List<Sensor> getSensors(){
 		
 		ArrayList<Sensor> list = new ArrayList();
@@ -184,6 +239,54 @@ public class DatabaseManager {
 	
 }
 	
+public List<Alarm> getAlarms(){
+		
+		ArrayList<Alarm> list = new ArrayList();
+		try {
+			stmt = connection.createStatement();
+		} catch (SQLException e4) {
+			// TODO Auto-generated catch block
+			e4.printStackTrace();
+		}
+		ResultSet rs1 = null;
+		try {
+			PreparedStatement stmt1 = connection.prepareStatement("SELECT eventid FROM alarm ");
+			rs1 = stmt1.executeQuery();
+		} catch (SQLException e3) {
+			// TODO Auto-generated catch block
+			e3.printStackTrace();
+		}
+		ResultSet rs2 = null;
+		try {
+			PreparedStatement stmt2 = connection.prepareStatement("SELECT sensorid FROM alarm ");
+			rs2 = stmt2.executeQuery();
+		} catch (SQLException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		ResultSet rs3 = null;
+		try {
+			PreparedStatement stmt3 = connection.prepareStatement("SELECT strength FROM alarm ");
+			rs3 = stmt3.executeQuery();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try{
+		
+		while(rs1.next() && rs2.next() && rs3.next())
+		{			
+			Alarm a = new Alarm(rs1.getInt(1), rs2.getInt(1), rs3.getInt(1));
+			System.out.println(a);
+			list.add(a);				
+		}
+		}
+		catch(SQLException e){	
+			e.printStackTrace();
+		}
+		return list;
+	
+}
 	static public DatabaseManager getInstance() {
 		if(instance == null)
 			try {
