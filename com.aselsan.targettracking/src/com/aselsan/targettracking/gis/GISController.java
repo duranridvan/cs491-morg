@@ -9,6 +9,7 @@ import org.eclipse.ui.part.ViewPart;
 
 import com.aselsan.targettracking.joystickmanager.JoystickEventListener;
 import com.aselsan.targettracking.joystickmanager.JoystickEventManager;
+import com.aselsan.targettracking.sensornetwork.Alarm;
 import com.aselsan.targettracking.sensornetwork.SensorEventListener;
 import com.aselsan.targettracking.sensornetwork.SensorEventManager;
 import com.aselsan.targettracking.sensornetwork.SensorManager;
@@ -77,7 +78,7 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 			view.update();
 	}
 	@Override
-	public void alarm(int sensorId, double strength, long time) {
+	public void alarm(ArrayList<Alarm> alarms) {
 		// TODO Auto-generated method stub
 		
 	}
