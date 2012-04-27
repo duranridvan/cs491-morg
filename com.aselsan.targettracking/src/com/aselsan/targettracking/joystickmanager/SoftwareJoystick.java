@@ -17,12 +17,21 @@ public class SoftwareJoystick extends Joystick implements MouseListener, MouseMo
 	private boolean buttonPressed;
 	private SoftwareJoystickView view;
 	private int width,height;
-	public SoftwareJoystick(SoftwareJoystickView view){
+	private static SoftwareJoystick instance = null;
+	public static SoftwareJoystick getInstance(){
+		if(instance == null)
+			instance = new SoftwareJoystick();
+		return instance;
+	}
+	public void setview(SoftwareJoystickView view){
 		this.view = view;
 		width = view.x;
 		height = view.y;
 		mousePressed = false;
 		buttonPressed = true;
+
+	}
+	public SoftwareJoystick(){
 		//joystickView = new Shell(SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 		//joystickView.setSize(207, 229);	
 		//joystickView.open();

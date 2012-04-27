@@ -19,7 +19,8 @@ public class SoftwareJoystickView extends ViewPart{
 		System.out.println(parent.getSize());
 		x = 200;
 		y = 200;
-		joystick = new SoftwareJoystick(this);
+		joystick = SoftwareJoystick.getInstance();
+		joystick.setview(this);
 		parent.addPaintListener(new PaintListener(){
 
 			@Override

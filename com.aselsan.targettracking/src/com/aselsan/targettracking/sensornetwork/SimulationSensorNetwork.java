@@ -14,8 +14,6 @@ public class SimulationSensorNetwork extends SensorNetwork implements
 	public final double tresholdDistance = 200;
 	private static SimulationSensorNetwork instance = null;
 	public SimulationSensorNetwork() {
-		super();
-		GISEventManager.getInstance().addListener(this);
 		System.out.println("HOP");
 	}
 	

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.swt.graphics.Point;
+import org.eclipse.ui.part.ViewPart;
 
 import com.aselsan.targettracking.joystickmanager.JoystickEventListener;
 import com.aselsan.targettracking.joystickmanager.JoystickEventManager;
@@ -22,22 +23,32 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 	private Point currentPosition;
 	private long ltime = 0;
 	private GISEventManager em;
-	public GISController(GISView view) throws SQLException {	
-		this.view = view;
+	private static GISController instance=null;
+	
+	public static GISController getInstance(){
+		if(instance == null){
+			instance = new GISController();
+		}
+		return instance;
+	}
+	public GISController() {	
+		this.view = null;
 		sensorManager = SensorManager.getInstance();
-		sensorManager.addListener(this);
 		points = new ArrayList<Point>();
 		currentPosition = new Point(0, 0);
-		view.updateCursorPosition(currentPosition);
-		JoystickEventManager.getInstance().addListener(this);
-		new SimulationSensorNetwork();
-		SensorEventManager.getInstance().addListener(this);
 		em = GISEventManager.getInstance();
+	}
+	
+	public void setView(GISView view){
+		this.view = view;
+		view.updateCursorPosition(currentPosition);
 	}
 	@Override
 	public void sensorManagerUpdate() {
-		view.updateSensorList(sensorManager.getSensorList());
-		view.update();	
+		if(view!=null){
+			view.updateSensorList(sensorManager.getSensorList());
+			view.update();	
+		}
 	}
 	@Override
 	public void buttonPressed() {
@@ -52,15 +63,18 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 		long ctime = System.currentTimeMillis();
 		Point newPoint = new Point(currentPosition.x+x,currentPosition.y+y);
 		if(isButtonPressed){
+			if(view!=null)
 			view.drawLine(currentPosition,newPoint);
 			if(ctime - ltime >= 500){
 				em.positionChanged(newPoint);
 				ltime = ctime;
 			}
 		}
-		view.updateCursorPosition(newPoint);
+		if(view!=null)
+			view.updateCursorPosition(newPoint);
 		currentPosition = newPoint;
-		view.update();
+		if(view!=null)
+			view.update();
 	}
 	@Override
 	public void alarm(int sensorId, double strength, long time) {

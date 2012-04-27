@@ -23,13 +23,13 @@ public class DatabaseManager {
 	private PreparedStatement st;
 	private Statement stmt = null;
 	
-	private DatabaseManager() throws SQLException{
+	private DatabaseManager() {
 		connection = null;
 		st = null;
 		connectDatabase("jdbc:postgresql://127.0.0.1:5432/", "postgres", "bric26", "postgres");
 	}
 	
-	public void connectDatabase(String host,String username,String password,String dbname) throws SQLException
+	public void connectDatabase(String host,String username,String password,String dbname) 
 	{
 		try {
 			Class.forName("org.postgresql.Driver");
@@ -59,8 +59,11 @@ public class DatabaseManager {
 		}
 	}
 	
+	private int idcnt = 0;
 	public int addSensor(String mac, Point location){	
-		int id = 0;
+		
+		int id = idcnt++;
+		/*
 		try{
 			st = connection.prepareStatement("INSERT INTO sensor(mac,location) VALUES(?,?)",Statement.RETURN_GENERATED_KEYS);
 			st.setObject(1, mac);
@@ -76,7 +79,7 @@ public class DatabaseManager {
 			System.out.println(" Could not add the sensor ");
 			e.printStackTrace();
 			return 0;
-		}
+		}*/
 		return id;               
     }
 	
@@ -192,6 +195,7 @@ public List<List<Point>> getRoutes(){
 	public List<Sensor> getSensors(){
 		
 		ArrayList<Sensor> list = new ArrayList();
+		return list;/*
 		try {
 			stmt = connection.createStatement();
 		} catch (SQLException e4) {
@@ -284,21 +288,16 @@ public List<Alarm> getAlarms(){
 		catch(SQLException e){	
 			e.printStackTrace();
 		}
-		return list;
+		return list; */
 	
-}
+	}
 	static public DatabaseManager getInstance() {
 		if(instance == null)
-			try {
-				return instance = new DatabaseManager();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			return instance = new DatabaseManager();
 		return instance;
 	}
 	
-	}
+}
 	
 	 
 	
