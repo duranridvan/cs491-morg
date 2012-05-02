@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Collection;
 
 import org.eclipse.core.commands.common.EventManager;
 
@@ -102,14 +103,17 @@ public class TwoWaySerialComm
     }
     
     @SuppressWarnings("unchecked")
-	static void listPorts()
+	public static Collection<String> listPorts()
     {
+    	ArrayList<String> list = new ArrayList<String>();
         java.util.Enumeration<CommPortIdentifier> portEnum = CommPortIdentifier.getPortIdentifiers();
         while ( portEnum.hasMoreElements() ) 
         {
             CommPortIdentifier portIdentifier = portEnum.nextElement();
-            System.out.println(portIdentifier.getName()  +  " - " +  getPortTypeName(portIdentifier.getPortType()) );
-        }        
+            list.add(portIdentifier.getName());
+            //System.out.println(portIdentifier.getName()  +  " - " +  getPortTypeName(portIdentifier.getPortType()) );
+        }
+        return list;
     }
     
     static String getPortTypeName ( int portType )

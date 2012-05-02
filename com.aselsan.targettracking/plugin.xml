@@ -14,9 +14,14 @@
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
-            name="Perspective"
+            class="com.aselsan.targettracking.RealPerspective"
+            id="com.aselsan.targettracking.realperspective"
+            name="Real">
+      </perspective>
+      <perspective
             class="com.aselsan.targettracking.Perspective"
-            id="com.aselsan.targettracking.perspective">
+            id="com.aselsan.targettracking.perspective"
+            name="Simulation">
       </perspective>
    </extension>
    <extension
@@ -39,6 +44,12 @@
             name="Joystick"
             restorable="true">
       </view>
+      <view
+            class="com.aselsan.targettracking.view.ComSelectView"
+            id="com.aselsan.targettracking.comselectview"
+            name="COM"
+            restorable="true">
+      </view>
    </extension>
    <extension
          point="org.eclipse.ui.perspectiveExtensions">
@@ -57,7 +68,23 @@
                   label="Exit">
             </command>
          </menu>
+         <menu
+               label="Sensor Network">
+            <command
+                  commandId="org.eclipse.ui.file.exit"
+                  label="asdf"
+                  style="push">
+            </command>
+         </menu>
       </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="com.aselsan.targettracking.SwitchSimulation"
+            id="com.aselsan.targettracking.simulation"
+            name="name">
+      </command>
    </extension>
 
 </plugin>

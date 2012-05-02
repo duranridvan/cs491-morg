@@ -29,6 +29,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 		configurer.setShowCoolBar(true);
 		configurer.setShowStatusLine(false);
 		configurer.setTitle("Target Tracking");
+		configurer.setShowPerspectiveBar(true);
 	}
 	public void postWindowCreate() {
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
