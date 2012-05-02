@@ -4,5 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="lib/postgresql-9.1-901.jdbc4.jar"/>
+	<classpathentry kind="lib" path="D:/eclipseWorkspace/com.aselsan.targettracking/lib/RXTXcomm.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
