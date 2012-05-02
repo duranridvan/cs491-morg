@@ -11,12 +11,17 @@ import gnu.io.SerialPortEventListener;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+
+import org.eclipse.core.commands.common.EventManager;
 
 public class TwoWaySerialComm
 {
+	
     public TwoWaySerialComm()
     {
         super();
+        
     }
     
     void connect ( String portName ) throws Exception
@@ -52,23 +57,22 @@ public class TwoWaySerialComm
         }     
     }
     
-    /**
-     * Handles the input coming from the serial port. A new line character
-     * is treated as the end of a block in this example. 
-     */
+
     public static class SerialReader implements SerialPortEventListener 
     {
         private InputStream in;
         private byte[] buffer = new byte[1024];
-        
+        SensorEventManager eventManager;
         public SerialReader ( InputStream in )
         {
             this.in = in;
+            eventManager = SensorEventManager.getInstance();
         }
         
         public void serialEvent(SerialPortEvent arg0) {
             int data;
-          
+            ArrayList<Alarm> alarmLists = new ArrayList();
+            
             try
             {
                 int len = 0;
@@ -81,8 +85,12 @@ public class TwoWaySerialComm
                     buffer[len++] = (byte) data;
                 }
                 System.out.print(new String(buffer,0,len));
-                //TODO - send alarms 
-                //TODO - parsing
+                
+              //TODO - parsing
+                
+              //TODO - send alarms
+                eventManager.alarm(alarmLists);
+                
             }
             catch ( IOException e )
             {
@@ -91,34 +99,6 @@ public class TwoWaySerialComm
             }             
         }
 
-    }
-
-    /** */
-    public static class SerialWriter implements Runnable 
-    {
-        OutputStream out;
-        
-        public SerialWriter ( OutputStream out )
-        {
-            this.out = out;
-        }
-        
-        public void run ()
-        {
-            try
-            {                
-                int c = 0;
-                while ( ( c = System.in.read()) > -1 )
-                {
-                    this.out.write(c);
-                }                
-            }
-            catch ( IOException e )
-            {
-                e.printStackTrace();
-                System.exit(-1);
-            }            
-        }
     }
     
     @SuppressWarnings("unchecked")
@@ -150,6 +130,33 @@ public class TwoWaySerialComm
                 return "unknown type";
         }
     }
+    /** */
+    public static class SerialWriter implements Runnable 
+    {
+        OutputStream out;
+        
+        public SerialWriter ( OutputStream out )
+        {
+            this.out = out;
+        }
+        
+        public void run ()
+        {
+            try
+            {                
+                int c = 0;
+                while ( ( c = System.in.read()) > -1 )
+                {
+                    this.out.write(c);
+                }                
+            }
+            catch ( IOException e )
+            {
+                e.printStackTrace();
+                System.exit(-1);
+            }            
+        }
+    }    
  /*   
     public static void main ( String[] args )
     {
