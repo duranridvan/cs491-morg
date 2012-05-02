@@ -17,12 +17,13 @@ import java.util.Collection;
 
 //import org.eclipse.core.commands.common.EventManager;
 
-public class TwoWaySerialComm
+public class RealSensorNetwork extends SensorNetwork
 {
-	
-    public TwoWaySerialComm()
+	private String comport;
+    public RealSensorNetwork(String c)
     {
         super();
+        comport=c;
         
     }
     
@@ -59,7 +60,6 @@ public class TwoWaySerialComm
         }     
     }
     
-
     public static class SerialReader implements SerialPortEventListener 
     {
         private InputStream in;
@@ -106,24 +106,6 @@ public class TwoWaySerialComm
                 	list.add(new Alarm(scan.nextInt(), scan.nextInt(), t));
                 	
                 }
-                	
-              //  System.out.println(s);
-         //       
-           //     StringTokenizer tkn = new StringTokenizer(new String(buffer,start+1,len)," \t");
-              //  System.out.println("Alii");
-            //    System.out.println(scan.nextInt()+ " " + scan.nextInt());
-               // int x = Integer.parseInt(scan.next());
-               // System.out.println(x);
-            //    System.out.println(buf);
-                //System.out.println(tkn.nextToken());
-                //System.out.println(tkn.nextToken());
-              //  System.out.println("Alii");
-                //System.out.println(new String(buffer,start+1,len));
-                
-              //TODO - parsing
-                
-              //TODO - send alarms
-          //      eventManager.alarm(alarmLists);
                 
             }
             catch ( IOException e )
@@ -167,7 +149,7 @@ public class TwoWaySerialComm
                 return "unknown type";
         }
     }
-    /** */
+    
     public static class SerialWriter implements Runnable 
     {
         OutputStream out;
@@ -195,13 +177,11 @@ public class TwoWaySerialComm
         }
     }    
    
-  /*  public static void main ( String[] args )
+    public void start()
     {
-    	listPorts();
-    	
         try
         {
-           (new TwoWaySerialComm()).connect("COM4");
+           connect(comport);
         }
         catch ( Exception e )
         {
@@ -209,6 +189,6 @@ public class TwoWaySerialComm
             e.printStackTrace();
         }
     }
-*/
+
 
 }

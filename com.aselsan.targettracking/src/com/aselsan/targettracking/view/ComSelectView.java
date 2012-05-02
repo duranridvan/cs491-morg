@@ -10,7 +10,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 
-import com.aselsan.targettracking.sensornetwork.TwoWaySerialComm;
+import com.aselsan.targettracking.sensornetwork.RealSensorNetwork;
 
 public class ComSelectView extends ViewPart {
 
@@ -29,7 +29,7 @@ public class ComSelectView extends ViewPart {
 		l.pack = true;
 		l.type = SWT.VERTICAL;
 		parent.setLayout(l);
-		Collection<String> comNames = TwoWaySerialComm.listPorts();
+		Collection<String> comNames = RealSensorNetwork.listPorts();
 		for(String s : comNames){
 			Button b =new Button(parent,SWT.RADIO);
 			b.setText(s);
