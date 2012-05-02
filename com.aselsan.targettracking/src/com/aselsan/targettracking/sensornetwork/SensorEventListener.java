@@ -5,4 +5,5 @@ import java.util.ArrayList;
 public interface SensorEventListener {
 
 	void alarm(ArrayList<Alarm> alarms);
+
 }

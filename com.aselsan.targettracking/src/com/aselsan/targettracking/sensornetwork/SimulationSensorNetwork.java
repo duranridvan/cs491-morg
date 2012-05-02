@@ -25,8 +25,7 @@ public class SimulationSensorNetwork extends SensorNetwork implements
 
 	@Override
 	public void positionChanged(Point p) {
-		System.out.println("psiton");
-		// TODO Auto-generated method stub
+//		System.out.println("psiton");
 		ArrayList<Sensor> list = (ArrayList<Sensor>) sM.getSensorList();
 		double[] distancesToSensors = new double[list.size()];
 		int pX = p.x;
@@ -36,14 +35,17 @@ public class SimulationSensorNetwork extends SensorNetwork implements
 			int sY = list.get(i).getLocation().y;
 			distancesToSensors[i] = Math.sqrt((sY-pY)*(sY-pY)+(sX-pX)*(sX-pX)); 
 		}
+		ArrayList<Alarm> alarms = new ArrayList();
 		for(int i=0; i<distancesToSensors.length; i++){
 			if(distancesToSensors[i] < tresholdDistance){
 				System.out.println(p + " " + distancesToSensors[i]);
 				list.get(i).isAlarm = true;
-				eventManager.alarm(list.get(i).getId(), 1000/distancesToSensors[i]+1, System.currentTimeMillis());
+				Alarm a = new Alarm(list.get(i).getId(), 1000/distancesToSensors[i]+1, System.currentTimeMillis());
+				alarms.add(a);
 			}else
 				list.get(i).isAlarm = false;
 		}
+		eventManager.alarm(alarms);
 	}
 	
 	public void start(){
