@@ -2,6 +2,8 @@ package com.aselsan.targettracking.sensornetwork;
 
 
 
+
+
 import gnu.io.CommPort;
 import gnu.io.CommPortIdentifier;
 import gnu.io.SerialPort;
@@ -12,9 +14,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.Collection;
 
-import org.eclipse.core.commands.common.EventManager;
+
+
+//import org.eclipse.core.commands.common.EventManager;
 
 public class TwoWaySerialComm
 {
@@ -40,7 +45,7 @@ public class TwoWaySerialComm
             if ( commPort instanceof SerialPort )
             {
                 SerialPort serialPort = (SerialPort) commPort;
-                serialPort.setSerialPortParams(115200,SerialPort.DATABITS_8,SerialPort.STOPBITS_1,SerialPort.PARITY_NONE);
+                serialPort.setSerialPortParams(38400,SerialPort.DATABITS_8,SerialPort.STOPBITS_1,SerialPort.PARITY_NONE);
                 
                 InputStream in = serialPort.getInputStream();
                 OutputStream out = serialPort.getOutputStream();
@@ -63,34 +68,72 @@ public class TwoWaySerialComm
     {
         private InputStream in;
         private byte[] buffer = new byte[1024];
-        SensorEventManager eventManager;
+        ArrayList<String> list;
+        long prev = System.currentTimeMillis();
+     //   SensorEventManager eventManager;
         public SerialReader ( InputStream in )
         {
             this.in = in;
-            eventManager = SensorEventManager.getInstance();
+            list = new ArrayList();
+        //    eventManager = SensorEventManager.getInstance();
         }
         
         public void serialEvent(SerialPortEvent arg0) {
             int data;
-            ArrayList<Alarm> alarmLists = new ArrayList();
-            
+        //    ArrayList<Alarm> alarmLists = new ArrayList();
+           
+            long t = System.currentTimeMillis();
             try
             {
                 int len = 0;
-    
+                int start = 0;
+             //   StringBuffer buf = new StringBuffer();
                 while ( ( data = in.read()) > -1 )
                 {
-                    if ( data == '\n' ) {
-                        break;
+                	if ( data == '<' ){
+                		start = len;
+                	//	buf = new StringBuffer();
+                	}
+                	buffer[len] = (byte) data;
+                    if ( data == '>' ) {
+                    	len = len -start-1;
+                    	while ( ( data = in.read()) > -1 );
                     }
-                    buffer[len++] = (byte) data;
+                    len++;
+
                 }
-                System.out.print(new String(buffer,0,len));
+                
+                String s = new String(buffer,start+1,len-1);
+              //  System.out.println(s+" "+t);
+                if(t-prev<400){
+                	list.add(s);
+                }else{
+                	for(int i=0; i<list.size(); i++ )
+                		System.out.print(list.get(i)+ "-");
+                	System.out.println();
+                	prev = t;
+                	list.clear();
+                	list.add(s);
+                	
+                }
+                	
+              //  System.out.println(s);
+         //       Scanner scan = new Scanner(s);
+           //     StringTokenizer tkn = new StringTokenizer(new String(buffer,start+1,len)," \t");
+              //  System.out.println("Alii");
+            //    System.out.println(scan.nextInt()+ " " + scan.nextInt());
+               // int x = Integer.parseInt(scan.next());
+               // System.out.println(x);
+            //    System.out.println(buf);
+                //System.out.println(tkn.nextToken());
+                //System.out.println(tkn.nextToken());
+              //  System.out.println("Alii");
+                //System.out.println(new String(buffer,start+1,len));
                 
               //TODO - parsing
                 
               //TODO - send alarms
-                eventManager.alarm(alarmLists);
+          //      eventManager.alarm(alarmLists);
                 
             }
             catch ( IOException e )
@@ -161,14 +204,14 @@ public class TwoWaySerialComm
             }            
         }
     }    
- /*   
-    public static void main ( String[] args )
+   
+  /*  public static void main ( String[] args )
     {
-  //  	listPorts();
+    	listPorts();
     	
         try
         {
-           (new TwoWaySerialComm()).connect("COM8");
+           (new TwoWaySerialComm()).connect("COM4");
         }
         catch ( Exception e )
         {
@@ -176,6 +219,6 @@ public class TwoWaySerialComm
             e.printStackTrace();
         }
     }
-
 */
+
 }
