@@ -102,7 +102,7 @@ public class RealSensorNetwork extends SensorNetwork
                         	
                         }
                         
-                    	while ( ( data = in.read()) > -1 );
+                    	//while ( ( data = in.read()) > -1 );
                     }
                     len++;
                 }
