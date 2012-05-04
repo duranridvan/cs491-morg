@@ -46,7 +46,7 @@ public class Activator extends AbstractUIPlugin {
 		jem.addListener(gis);
 		sem.addListener(gis);
 		
-		gem.addListener(new SimulationSensorNetwork());
+		//gem.addListener(new SimulationSensorNetwork());
 		
 		
 		

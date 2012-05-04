@@ -60,7 +60,7 @@ public class RealSensorNetwork extends SensorNetwork
         }     
     }
     
-    public static class SerialReader implements SerialPortEventListener 
+    public  class SerialReader implements SerialPortEventListener 
     {
         private InputStream in;
         private byte[] buffer = new byte[1024];

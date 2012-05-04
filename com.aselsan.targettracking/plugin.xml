@@ -86,5 +86,17 @@
             name="name">
       </command>
    </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="com.aselsan.targettracking.application"
+            name="Project">
+         <property
+               name="appName"
+               value="Project">
+         </property>
+      </product>
+   </extension>
 
 </plugin>
