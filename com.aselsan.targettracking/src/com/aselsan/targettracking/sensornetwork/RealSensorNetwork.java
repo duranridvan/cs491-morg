@@ -90,23 +90,25 @@ public class RealSensorNetwork extends SensorNetwork
                 	buffer[len] = (byte) data;
                     if ( data == '>' ) {
                     	len = len -start-1;
+                        String s = new String(buffer,start+1,len);
+                        Scanner scan = new Scanner(s);
+                        if(t-prev<400){
+                        	list.add(new Alarm(scan.nextInt(), scan.nextInt(), t));
+                        }else{
+                        	eventManager.alarm(list);
+                        	prev = t;
+                        	list.clear();
+                        	list.add(new Alarm(scan.nextInt(), scan.nextInt(), t));
+                        	
+                        }
+                        
                     	while ( ( data = in.read()) > -1 );
                     }
                     len++;
                 }
-                
-                String s = new String(buffer,start+1,len-1);
-                Scanner scan = new Scanner(s);
-                if(t-prev<400){
-                	list.add(new Alarm(scan.nextInt(), scan.nextInt(), t));
-                }else{
-                	eventManager.alarm(list);
-                	prev = t;
-                	list.clear();
-                	list.add(new Alarm(scan.nextInt(), scan.nextInt(), t));
-                	
-                }
-                
+                if(len == 0)
+                	return;
+
             }
             catch ( IOException e )
             {
