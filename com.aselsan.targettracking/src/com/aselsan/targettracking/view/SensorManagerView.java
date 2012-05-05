@@ -182,7 +182,7 @@ public class SensorManagerView extends ViewPart implements SensorManager.Listene
 								dialogError.setText("WARNING");
 								dialogError.setLayout(gridLayout);
 								Text warningText = new Text(dialogError,SWT.SINGLE);
-								warningText.setText("You should enter a number for Mac,X Coordinate,Y Coordinate fields");
+								warningText.setText("You should enter a number for X Coordinate,Y Coordinate fields");
 								Button buttonOK = new Button(dialogError, SWT.PUSH);
 								buttonOK.setText("OK");
 								buttonOK.addSelectionListener(new SelectionAdapter() {
