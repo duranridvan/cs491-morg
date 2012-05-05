@@ -109,6 +109,8 @@ public class SensorManagerView extends ViewPart implements SensorManager.Listene
 				shell.setVisible(false);
 				shell.setLayout(new GridLayout(2, false));
 				
+				shell.setText("Add Sensor");
+				
 				Label macLabel = new Label(shell, SWT.NONE);
 				macLabel.setText("Mac:");
 				
