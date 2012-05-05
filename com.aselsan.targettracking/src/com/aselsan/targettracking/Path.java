@@ -33,9 +33,9 @@ public class Path {
 
 		  }
 
-		  public static void  main(String arg[]) {
-		    System.out.println("Now : " + DateUtils.now());
-		  }
+		//  public static void  main(String arg[]) {
+		  //  System.out.println("Now : " + DateUtils.now());
+		  //}
 		}
 }
 
