@@ -10,5 +10,6 @@ public class Alarm {
 		strength=s;
 		timestamp=ts;
 	}
+	
 
 }
