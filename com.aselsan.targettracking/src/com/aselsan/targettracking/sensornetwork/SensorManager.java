@@ -42,7 +42,6 @@ public class SensorManager {
 	}
 	
 	public synchronized int addSensor(String mac,Point location) throws SQLException{
-		
 		int id = db.addSensor(mac,location);
 		Sensor s = new Sensor(id,mac,location);
 		sensorList.put(id,s);
@@ -51,7 +50,6 @@ public class SensorManager {
 	}
 	
 	public synchronized int deleteSensor(int sensorId) throws SQLException{
-		
 		int id = db.deleteSensor(sensorId);
 		sensorList.remove(id);
 		notifyListeners();
