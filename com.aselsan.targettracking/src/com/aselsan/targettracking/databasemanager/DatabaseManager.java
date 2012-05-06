@@ -6,14 +6,19 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.eclipse.swt.graphics.Point;
 import org.postgresql.geometric.PGpath;
 import org.postgresql.geometric.PGpoint;
 
-import com.aselsan.targettracking.Alarm;
+import com.aselsan.targettracking.sensornetwork.Alarm;
 import com.aselsan.targettracking.sensornetwork.Sensor;
 
 public class DatabaseManager {
@@ -99,13 +104,18 @@ public class DatabaseManager {
     }
 	
 	
-	public int addAlarm(int id,int sensorId,int strength){
+	public int addAlarm(long time,int sensorId,int strength){
+		int id = 0;
+		Timestamp t = new Timestamp(time);
 		try{
-			st = connection.prepareStatement("INSERT INTO alarm(eventId,sensorId,strength) VALUES(?,?,?)");
-			st.setObject(1, id);
-			st.setObject(2, sensorId);
-			st.setObject(3, strength);
+			st = connection.prepareStatement("INSERT INTO alarm(sensorId,strength,time) VALUES(?,?,?)");
+			st.setObject(1, sensorId);
+			st.setObject(2, strength);
+			st.setObject(3, t);
 			st.executeUpdate();
+			ResultSet res = st.getGeneratedKeys();
+			res.next();
+			id = res.getInt(1);
 			st.close();
 		}catch(SQLException e){
 			System.out.println(" Could not add the alarm ");
@@ -239,7 +249,7 @@ public List<List<Point>> getRoutes(){
 		catch(SQLException e){	
 			e.printStackTrace();
 		}
-		return list;
+		return list;*/
 	
 }
 	
@@ -254,7 +264,7 @@ public List<Alarm> getAlarms(){
 		}
 		ResultSet rs1 = null;
 		try {
-			PreparedStatement stmt1 = connection.prepareStatement("SELECT eventid FROM alarm ");
+			PreparedStatement stmt1 = connection.prepareStatement("SELECT time FROM alarm ");
 			rs1 = stmt1.executeQuery();
 		} catch (SQLException e3) {
 			// TODO Auto-generated catch block
@@ -280,7 +290,7 @@ public List<Alarm> getAlarms(){
 		
 		while(rs1.next() && rs2.next() && rs3.next())
 		{			
-			Alarm a = new Alarm(rs1.getInt(1), rs2.getInt(1), rs3.getInt(1));
+			Alarm a = new Alarm(rs2.getInt(1), rs3.getInt(1), rs1.getTimestamp(1).getTime());
 			System.out.println(a);
 			list.add(a);				
 		}
@@ -288,7 +298,7 @@ public List<Alarm> getAlarms(){
 		catch(SQLException e){	
 			e.printStackTrace();
 		}
-		return list; */
+		return list;  
 	
 	}
 	static public DatabaseManager getInstance() {
