@@ -20,6 +20,7 @@ import java.util.Collection;
 public class RealSensorNetwork extends SensorNetwork
 {
 	private String comport;
+	private Thread t;
     public RealSensorNetwork(String c)
     {
         super();
@@ -47,7 +48,8 @@ public class RealSensorNetwork extends SensorNetwork
                 InputStream in = serialPort.getInputStream();
                 OutputStream out = serialPort.getOutputStream();
                                
-                (new Thread(new SerialWriter(out))).start();
+                t = (new Thread(new SerialWriter(out)));
+                t.start();
                 
                 serialPort.addEventListener(new SerialReader(in));
                 serialPort.notifyOnDataAvailable(true);
@@ -190,6 +192,10 @@ public class RealSensorNetwork extends SensorNetwork
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+    
+    public void stop(){
+    	t.stop();
     }
 
 
