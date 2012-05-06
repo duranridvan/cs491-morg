@@ -15,6 +15,7 @@ import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.part.ViewPart;
 
 
@@ -30,7 +31,7 @@ public class GISView extends ViewPart{
 	private Image bgimage,sensorImage,cursorImage, alarmImage;
 	private Canvas canvas;
 	private Collection<Sensor> sensors = null;
-	private List<Point[]> lines;
+	//private List<Point[]> lines;
 	private Point cursorPosition;
 	private Image drawingArea=null;
 	public GISView() throws IOException {
@@ -41,7 +42,7 @@ public class GISView extends ViewPart{
 		cursorImage = Activator.getImageDescriptor("images/drawcursor.gif").createImage();
 		sensors = new ArrayList<Sensor>();
 		GISController.getInstance().setView(this);
-		lines = new ArrayList<Point[]>();
+		//lines = new ArrayList<Point[]>();
 	}
 
 
@@ -69,33 +70,18 @@ public class GISView extends ViewPart{
 			@Override
 			public void paintControl(PaintEvent e) {
 
-
-				//Rectangle clientArea = parent.getClientArea();
 	            for(Sensor s : sensors){
 	            	placeSensor(e.gc, s);
 	            }
-	            /*
-	            for(Point[] line : lines){
-	            	e.gc.setLineWidth(4);
-	            	e.gc.drawLine(line[0].x, line[0].y, line[1].x, line[1].y);
-	            	e.gc.setLineWidth(1);
-	            }*/
 	            
-	            if(drawingArea!=null){
-	            	e.gc.drawImage(drawingArea, 0, 0);
-	            }
+	            GISController.getInstance().path.draw(e.gc);
+	            
 	            int cx = cursorPosition.x - cursorImage.getBounds().width/2;
 	            int cy = cursorPosition.y - cursorImage.getBounds().height/2;
 	            e.gc.drawImage(cursorImage,cx,cy);
-	            
-	            
-	            //e.gc.drawImage(sensorImage, 10, 10, 10, 10);
-	            //e.gc.drawLine(0,0,clientArea.width,clientArea.height); 
 			}
 		});
-	    System.out.println(canvas.getBounds());
 
-	    
 
 	}
 
@@ -106,22 +92,19 @@ public class GISView extends ViewPart{
 	}
 
 	public void drawLine(Point p1,Point p2){
-		if(drawingArea == null){
+		/*if(drawingArea == null){
 			Image i = new Image(canvas.getDisplay(),canvas.getBounds());
 			ImageData id = i.getImageData();
 			id.transparentPixel = id.palette.getPixel(new RGB(255, 255, 255));
 			drawingArea = new Image(canvas.getDisplay(), id);
 			i.dispose();
 			
-		}
-		Point[] line = new Point[2];
-		line[0]=p1; line[1]=p2;
-		GC gc = new GC(drawingArea);
-		gc.setLineWidth(4);
-		gc.drawLine(p1.x, p1.y, p2.x, p2.y);
-		gc.setLineWidth(1);
-		gc.dispose();
-		lines.add(line);
+		}*/
+		//GC gc = new GC(drawingArea);
+		//gc.setLineWidth(4);
+		//gc.drawLine(p1.x, p1.y, p2.x, p2.y);
+		//gc.setLineWidth(1);
+		//gc.dispose();
 	}
 	
 	public void updateCursorPosition(Point p){
@@ -130,9 +113,16 @@ public class GISView extends ViewPart{
 	public void updateSensorList(Collection<Sensor> sensorlist){
 		sensors = sensorlist;	
 	}
-	public void update() {
-		canvas.redraw();
-		canvas.update();
+	public synchronized void update() {
+		Display.getDefault().syncExec(new Runnable() {
+			
+			@Override
+			public void run() {
+				canvas.redraw();
+				canvas.update();
+			}
+		});
+		
 		
 	}
 

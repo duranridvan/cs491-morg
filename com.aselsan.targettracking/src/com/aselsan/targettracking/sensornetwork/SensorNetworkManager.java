@@ -27,6 +27,7 @@ public class SensorNetworkManager {
 		}else{
 			if(com != null){
 				sN = new RealSensorNetwork(com);
+				sN.start();
 				isRun = true;
 				o = option;
 			}
@@ -36,7 +37,9 @@ public class SensorNetworkManager {
 		return isRun; 
 	}
 	public void stop(){
-		if(o == 1)
+		if(o == 1){
 			((RealSensorNetwork)sN).stop();
+		}
+		isRun = false;
 	}
 }

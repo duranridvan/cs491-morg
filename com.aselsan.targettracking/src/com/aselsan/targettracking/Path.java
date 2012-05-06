@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Point;
 
 public class Path {
@@ -21,6 +22,18 @@ public class Path {
 	}
 	public void finishPath(){
 		finishTime = DateUtils.now();
+	}
+	
+	public void draw(GC gc){
+		Point pre = null;
+		for(Point p : points){
+			if(pre!=null){
+				gc.setLineWidth(4);
+            	gc.drawLine(pre.x, pre.y, p.x, p.y);
+            	gc.setLineWidth(1);
+			}
+			pre = p;
+		}
 	}
 
 	public static class DateUtils {

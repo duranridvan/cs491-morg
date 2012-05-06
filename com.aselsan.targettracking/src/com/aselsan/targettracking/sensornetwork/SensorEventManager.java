@@ -29,8 +29,10 @@ public class SensorEventManager {
 			System.out.println("alarm: " + a.sensorId + " " +a.strength);
 		}
 		System.out.println("--------");
-		for(SensorEventListener listener: listeners)
+		for(SensorEventListener listener: listeners){
+			System.out.println(listener);
 			listener.alarm(alarms);
+		}
 	}
 	
 }

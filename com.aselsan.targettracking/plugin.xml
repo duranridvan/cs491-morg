@@ -77,13 +77,74 @@
             </command>
          </menu>
       </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="com.aselsan.targettracking.toolbar1">
+            <command
+                  commandId="com.aselsan.targettracking.commandnew"
+                  icon="icons/new.png"
+                  label="New"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.aselsan.targettracking.commandopen"
+                  icon="icons/open.png"
+                  label="Open"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.aselsan.targettracking.commandsave"
+                  icon="icons/save.png"
+                  label="Save"
+                  style="push">
+            </command>
+            <separator
+                  name="com.aselsan.targettracking.separator1"
+                  visible="true">
+            </separator>
+            <command
+                  commandId="com.aselsan.targettracking.commandstart"
+                  icon="icons/start.png"
+                  label="Start"
+                  style="push">
+            </command>
+            <command
+                  commandId="com.aselsan.targettracking.commandstop"
+                  icon="icons/stop.png"
+                  label="Stop"
+                  style="push">
+            </command>
+         </toolbar>
+      </menuContribution>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="com.aselsan.targettracking.SwitchSimulation"
-            id="com.aselsan.targettracking.simulation"
-            name="name">
+            defaultHandler="com.aselsan.targettracking.CommandNew"
+            id="com.aselsan.targettracking.commandnew"
+            name="New">
+      </command>
+      <command
+            defaultHandler="com.aselsan.targettracking.CommandOpen"
+            id="com.aselsan.targettracking.commandopen"
+            name="Open">
+      </command>
+      <command
+            defaultHandler="com.aselsan.targettracking.CommandSave"
+            id="com.aselsan.targettracking.commandsave"
+            name="Save">
+      </command>
+      <command
+            defaultHandler="com.aselsan.targettracking.CommandStart"
+            id="com.aselsan.targettracking.commandstart"
+            name="Start">
+      </command>
+      <command
+            defaultHandler="com.aselsan.targettracking.CommandStop"
+            id="com.aselsan.targettracking.commandstop"
+            name="Stop">
       </command>
    </extension>
    <extension

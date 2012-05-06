@@ -46,6 +46,7 @@ public class SimulationSensorNetwork extends SensorNetwork implements
 				list.get(i).isAlarm = false;
 		}
 		eventManager.alarm(alarms);
+		System.out.println("anayin ammi");
 	}
 	
 	public void start(){

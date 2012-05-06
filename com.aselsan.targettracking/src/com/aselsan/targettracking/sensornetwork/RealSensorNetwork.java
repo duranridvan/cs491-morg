@@ -19,7 +19,8 @@ import java.util.Collection;
 
 public class RealSensorNetwork extends SensorNetwork
 {
-	private String comport;
+	private static String comport;
+	private static RealSensorNetwork instance = null;
 	private Thread t;
     public RealSensorNetwork(String c)
     {
@@ -27,7 +28,11 @@ public class RealSensorNetwork extends SensorNetwork
         comport=c;
         
     }
-    
+	public static RealSensorNetwork getInstance(){
+		if(instance == null)
+			instance = new RealSensorNetwork(comport);
+		return instance;
+	}
     void connect ( String portName ) throws Exception
     {
     	System.out.println("dasa");
@@ -93,13 +98,20 @@ public class RealSensorNetwork extends SensorNetwork
                     if ( data == '>' ) {
                     	len = len -start-1;
                         String s = new String(buffer,start+1,len);
+                      //  
                         Scanner scan = new Scanner(s);
-                        if(t-prev<400){
-                        	list.add(new Alarm(scan.nextInt(), scan.nextInt(), t));
+                        if(t-prev<200){
+                        	Alarm a = new Alarm(scan.nextInt(), scan.nextInt()-20, t);
+                        	System.out.print(list);
+                        	System.out.println(" " + a.sensorId + " " + a.strength );
+                        	list.add(a);
                         }else{
+                        	//System.out.println("!!" + list.size());
+                        	
                         	eventManager.alarm(list);
+                        	System.out.println("geldim");
                         	prev = t;
-                        	list.clear();
+                        	list = new ArrayList<Alarm>();
                         	list.add(new Alarm(scan.nextInt(), scan.nextInt(), t));
                         	
                         }

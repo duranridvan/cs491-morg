@@ -4,10 +4,13 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import com.aselsan.targettracking.algorithm.Algorithm;
+import com.aselsan.targettracking.algorithm.AlgorithmEventManager;
 import com.aselsan.targettracking.gis.GISController;
 import com.aselsan.targettracking.gis.GISEventManager;
 import com.aselsan.targettracking.joystickmanager.JoystickEventManager;
 import com.aselsan.targettracking.joystickmanager.SoftwareJoystick;
+import com.aselsan.targettracking.sensornetwork.RealSensorNetwork;
 import com.aselsan.targettracking.sensornetwork.SensorEventManager;
 import com.aselsan.targettracking.sensornetwork.SensorManager;
 import com.aselsan.targettracking.sensornetwork.SimulationSensorNetwork;
@@ -41,14 +44,18 @@ public class Activator extends AbstractUIPlugin {
 		SensorManager sm = SensorManager.getInstance();
 		JoystickEventManager jem = JoystickEventManager.getInstance();
 		SensorEventManager sem = SensorEventManager.getInstance();
-		
+		Algorithm a = new Algorithm();
+		AlgorithmEventManager aem = AlgorithmEventManager.getInstance();
 		sm.addListener(gis);
-		jem.addListener(gis);
-		sem.addListener(gis);
-		
+		//jem.addListener(gis);
+		//sem.addListener(gis);
+		sem.addListener(a);
+		aem.addListener(gis);
+//		gem.addListener(RealSensorNetwork.getInstance());
 		//gem.addListener(new SimulationSensorNetwork());
 		
-		
+	    
+
 		
 		//new SoftwareJoystick();
 		plugin = this;

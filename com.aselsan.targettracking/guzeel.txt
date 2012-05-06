@@ -1,0 +1,782 @@
+Point {0, 0}
+Stable Library
+=========================================
+Native lib Version = RXTX-2.1-7
+Java lib Version   = RXTX-2.1-7
+dasa
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@9391d9] 4 10
+[com.aselsan.targettracking.sensornetwork.Alarm@9391d9, com.aselsan.targettracking.sensornetwork.Alarm@4c7d74] 2 13
+alarm: 1 88
+alarm: 4 10
+alarm: 2 13
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {149, 154}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@154dd88] 2 15
+alarm: 1 121
+alarm: 2 15
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {100, 172}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@119f7c5] 2 11
+[com.aselsan.targettracking.sensornetwork.Alarm@119f7c5, com.aselsan.targettracking.sensornetwork.Alarm@1d9af48] 1 107
+alarm: 1 153
+alarm: 2 11
+alarm: 1 107
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {99, 139}
+geldim
+alarm: 1 133
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {100, 100}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@82c0b7] 2 15
+[com.aselsan.targettracking.sensornetwork.Alarm@82c0b7, com.aselsan.targettracking.sensornetwork.Alarm@d6ef] 1 57
+[com.aselsan.targettracking.sensornetwork.Alarm@82c0b7, com.aselsan.targettracking.sensornetwork.Alarm@d6ef, com.aselsan.targettracking.sensornetwork.Alarm@11f1520] 2 25
+[com.aselsan.targettracking.sensornetwork.Alarm@82c0b7, com.aselsan.targettracking.sensornetwork.Alarm@d6ef, com.aselsan.targettracking.sensornetwork.Alarm@11f1520, com.aselsan.targettracking.sensornetwork.Alarm@1a3ec8d] 5 12
+alarm: 1 80
+alarm: 2 15
+alarm: 1 57
+alarm: 2 25
+alarm: 5 12
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {129, 199}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@ff49ee] 2 17
+alarm: 1 67
+alarm: 2 17
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {99, 180}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@4eceb9] 1 29
+[com.aselsan.targettracking.sensornetwork.Alarm@4eceb9, com.aselsan.targettracking.sensornetwork.Alarm@1e5f3a4] 5 8
+alarm: 2 36
+alarm: 1 29
+alarm: 5 8
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {146, 225}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1050aab] 1 20
+[com.aselsan.targettracking.sensornetwork.Alarm@1050aab, com.aselsan.targettracking.sensornetwork.Alarm@1ff6d62] 2 55
+[com.aselsan.targettracking.sensornetwork.Alarm@1050aab, com.aselsan.targettracking.sensornetwork.Alarm@1ff6d62, com.aselsan.targettracking.sensornetwork.Alarm@664a43] 1 34
+[com.aselsan.targettracking.sensornetwork.Alarm@1050aab, com.aselsan.targettracking.sensornetwork.Alarm@1ff6d62, com.aselsan.targettracking.sensornetwork.Alarm@664a43, com.aselsan.targettracking.sensornetwork.Alarm@1959df1] 5 10
+alarm: 2 44
+alarm: 1 20
+alarm: 2 55
+alarm: 1 34
+alarm: 5 10
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {127, 221}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@13f0d4d] 1 20
+alarm: 2 74
+alarm: 1 20
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {99, 217}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@8264ed] 1 28
+[com.aselsan.targettracking.sensornetwork.Alarm@8264ed, com.aselsan.targettracking.sensornetwork.Alarm@b02ce6] 5 10
+[com.aselsan.targettracking.sensornetwork.Alarm@8264ed, com.aselsan.targettracking.sensornetwork.Alarm@b02ce6, com.aselsan.targettracking.sensornetwork.Alarm@53c0ce] 2 169
+[com.aselsan.targettracking.sensornetwork.Alarm@8264ed, com.aselsan.targettracking.sensornetwork.Alarm@b02ce6, com.aselsan.targettracking.sensornetwork.Alarm@53c0ce, com.aselsan.targettracking.sensornetwork.Alarm@971bbb] 3 11
+[com.aselsan.targettracking.sensornetwork.Alarm@8264ed, com.aselsan.targettracking.sensornetwork.Alarm@b02ce6, com.aselsan.targettracking.sensornetwork.Alarm@53c0ce, com.aselsan.targettracking.sensornetwork.Alarm@971bbb, com.aselsan.targettracking.sensornetwork.Alarm@9da0a7] 1 21
+[com.aselsan.targettracking.sensornetwork.Alarm@8264ed, com.aselsan.targettracking.sensornetwork.Alarm@b02ce6, com.aselsan.targettracking.sensornetwork.Alarm@53c0ce, com.aselsan.targettracking.sensornetwork.Alarm@971bbb, com.aselsan.targettracking.sensornetwork.Alarm@9da0a7, com.aselsan.targettracking.sensornetwork.Alarm@9e364f] 5 9
+alarm: 2 163
+alarm: 1 28
+alarm: 5 10
+alarm: 2 169
+alarm: 3 11
+alarm: 1 21
+alarm: 5 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {138, 266}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@ff80f4] 1 14
+alarm: 2 80
+alarm: 1 14
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {99, 224}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@6b39a3] 2 43
+[com.aselsan.targettracking.sensornetwork.Alarm@6b39a3, com.aselsan.targettracking.sensornetwork.Alarm@1952387] 1 11
+alarm: 3 34
+alarm: 2 43
+alarm: 1 11
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {99, 323}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@e072e3] 2 26
+[com.aselsan.targettracking.sensornetwork.Alarm@e072e3, com.aselsan.targettracking.sensornetwork.Alarm@196c5be] 1 9
+[com.aselsan.targettracking.sensornetwork.Alarm@e072e3, com.aselsan.targettracking.sensornetwork.Alarm@196c5be, com.aselsan.targettracking.sensornetwork.Alarm@1906eff] 3 20
+[com.aselsan.targettracking.sensornetwork.Alarm@e072e3, com.aselsan.targettracking.sensornetwork.Alarm@196c5be, com.aselsan.targettracking.sensornetwork.Alarm@1906eff, com.aselsan.targettracking.sensornetwork.Alarm@1676198] 2 20
+alarm: 3 36
+alarm: 2 26
+alarm: 1 9
+alarm: 3 20
+alarm: 2 20
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {100, 358}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@3863b3] 2 20
+[com.aselsan.targettracking.sensornetwork.Alarm@3863b3, com.aselsan.targettracking.sensornetwork.Alarm@19b340] 1 9
+alarm: 3 54
+alarm: 2 20
+alarm: 1 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {99, 339}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1473d29] 2 16
+[com.aselsan.targettracking.sensornetwork.Alarm@1473d29, com.aselsan.targettracking.sensornetwork.Alarm@7d90] 3 65
+[com.aselsan.targettracking.sensornetwork.Alarm@1473d29, com.aselsan.targettracking.sensornetwork.Alarm@7d90, com.aselsan.targettracking.sensornetwork.Alarm@338a60] 2 9
+alarm: 3 63
+alarm: 2 16
+alarm: 3 65
+alarm: 2 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {99, 425}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1c1ccbc] 2 11
+[com.aselsan.targettracking.sensornetwork.Alarm@1c1ccbc, com.aselsan.targettracking.sensornetwork.Alarm@6857da] 1 8
+[com.aselsan.targettracking.sensornetwork.Alarm@1c1ccbc, com.aselsan.targettracking.sensornetwork.Alarm@6857da, com.aselsan.targettracking.sensornetwork.Alarm@af2ac3] 3 342
+[com.aselsan.targettracking.sensornetwork.Alarm@1c1ccbc, com.aselsan.targettracking.sensornetwork.Alarm@6857da, com.aselsan.targettracking.sensornetwork.Alarm@af2ac3, com.aselsan.targettracking.sensornetwork.Alarm@20a61b] 2 11
+[com.aselsan.targettracking.sensornetwork.Alarm@1c1ccbc, com.aselsan.targettracking.sensornetwork.Alarm@6857da, com.aselsan.targettracking.sensornetwork.Alarm@af2ac3, com.aselsan.targettracking.sensornetwork.Alarm@20a61b, com.aselsan.targettracking.sensornetwork.Alarm@1795159] 1 9
+alarm: 3 143
+alarm: 2 11
+alarm: 1 8
+alarm: 3 342
+alarm: 2 11
+alarm: 1 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {100, 365}
+geldim
+alarm: 3 74
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {100, 499}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1cbd0c5] 2 8
+alarm: 3 48
+alarm: 2 8
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {99, 430}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1f73a89] 6 17
+[com.aselsan.targettracking.sensornetwork.Alarm@1f73a89, com.aselsan.targettracking.sensornetwork.Alarm@240ad1] 2 12
+alarm: 3 50
+alarm: 6 17
+alarm: 2 12
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {161, 446}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@100b20e] 6 9
+[com.aselsan.targettracking.sensornetwork.Alarm@100b20e, com.aselsan.targettracking.sensornetwork.Alarm@a9ec03] 2 10
+[com.aselsan.targettracking.sensornetwork.Alarm@100b20e, com.aselsan.targettracking.sensornetwork.Alarm@a9ec03, com.aselsan.targettracking.sensornetwork.Alarm@1c5f7df] 3 23
+[com.aselsan.targettracking.sensornetwork.Alarm@100b20e, com.aselsan.targettracking.sensornetwork.Alarm@a9ec03, com.aselsan.targettracking.sensornetwork.Alarm@1c5f7df, com.aselsan.targettracking.sensornetwork.Alarm@1466e6] 6 15
+[com.aselsan.targettracking.sensornetwork.Alarm@100b20e, com.aselsan.targettracking.sensornetwork.Alarm@a9ec03, com.aselsan.targettracking.sensornetwork.Alarm@1c5f7df, com.aselsan.targettracking.sensornetwork.Alarm@1466e6, com.aselsan.targettracking.sensornetwork.Alarm@16f8821] 2 11
+alarm: 3 40
+alarm: 6 9
+alarm: 2 10
+alarm: 3 23
+alarm: 6 15
+alarm: 2 11
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {159, 442}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1525b5f] 6 16
+[com.aselsan.targettracking.sensornetwork.Alarm@1525b5f, com.aselsan.targettracking.sensornetwork.Alarm@1ece8cf] 2 16
+[com.aselsan.targettracking.sensornetwork.Alarm@1525b5f, com.aselsan.targettracking.sensornetwork.Alarm@1ece8cf, com.aselsan.targettracking.sensornetwork.Alarm@a8ad98] 5 9
+[com.aselsan.targettracking.sensornetwork.Alarm@1525b5f, com.aselsan.targettracking.sensornetwork.Alarm@1ece8cf, com.aselsan.targettracking.sensornetwork.Alarm@a8ad98, com.aselsan.targettracking.sensornetwork.Alarm@1d171e] 10 8
+[com.aselsan.targettracking.sensornetwork.Alarm@1525b5f, com.aselsan.targettracking.sensornetwork.Alarm@1ece8cf, com.aselsan.targettracking.sensornetwork.Alarm@a8ad98, com.aselsan.targettracking.sensornetwork.Alarm@1d171e, com.aselsan.targettracking.sensornetwork.Alarm@1d8ee20] 1 10
+[com.aselsan.targettracking.sensornetwork.Alarm@1525b5f, com.aselsan.targettracking.sensornetwork.Alarm@1ece8cf, com.aselsan.targettracking.sensornetwork.Alarm@a8ad98, com.aselsan.targettracking.sensornetwork.Alarm@1d171e, com.aselsan.targettracking.sensornetwork.Alarm@1d8ee20, com.aselsan.targettracking.sensornetwork.Alarm@f9883c] 6 32
+[com.aselsan.targettracking.sensornetwork.Alarm@1525b5f, com.aselsan.targettracking.sensornetwork.Alarm@1ece8cf, com.aselsan.targettracking.sensornetwork.Alarm@a8ad98, com.aselsan.targettracking.sensornetwork.Alarm@1d171e, com.aselsan.targettracking.sensornetwork.Alarm@1d8ee20, com.aselsan.targettracking.sensornetwork.Alarm@f9883c, com.aselsan.targettracking.sensornetwork.Alarm@5f3028] 3 20
+[com.aselsan.targettracking.sensornetwork.Alarm@1525b5f, com.aselsan.targettracking.sensornetwork.Alarm@1ece8cf, com.aselsan.targettracking.sensornetwork.Alarm@a8ad98, com.aselsan.targettracking.sensornetwork.Alarm@1d171e, com.aselsan.targettracking.sensornetwork.Alarm@1d8ee20, com.aselsan.targettracking.sensornetwork.Alarm@f9883c, com.aselsan.targettracking.sensornetwork.Alarm@5f3028, com.aselsan.targettracking.sensornetwork.Alarm@e6bd1e] 2 11
+[com.aselsan.targettracking.sensornetwork.Alarm@1525b5f, com.aselsan.targettracking.sensornetwork.Alarm@1ece8cf, com.aselsan.targettracking.sensornetwork.Alarm@a8ad98, com.aselsan.targettracking.sensornetwork.Alarm@1d171e, com.aselsan.targettracking.sensornetwork.Alarm@1d8ee20, com.aselsan.targettracking.sensornetwork.Alarm@f9883c, com.aselsan.targettracking.sensornetwork.Alarm@5f3028, com.aselsan.targettracking.sensornetwork.Alarm@e6bd1e, com.aselsan.targettracking.sensornetwork.Alarm@8a3052] 5 12
+[com.aselsan.targettracking.sensornetwork.Alarm@1525b5f, com.aselsan.targettracking.sensornetwork.Alarm@1ece8cf, com.aselsan.targettracking.sensornetwork.Alarm@a8ad98, com.aselsan.targettracking.sensornetwork.Alarm@1d171e, com.aselsan.targettracking.sensornetwork.Alarm@1d8ee20, com.aselsan.targettracking.sensornetwork.Alarm@f9883c, com.aselsan.targettracking.sensornetwork.Alarm@5f3028, com.aselsan.targettracking.sensornetwork.Alarm@e6bd1e, com.aselsan.targettracking.sensornetwork.Alarm@8a3052, com.aselsan.targettracking.sensornetwork.Alarm@454d3e] 10 8
+[com.aselsan.targettracking.sensornetwork.Alarm@1525b5f, com.aselsan.targettracking.sensornetwork.Alarm@1ece8cf, com.aselsan.targettracking.sensornetwork.Alarm@a8ad98, com.aselsan.targettracking.sensornetwork.Alarm@1d171e, com.aselsan.targettracking.sensornetwork.Alarm@1d8ee20, com.aselsan.targettracking.sensornetwork.Alarm@f9883c, com.aselsan.targettracking.sensornetwork.Alarm@5f3028, com.aselsan.targettracking.sensornetwork.Alarm@e6bd1e, com.aselsan.targettracking.sensornetwork.Alarm@8a3052, com.aselsan.targettracking.sensornetwork.Alarm@454d3e, com.aselsan.targettracking.sensornetwork.Alarm@1d23619] 1 9
+alarm: 3 43
+alarm: 6 16
+alarm: 2 16
+alarm: 5 9
+alarm: 10 8
+alarm: 1 10
+alarm: 6 32
+alarm: 3 20
+alarm: 2 11
+alarm: 5 12
+alarm: 10 8
+alarm: 1 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {222, 380}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1ddd36e] 3 27
+[com.aselsan.targettracking.sensornetwork.Alarm@1ddd36e, com.aselsan.targettracking.sensornetwork.Alarm@63e4f2] 2 17
+[com.aselsan.targettracking.sensornetwork.Alarm@1ddd36e, com.aselsan.targettracking.sensornetwork.Alarm@63e4f2, com.aselsan.targettracking.sensornetwork.Alarm@4bf0ff] 10 9
+[com.aselsan.targettracking.sensornetwork.Alarm@1ddd36e, com.aselsan.targettracking.sensornetwork.Alarm@63e4f2, com.aselsan.targettracking.sensornetwork.Alarm@4bf0ff, com.aselsan.targettracking.sensornetwork.Alarm@1bb00c8] 5 13
+[com.aselsan.targettracking.sensornetwork.Alarm@1ddd36e, com.aselsan.targettracking.sensornetwork.Alarm@63e4f2, com.aselsan.targettracking.sensornetwork.Alarm@4bf0ff, com.aselsan.targettracking.sensornetwork.Alarm@1bb00c8, com.aselsan.targettracking.sensornetwork.Alarm@30756a] 1 11
+alarm: 6 56
+alarm: 3 27
+alarm: 2 17
+alarm: 10 9
+alarm: 5 13
+alarm: 1 11
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {226, 382}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@16c8f94] 3 19
+[com.aselsan.targettracking.sensornetwork.Alarm@16c8f94, com.aselsan.targettracking.sensornetwork.Alarm@46708a] 5 12
+[com.aselsan.targettracking.sensornetwork.Alarm@16c8f94, com.aselsan.targettracking.sensornetwork.Alarm@46708a, com.aselsan.targettracking.sensornetwork.Alarm@86ab8f] 10 12
+[com.aselsan.targettracking.sensornetwork.Alarm@16c8f94, com.aselsan.targettracking.sensornetwork.Alarm@46708a, com.aselsan.targettracking.sensornetwork.Alarm@86ab8f, com.aselsan.targettracking.sensornetwork.Alarm@1693b9b] 2 11
+[com.aselsan.targettracking.sensornetwork.Alarm@16c8f94, com.aselsan.targettracking.sensornetwork.Alarm@46708a, com.aselsan.targettracking.sensornetwork.Alarm@86ab8f, com.aselsan.targettracking.sensornetwork.Alarm@1693b9b, com.aselsan.targettracking.sensornetwork.Alarm@1c8504d] 1 9
+alarm: 6 77
+alarm: 3 19
+alarm: 5 12
+alarm: 10 12
+alarm: 2 11
+alarm: 1 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {240, 389}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@fff88] 3 19
+[com.aselsan.targettracking.sensornetwork.Alarm@fff88, com.aselsan.targettracking.sensornetwork.Alarm@51460f] 5 14
+[com.aselsan.targettracking.sensornetwork.Alarm@fff88, com.aselsan.targettracking.sensornetwork.Alarm@51460f, com.aselsan.targettracking.sensornetwork.Alarm@1cea4cc] 10 12
+[com.aselsan.targettracking.sensornetwork.Alarm@fff88, com.aselsan.targettracking.sensornetwork.Alarm@51460f, com.aselsan.targettracking.sensornetwork.Alarm@1cea4cc, com.aselsan.targettracking.sensornetwork.Alarm@1a5814b] 2 13
+[com.aselsan.targettracking.sensornetwork.Alarm@fff88, com.aselsan.targettracking.sensornetwork.Alarm@51460f, com.aselsan.targettracking.sensornetwork.Alarm@1cea4cc, com.aselsan.targettracking.sensornetwork.Alarm@1a5814b, com.aselsan.targettracking.sensornetwork.Alarm@cb9502] 1 10
+alarm: 6 88
+alarm: 3 19
+alarm: 5 14
+alarm: 10 12
+alarm: 2 13
+alarm: 1 10
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {238, 387}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1a3d36f] 3 15
+[com.aselsan.targettracking.sensornetwork.Alarm@1a3d36f, com.aselsan.targettracking.sensornetwork.Alarm@8e3c06] 5 12
+[com.aselsan.targettracking.sensornetwork.Alarm@1a3d36f, com.aselsan.targettracking.sensornetwork.Alarm@8e3c06, com.aselsan.targettracking.sensornetwork.Alarm@6d634] 10 13
+[com.aselsan.targettracking.sensornetwork.Alarm@1a3d36f, com.aselsan.targettracking.sensornetwork.Alarm@8e3c06, com.aselsan.targettracking.sensornetwork.Alarm@6d634, com.aselsan.targettracking.sensornetwork.Alarm@d91f1f] 2 9
+[com.aselsan.targettracking.sensornetwork.Alarm@1a3d36f, com.aselsan.targettracking.sensornetwork.Alarm@8e3c06, com.aselsan.targettracking.sensornetwork.Alarm@6d634, com.aselsan.targettracking.sensornetwork.Alarm@d91f1f, com.aselsan.targettracking.sensornetwork.Alarm@8a4f89] 1 8
+[com.aselsan.targettracking.sensornetwork.Alarm@1a3d36f, com.aselsan.targettracking.sensornetwork.Alarm@8e3c06, com.aselsan.targettracking.sensornetwork.Alarm@6d634, com.aselsan.targettracking.sensornetwork.Alarm@d91f1f, com.aselsan.targettracking.sensornetwork.Alarm@8a4f89, com.aselsan.targettracking.sensornetwork.Alarm@6bb0c6] 6 139
+[com.aselsan.targettracking.sensornetwork.Alarm@1a3d36f, com.aselsan.targettracking.sensornetwork.Alarm@8e3c06, com.aselsan.targettracking.sensornetwork.Alarm@6d634, com.aselsan.targettracking.sensornetwork.Alarm@d91f1f, com.aselsan.targettracking.sensornetwork.Alarm@8a4f89, com.aselsan.targettracking.sensornetwork.Alarm@6bb0c6, com.aselsan.targettracking.sensornetwork.Alarm@22d801] 5 11
+[com.aselsan.targettracking.sensornetwork.Alarm@1a3d36f, com.aselsan.targettracking.sensornetwork.Alarm@8e3c06, com.aselsan.targettracking.sensornetwork.Alarm@6d634, com.aselsan.targettracking.sensornetwork.Alarm@d91f1f, com.aselsan.targettracking.sensornetwork.Alarm@8a4f89, com.aselsan.targettracking.sensornetwork.Alarm@6bb0c6, com.aselsan.targettracking.sensornetwork.Alarm@22d801, com.aselsan.targettracking.sensornetwork.Alarm@19352c1] 3 13
+[com.aselsan.targettracking.sensornetwork.Alarm@1a3d36f, com.aselsan.targettracking.sensornetwork.Alarm@8e3c06, com.aselsan.targettracking.sensornetwork.Alarm@6d634, com.aselsan.targettracking.sensornetwork.Alarm@d91f1f, com.aselsan.targettracking.sensornetwork.Alarm@8a4f89, com.aselsan.targettracking.sensornetwork.Alarm@6bb0c6, com.aselsan.targettracking.sensornetwork.Alarm@22d801, com.aselsan.targettracking.sensornetwork.Alarm@19352c1, com.aselsan.targettracking.sensornetwork.Alarm@11e0d19] 10 9
+[com.aselsan.targettracking.sensornetwork.Alarm@1a3d36f, com.aselsan.targettracking.sensornetwork.Alarm@8e3c06, com.aselsan.targettracking.sensornetwork.Alarm@6d634, com.aselsan.targettracking.sensornetwork.Alarm@d91f1f, com.aselsan.targettracking.sensornetwork.Alarm@8a4f89, com.aselsan.targettracking.sensornetwork.Alarm@6bb0c6, com.aselsan.targettracking.sensornetwork.Alarm@22d801, com.aselsan.targettracking.sensornetwork.Alarm@19352c1, com.aselsan.targettracking.sensornetwork.Alarm@11e0d19, com.aselsan.targettracking.sensornetwork.Alarm@1ede4e1] 2 9
+[com.aselsan.targettracking.sensornetwork.Alarm@1a3d36f, com.aselsan.targettracking.sensornetwork.Alarm@8e3c06, com.aselsan.targettracking.sensornetwork.Alarm@6d634, com.aselsan.targettracking.sensornetwork.Alarm@d91f1f, com.aselsan.targettracking.sensornetwork.Alarm@8a4f89, com.aselsan.targettracking.sensornetwork.Alarm@6bb0c6, com.aselsan.targettracking.sensornetwork.Alarm@22d801, com.aselsan.targettracking.sensornetwork.Alarm@19352c1, com.aselsan.targettracking.sensornetwork.Alarm@11e0d19, com.aselsan.targettracking.sensornetwork.Alarm@1ede4e1, com.aselsan.targettracking.sensornetwork.Alarm@14d9eed] 1 10
+[com.aselsan.targettracking.sensornetwork.Alarm@1a3d36f, com.aselsan.targettracking.sensornetwork.Alarm@8e3c06, com.aselsan.targettracking.sensornetwork.Alarm@6d634, com.aselsan.targettracking.sensornetwork.Alarm@d91f1f, com.aselsan.targettracking.sensornetwork.Alarm@8a4f89, com.aselsan.targettracking.sensornetwork.Alarm@6bb0c6, com.aselsan.targettracking.sensornetwork.Alarm@22d801, com.aselsan.targettracking.sensornetwork.Alarm@19352c1, com.aselsan.targettracking.sensornetwork.Alarm@11e0d19, com.aselsan.targettracking.sensornetwork.Alarm@1ede4e1, com.aselsan.targettracking.sensornetwork.Alarm@14d9eed, com.aselsan.targettracking.sensornetwork.Alarm@bb84a3] 6 60
+[com.aselsan.targettracking.sensornetwork.Alarm@1a3d36f, com.aselsan.targettracking.sensornetwork.Alarm@8e3c06, com.aselsan.targettracking.sensornetwork.Alarm@6d634, com.aselsan.targettracking.sensornetwork.Alarm@d91f1f, com.aselsan.targettracking.sensornetwork.Alarm@8a4f89, com.aselsan.targettracking.sensornetwork.Alarm@6bb0c6, com.aselsan.targettracking.sensornetwork.Alarm@22d801, com.aselsan.targettracking.sensornetwork.Alarm@19352c1, com.aselsan.targettracking.sensornetwork.Alarm@11e0d19, com.aselsan.targettracking.sensornetwork.Alarm@1ede4e1, com.aselsan.targettracking.sensornetwork.Alarm@14d9eed, com.aselsan.targettracking.sensornetwork.Alarm@bb84a3, com.aselsan.targettracking.sensornetwork.Alarm@100ebc2] 5 11
+[com.aselsan.targettracking.sensornetwork.Alarm@1a3d36f, com.aselsan.targettracking.sensornetwork.Alarm@8e3c06, com.aselsan.targettracking.sensornetwork.Alarm@6d634, com.aselsan.targettracking.sensornetwork.Alarm@d91f1f, com.aselsan.targettracking.sensornetwork.Alarm@8a4f89, com.aselsan.targettracking.sensornetwork.Alarm@6bb0c6, com.aselsan.targettracking.sensornetwork.Alarm@22d801, com.aselsan.targettracking.sensornetwork.Alarm@19352c1, com.aselsan.targettracking.sensornetwork.Alarm@11e0d19, com.aselsan.targettracking.sensornetwork.Alarm@1ede4e1, com.aselsan.targettracking.sensornetwork.Alarm@14d9eed, com.aselsan.targettracking.sensornetwork.Alarm@bb84a3, com.aselsan.targettracking.sensornetwork.Alarm@100ebc2, com.aselsan.targettracking.sensornetwork.Alarm@17627b7] 10 12
+alarm: 6 190
+alarm: 3 15
+alarm: 5 12
+alarm: 10 13
+alarm: 2 9
+alarm: 1 8
+alarm: 6 139
+alarm: 5 11
+alarm: 3 13
+alarm: 10 9
+alarm: 2 9
+alarm: 1 10
+alarm: 6 60
+alarm: 5 11
+alarm: 10 12
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {268, 404}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@296020] 10 13
+[com.aselsan.targettracking.sensornetwork.Alarm@296020, com.aselsan.targettracking.sensornetwork.Alarm@661074] 5 9
+[com.aselsan.targettracking.sensornetwork.Alarm@296020, com.aselsan.targettracking.sensornetwork.Alarm@661074, com.aselsan.targettracking.sensornetwork.Alarm@c254ce] 1 9
+alarm: 6 69
+alarm: 10 13
+alarm: 5 9
+alarm: 1 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {306, 382}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@132525a] 6 32
+[com.aselsan.targettracking.sensornetwork.Alarm@132525a, com.aselsan.targettracking.sensornetwork.Alarm@bcc9b1] 5 9
+alarm: 10 39
+alarm: 6 32
+alarm: 5 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {378, 452}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@5d9e83] 10 17
+[com.aselsan.targettracking.sensornetwork.Alarm@5d9e83, com.aselsan.targettracking.sensornetwork.Alarm@51d6c1] 5 8
+[com.aselsan.targettracking.sensornetwork.Alarm@5d9e83, com.aselsan.targettracking.sensornetwork.Alarm@51d6c1, com.aselsan.targettracking.sensornetwork.Alarm@c28666] 10 19
+[com.aselsan.targettracking.sensornetwork.Alarm@5d9e83, com.aselsan.targettracking.sensornetwork.Alarm@51d6c1, com.aselsan.targettracking.sensornetwork.Alarm@c28666, com.aselsan.targettracking.sensornetwork.Alarm@105b9e8] 6 22
+[com.aselsan.targettracking.sensornetwork.Alarm@5d9e83, com.aselsan.targettracking.sensornetwork.Alarm@51d6c1, com.aselsan.targettracking.sensornetwork.Alarm@c28666, com.aselsan.targettracking.sensornetwork.Alarm@105b9e8, com.aselsan.targettracking.sensornetwork.Alarm@f06b64] 5 8
+alarm: 6 58
+alarm: 10 17
+alarm: 5 8
+alarm: 10 19
+alarm: 6 22
+alarm: 5 8
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {367, 451}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1a7f06] 6 20
+[com.aselsan.targettracking.sensornetwork.Alarm@1a7f06, com.aselsan.targettracking.sensornetwork.Alarm@1898bff] 5 8
+alarm: 10 47
+alarm: 6 20
+alarm: 5 8
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {386, 453}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@14651b6] 6 8
+[com.aselsan.targettracking.sensornetwork.Alarm@14651b6, com.aselsan.targettracking.sensornetwork.Alarm@19e8567] 10 15
+[com.aselsan.targettracking.sensornetwork.Alarm@14651b6, com.aselsan.targettracking.sensornetwork.Alarm@19e8567, com.aselsan.targettracking.sensornetwork.Alarm@486d9f] 6 12
+alarm: 10 39
+alarm: 6 8
+alarm: 10 15
+alarm: 6 12
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {416, 500}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@114fb83] 6 13
+[com.aselsan.targettracking.sensornetwork.Alarm@114fb83, com.aselsan.targettracking.sensornetwork.Alarm@8c6ea1] 10 41
+alarm: 10 102
+alarm: 6 13
+alarm: 10 41
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {452, 500}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1b33971] 6 9
+alarm: 10 57
+alarm: 6 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {429, 500}
+geldim
+alarm: 10 66
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {500, 500}
+geldim
+alarm: 10 56
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {500, 500}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@18060f4] 10 17
+alarm: 10 44
+alarm: 10 17
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {500, 500}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@15d55cb] 10 14
+[com.aselsan.targettracking.sensornetwork.Alarm@15d55cb, com.aselsan.targettracking.sensornetwork.Alarm@ab9389] 7 8
+alarm: 10 34
+alarm: 10 14
+alarm: 7 8
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {499, 399}
+geldim
+alarm: 10 29
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {500, 500}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@63443c] 5 8
+[com.aselsan.targettracking.sensornetwork.Alarm@63443c, com.aselsan.targettracking.sensornetwork.Alarm@114fdea] 10 14
+alarm: 7 32
+alarm: 5 8
+alarm: 10 14
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {449, 279}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@15b393a] 10 9
+alarm: 7 29
+alarm: 10 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {500, 257}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@dfd02e] 4 8
+[com.aselsan.targettracking.sensornetwork.Alarm@dfd02e, com.aselsan.targettracking.sensornetwork.Alarm@1dcaba4] 10 11
+alarm: 7 36
+alarm: 4 8
+alarm: 10 11
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {448, 218}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@88d248] 4 8
+[com.aselsan.targettracking.sensornetwork.Alarm@88d248, com.aselsan.targettracking.sensornetwork.Alarm@a58086] 5 9
+[com.aselsan.targettracking.sensornetwork.Alarm@88d248, com.aselsan.targettracking.sensornetwork.Alarm@a58086, com.aselsan.targettracking.sensornetwork.Alarm@1991731] 10 8
+[com.aselsan.targettracking.sensornetwork.Alarm@88d248, com.aselsan.targettracking.sensornetwork.Alarm@a58086, com.aselsan.targettracking.sensornetwork.Alarm@1991731, com.aselsan.targettracking.sensornetwork.Alarm@1c192c8] 7 24
+[com.aselsan.targettracking.sensornetwork.Alarm@88d248, com.aselsan.targettracking.sensornetwork.Alarm@a58086, com.aselsan.targettracking.sensornetwork.Alarm@1991731, com.aselsan.targettracking.sensornetwork.Alarm@1c192c8, com.aselsan.targettracking.sensornetwork.Alarm@18bbeb6] 5 10
+[com.aselsan.targettracking.sensornetwork.Alarm@88d248, com.aselsan.targettracking.sensornetwork.Alarm@a58086, com.aselsan.targettracking.sensornetwork.Alarm@1991731, com.aselsan.targettracking.sensornetwork.Alarm@1c192c8, com.aselsan.targettracking.sensornetwork.Alarm@18bbeb6, com.aselsan.targettracking.sensornetwork.Alarm@195b0f5] 4 13
+[com.aselsan.targettracking.sensornetwork.Alarm@88d248, com.aselsan.targettracking.sensornetwork.Alarm@a58086, com.aselsan.targettracking.sensornetwork.Alarm@1991731, com.aselsan.targettracking.sensornetwork.Alarm@1c192c8, com.aselsan.targettracking.sensornetwork.Alarm@18bbeb6, com.aselsan.targettracking.sensornetwork.Alarm@195b0f5, com.aselsan.targettracking.sensornetwork.Alarm@94bb2d] 10 10
+alarm: 7 33
+alarm: 4 8
+alarm: 5 9
+alarm: 10 8
+alarm: 7 24
+alarm: 5 10
+alarm: 4 13
+alarm: 10 10
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {409, 231}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@8cc119] 4 11
+alarm: 7 58
+alarm: 4 11
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {425, 100}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@d96b43] 4 8
+alarm: 7 54
+alarm: 4 8
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {431, 100}
+geldim
+alarm: 7 50
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {500, 100}
+geldim
+alarm: 7 109
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {500, 100}
+geldim
+alarm: 7 131
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {500, 100}
+geldim
+alarm: 7 96
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {500, 100}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@10fe31] 4 12
+alarm: 7 57
+alarm: 4 12
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {423, 99}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@ebf5a1] 4 17
+[com.aselsan.targettracking.sensornetwork.Alarm@ebf5a1, com.aselsan.targettracking.sensornetwork.Alarm@14b1d80] 5 9
+[com.aselsan.targettracking.sensornetwork.Alarm@ebf5a1, com.aselsan.targettracking.sensornetwork.Alarm@14b1d80, com.aselsan.targettracking.sensornetwork.Alarm@7dc030] 1 8
+[com.aselsan.targettracking.sensornetwork.Alarm@ebf5a1, com.aselsan.targettracking.sensornetwork.Alarm@14b1d80, com.aselsan.targettracking.sensornetwork.Alarm@7dc030, com.aselsan.targettracking.sensornetwork.Alarm@17b1176] 7 35
+[com.aselsan.targettracking.sensornetwork.Alarm@ebf5a1, com.aselsan.targettracking.sensornetwork.Alarm@14b1d80, com.aselsan.targettracking.sensornetwork.Alarm@7dc030, com.aselsan.targettracking.sensornetwork.Alarm@17b1176, com.aselsan.targettracking.sensornetwork.Alarm@b788e5] 4 22
+[com.aselsan.targettracking.sensornetwork.Alarm@ebf5a1, com.aselsan.targettracking.sensornetwork.Alarm@14b1d80, com.aselsan.targettracking.sensornetwork.Alarm@7dc030, com.aselsan.targettracking.sensornetwork.Alarm@17b1176, com.aselsan.targettracking.sensornetwork.Alarm@b788e5, com.aselsan.targettracking.sensornetwork.Alarm@17caa26] 5 12
+[com.aselsan.targettracking.sensornetwork.Alarm@ebf5a1, com.aselsan.targettracking.sensornetwork.Alarm@14b1d80, com.aselsan.targettracking.sensornetwork.Alarm@7dc030, com.aselsan.targettracking.sensornetwork.Alarm@17b1176, com.aselsan.targettracking.sensornetwork.Alarm@b788e5, com.aselsan.targettracking.sensornetwork.Alarm@17caa26, com.aselsan.targettracking.sensornetwork.Alarm@186a79a] 1 8
+alarm: 7 52
+alarm: 4 17
+alarm: 5 9
+alarm: 1 8
+alarm: 7 35
+alarm: 4 22
+alarm: 5 12
+alarm: 1 8
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {330, 142}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1658dfe] 4 20
+[com.aselsan.targettracking.sensornetwork.Alarm@1658dfe, com.aselsan.targettracking.sensornetwork.Alarm@4d2176] 5 12
+[com.aselsan.targettracking.sensornetwork.Alarm@1658dfe, com.aselsan.targettracking.sensornetwork.Alarm@4d2176, com.aselsan.targettracking.sensornetwork.Alarm@1cff223] 1 8
+alarm: 7 40
+alarm: 4 20
+alarm: 5 12
+alarm: 1 8
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {328, 144}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@60da21] 7 25
+[com.aselsan.targettracking.sensornetwork.Alarm@60da21, com.aselsan.targettracking.sensornetwork.Alarm@90b907] 5 19
+[com.aselsan.targettracking.sensornetwork.Alarm@60da21, com.aselsan.targettracking.sensornetwork.Alarm@90b907, com.aselsan.targettracking.sensornetwork.Alarm@163bb7b] 1 9
+[com.aselsan.targettracking.sensornetwork.Alarm@60da21, com.aselsan.targettracking.sensornetwork.Alarm@90b907, com.aselsan.targettracking.sensornetwork.Alarm@163bb7b, com.aselsan.targettracking.sensornetwork.Alarm@a9b0f5] 4 28
+[com.aselsan.targettracking.sensornetwork.Alarm@60da21, com.aselsan.targettracking.sensornetwork.Alarm@90b907, com.aselsan.targettracking.sensornetwork.Alarm@163bb7b, com.aselsan.targettracking.sensornetwork.Alarm@a9b0f5, com.aselsan.targettracking.sensornetwork.Alarm@a0b386] 5 14
+[com.aselsan.targettracking.sensornetwork.Alarm@60da21, com.aselsan.targettracking.sensornetwork.Alarm@90b907, com.aselsan.targettracking.sensornetwork.Alarm@163bb7b, com.aselsan.targettracking.sensornetwork.Alarm@a9b0f5, com.aselsan.targettracking.sensornetwork.Alarm@a0b386, com.aselsan.targettracking.sensornetwork.Alarm@6a47aa] 7 15
+[com.aselsan.targettracking.sensornetwork.Alarm@60da21, com.aselsan.targettracking.sensornetwork.Alarm@90b907, com.aselsan.targettracking.sensornetwork.Alarm@163bb7b, com.aselsan.targettracking.sensornetwork.Alarm@a9b0f5, com.aselsan.targettracking.sensornetwork.Alarm@a0b386, com.aselsan.targettracking.sensornetwork.Alarm@6a47aa, com.aselsan.targettracking.sensornetwork.Alarm@18701b4] 1 11
+alarm: 4 53
+alarm: 7 25
+alarm: 5 19
+alarm: 1 9
+alarm: 4 28
+alarm: 5 14
+alarm: 7 15
+alarm: 1 11
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {311, 147}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@80f30e] 4 11
+[com.aselsan.targettracking.sensornetwork.Alarm@80f30e, com.aselsan.targettracking.sensornetwork.Alarm@1d54779] 1 8
+[com.aselsan.targettracking.sensornetwork.Alarm@80f30e, com.aselsan.targettracking.sensornetwork.Alarm@1d54779, com.aselsan.targettracking.sensornetwork.Alarm@147890f] 4 35
+[com.aselsan.targettracking.sensornetwork.Alarm@80f30e, com.aselsan.targettracking.sensornetwork.Alarm@1d54779, com.aselsan.targettracking.sensornetwork.Alarm@147890f, com.aselsan.targettracking.sensornetwork.Alarm@17767a1] 5 22
+[com.aselsan.targettracking.sensornetwork.Alarm@80f30e, com.aselsan.targettracking.sensornetwork.Alarm@1d54779, com.aselsan.targettracking.sensornetwork.Alarm@147890f, com.aselsan.targettracking.sensornetwork.Alarm@17767a1, com.aselsan.targettracking.sensornetwork.Alarm@347cce] 7 13
+[com.aselsan.targettracking.sensornetwork.Alarm@80f30e, com.aselsan.targettracking.sensornetwork.Alarm@1d54779, com.aselsan.targettracking.sensornetwork.Alarm@147890f, com.aselsan.targettracking.sensornetwork.Alarm@17767a1, com.aselsan.targettracking.sensornetwork.Alarm@347cce, com.aselsan.targettracking.sensornetwork.Alarm@1edc2bf] 1 13
+alarm: 5 32
+alarm: 4 11
+alarm: 1 8
+alarm: 4 35
+alarm: 5 22
+alarm: 7 13
+alarm: 1 13
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {278, 166}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@8c8a96] 5 16
+[com.aselsan.targettracking.sensornetwork.Alarm@8c8a96, com.aselsan.targettracking.sensornetwork.Alarm@de8e8b] 1 8
+[com.aselsan.targettracking.sensornetwork.Alarm@8c8a96, com.aselsan.targettracking.sensornetwork.Alarm@de8e8b, com.aselsan.targettracking.sensornetwork.Alarm@1607e7d] 7 9
+alarm: 4 43
+alarm: 5 16
+alarm: 1 8
+alarm: 7 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {302, 151}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@105df8] 4 12
+[com.aselsan.targettracking.sensornetwork.Alarm@105df8, com.aselsan.targettracking.sensornetwork.Alarm@897d3b] 1 10
+alarm: 5 37
+alarm: 4 12
+alarm: 1 10
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {245, 185}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@7ce842] 4 22
+[com.aselsan.targettracking.sensornetwork.Alarm@7ce842, com.aselsan.targettracking.sensornetwork.Alarm@747db9] 1 12
+[com.aselsan.targettracking.sensornetwork.Alarm@7ce842, com.aselsan.targettracking.sensornetwork.Alarm@747db9, com.aselsan.targettracking.sensornetwork.Alarm@1ea22df] 7 9
+alarm: 5 52
+alarm: 4 22
+alarm: 1 12
+alarm: 7 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {295, 167}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@b81332] 4 16
+[com.aselsan.targettracking.sensornetwork.Alarm@b81332, com.aselsan.targettracking.sensornetwork.Alarm@f4651f] 1 10
+[com.aselsan.targettracking.sensornetwork.Alarm@b81332, com.aselsan.targettracking.sensornetwork.Alarm@f4651f, com.aselsan.targettracking.sensornetwork.Alarm@11ae512] 5 46
+[com.aselsan.targettracking.sensornetwork.Alarm@b81332, com.aselsan.targettracking.sensornetwork.Alarm@f4651f, com.aselsan.targettracking.sensornetwork.Alarm@11ae512, com.aselsan.targettracking.sensornetwork.Alarm@b53ac1] 1 10
+[com.aselsan.targettracking.sensornetwork.Alarm@b81332, com.aselsan.targettracking.sensornetwork.Alarm@f4651f, com.aselsan.targettracking.sensornetwork.Alarm@11ae512, com.aselsan.targettracking.sensornetwork.Alarm@b53ac1, com.aselsan.targettracking.sensornetwork.Alarm@2463a0] 6 8
+[com.aselsan.targettracking.sensornetwork.Alarm@b81332, com.aselsan.targettracking.sensornetwork.Alarm@f4651f, com.aselsan.targettracking.sensornetwork.Alarm@11ae512, com.aselsan.targettracking.sensornetwork.Alarm@b53ac1, com.aselsan.targettracking.sensornetwork.Alarm@2463a0, com.aselsan.targettracking.sensornetwork.Alarm@108bd3f] 4 15
+[com.aselsan.targettracking.sensornetwork.Alarm@b81332, com.aselsan.targettracking.sensornetwork.Alarm@f4651f, com.aselsan.targettracking.sensornetwork.Alarm@11ae512, com.aselsan.targettracking.sensornetwork.Alarm@b53ac1, com.aselsan.targettracking.sensornetwork.Alarm@2463a0, com.aselsan.targettracking.sensornetwork.Alarm@108bd3f, com.aselsan.targettracking.sensornetwork.Alarm@c09788] 2 9
+alarm: 5 55
+alarm: 4 16
+alarm: 1 10
+alarm: 5 46
+alarm: 1 10
+alarm: 6 8
+alarm: 4 15
+alarm: 2 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {238, 227}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1c6949] 4 11
+[com.aselsan.targettracking.sensornetwork.Alarm@1c6949, com.aselsan.targettracking.sensornetwork.Alarm@1443ac1] 1 9
+[com.aselsan.targettracking.sensornetwork.Alarm@1c6949, com.aselsan.targettracking.sensornetwork.Alarm@1443ac1, com.aselsan.targettracking.sensornetwork.Alarm@6d6f32] 2 9
+[com.aselsan.targettracking.sensornetwork.Alarm@1c6949, com.aselsan.targettracking.sensornetwork.Alarm@1443ac1, com.aselsan.targettracking.sensornetwork.Alarm@6d6f32, com.aselsan.targettracking.sensornetwork.Alarm@9f5eb6] 6 9
+alarm: 5 66
+alarm: 4 11
+alarm: 1 9
+alarm: 2 9
+alarm: 6 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {233, 263}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1033670] 2 13
+[com.aselsan.targettracking.sensornetwork.Alarm@1033670, com.aselsan.targettracking.sensornetwork.Alarm@1eb1da3] 4 14
+[com.aselsan.targettracking.sensornetwork.Alarm@1033670, com.aselsan.targettracking.sensornetwork.Alarm@1eb1da3, com.aselsan.targettracking.sensornetwork.Alarm@e6f5d6] 6 10
+[com.aselsan.targettracking.sensornetwork.Alarm@1033670, com.aselsan.targettracking.sensornetwork.Alarm@1eb1da3, com.aselsan.targettracking.sensornetwork.Alarm@e6f5d6, com.aselsan.targettracking.sensornetwork.Alarm@115ec75] 1 14
+alarm: 5 71
+alarm: 2 13
+alarm: 4 14
+alarm: 6 10
+alarm: 1 14
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {227, 258}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@570d79] 2 11
+[com.aselsan.targettracking.sensornetwork.Alarm@570d79, com.aselsan.targettracking.sensornetwork.Alarm@135a809] 1 9
+[com.aselsan.targettracking.sensornetwork.Alarm@570d79, com.aselsan.targettracking.sensornetwork.Alarm@135a809, com.aselsan.targettracking.sensornetwork.Alarm@1ab0d72] 6 9
+alarm: 5 52
+alarm: 2 11
+alarm: 1 9
+alarm: 6 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {214, 300}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@ffcfd1] 1 10
+alarm: 5 44
+alarm: 1 10
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {224, 224}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@189aea3] 2 8
+[com.aselsan.targettracking.sensornetwork.Alarm@189aea3, com.aselsan.targettracking.sensornetwork.Alarm@287b34] 1 13
+[com.aselsan.targettracking.sensornetwork.Alarm@189aea3, com.aselsan.targettracking.sensornetwork.Alarm@287b34, com.aselsan.targettracking.sensornetwork.Alarm@1b0b4da] 4 9
+alarm: 5 47
+alarm: 2 8
+alarm: 1 13
+alarm: 4 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {213, 210}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@318d7f] 3 9
+[com.aselsan.targettracking.sensornetwork.Alarm@318d7f, com.aselsan.targettracking.sensornetwork.Alarm@140aab2] 5 17
+[com.aselsan.targettracking.sensornetwork.Alarm@318d7f, com.aselsan.targettracking.sensornetwork.Alarm@140aab2, com.aselsan.targettracking.sensornetwork.Alarm@8691e3] 1 8
+[com.aselsan.targettracking.sensornetwork.Alarm@318d7f, com.aselsan.targettracking.sensornetwork.Alarm@140aab2, com.aselsan.targettracking.sensornetwork.Alarm@8691e3, com.aselsan.targettracking.sensornetwork.Alarm@d3f034] 2 17
+[com.aselsan.targettracking.sensornetwork.Alarm@318d7f, com.aselsan.targettracking.sensornetwork.Alarm@140aab2, com.aselsan.targettracking.sensornetwork.Alarm@8691e3, com.aselsan.targettracking.sensornetwork.Alarm@d3f034, com.aselsan.targettracking.sensornetwork.Alarm@3eee8d] 3 9
+[com.aselsan.targettracking.sensornetwork.Alarm@318d7f, com.aselsan.targettracking.sensornetwork.Alarm@140aab2, com.aselsan.targettracking.sensornetwork.Alarm@8691e3, com.aselsan.targettracking.sensornetwork.Alarm@d3f034, com.aselsan.targettracking.sensornetwork.Alarm@3eee8d, com.aselsan.targettracking.sensornetwork.Alarm@19f910f] 5 14
+[com.aselsan.targettracking.sensornetwork.Alarm@318d7f, com.aselsan.targettracking.sensornetwork.Alarm@140aab2, com.aselsan.targettracking.sensornetwork.Alarm@8691e3, com.aselsan.targettracking.sensornetwork.Alarm@d3f034, com.aselsan.targettracking.sensornetwork.Alarm@3eee8d, com.aselsan.targettracking.sensornetwork.Alarm@19f910f, com.aselsan.targettracking.sensornetwork.Alarm@eca5f5] 1 11
+alarm: 2 30
+alarm: 3 9
+alarm: 5 17
+alarm: 1 8
+alarm: 2 17
+alarm: 3 9
+alarm: 5 14
+alarm: 1 11
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {153, 299}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1404745] 5 12
+[com.aselsan.targettracking.sensornetwork.Alarm@1404745, com.aselsan.targettracking.sensornetwork.Alarm@10733dd] 1 11
+[com.aselsan.targettracking.sensornetwork.Alarm@1404745, com.aselsan.targettracking.sensornetwork.Alarm@10733dd, com.aselsan.targettracking.sensornetwork.Alarm@1de2e31] 2 10
+[com.aselsan.targettracking.sensornetwork.Alarm@1404745, com.aselsan.targettracking.sensornetwork.Alarm@10733dd, com.aselsan.targettracking.sensornetwork.Alarm@1de2e31, com.aselsan.targettracking.sensornetwork.Alarm@1aaa977] 3 8
+alarm: 2 34
+alarm: 5 12
+alarm: 1 11
+alarm: 2 10
+alarm: 3 8
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {138, 295}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@15bc78f] 2 16
+[com.aselsan.targettracking.sensornetwork.Alarm@15bc78f, com.aselsan.targettracking.sensornetwork.Alarm@8aa910] 6 8
+[com.aselsan.targettracking.sensornetwork.Alarm@15bc78f, com.aselsan.targettracking.sensornetwork.Alarm@8aa910, com.aselsan.targettracking.sensornetwork.Alarm@1619950] 5 16
+[com.aselsan.targettracking.sensornetwork.Alarm@15bc78f, com.aselsan.targettracking.sensornetwork.Alarm@8aa910, com.aselsan.targettracking.sensornetwork.Alarm@1619950, com.aselsan.targettracking.sensornetwork.Alarm@988e5e] 1 10
+alarm: 3 29
+alarm: 2 16
+alarm: 6 8
+alarm: 5 16
+alarm: 1 10
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {172, 347}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1aac3c7] 2 15
+[com.aselsan.targettracking.sensornetwork.Alarm@1aac3c7, com.aselsan.targettracking.sensornetwork.Alarm@1b7924] 5 9
+[com.aselsan.targettracking.sensornetwork.Alarm@1aac3c7, com.aselsan.targettracking.sensornetwork.Alarm@1b7924, com.aselsan.targettracking.sensornetwork.Alarm@1ae5392] 1 8
+alarm: 3 47
+alarm: 2 15
+alarm: 5 9
+alarm: 1 8
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {140, 332}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1f0b4da] 2 19
+[com.aselsan.targettracking.sensornetwork.Alarm@1f0b4da, com.aselsan.targettracking.sensornetwork.Alarm@1f16dd3] 6 8
+[com.aselsan.targettracking.sensornetwork.Alarm@1f0b4da, com.aselsan.targettracking.sensornetwork.Alarm@1f16dd3, com.aselsan.targettracking.sensornetwork.Alarm@1615142] 1 9
+[com.aselsan.targettracking.sensornetwork.Alarm@1f0b4da, com.aselsan.targettracking.sensornetwork.Alarm@1f16dd3, com.aselsan.targettracking.sensornetwork.Alarm@1615142, com.aselsan.targettracking.sensornetwork.Alarm@1df600] 5 9
+alarm: 3 54
+alarm: 2 19
+alarm: 6 8
+alarm: 1 9
+alarm: 5 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {163, 357}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@10198d5] 3 30
+[com.aselsan.targettracking.sensornetwork.Alarm@10198d5, com.aselsan.targettracking.sensornetwork.Alarm@1d8f286] 2 9
+alarm: 3 37
+alarm: 3 30
+alarm: 2 9
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {99, 452}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@1a4284] 2 10
+[com.aselsan.targettracking.sensornetwork.Alarm@1a4284, com.aselsan.targettracking.sensornetwork.Alarm@4f78c] 3 35
+alarm: 3 96
+alarm: 2 10
+alarm: 3 35
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {100, 455}
+geldim
+alarm: 3 818
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {100, 500}
+geldim
+[com.aselsan.targettracking.sensornetwork.Alarm@183058] 2 8
+alarm: 3 99
+alarm: 2 8
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {100, 437}
+geldim
+alarm: 3 36
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {100, 500}
+geldim
+alarm: 3 28
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {100, 500}
+geldim
+alarm: 3 30
+--------
+com.aselsan.targettracking.algorithm.Algorithm@8a7318
+Point {100, 500}
+geldim
