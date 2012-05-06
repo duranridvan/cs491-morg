@@ -68,7 +68,6 @@ public class DatabaseManager {
 	public int addSensor(String mac, Point location){	
 		
 		int id = idcnt++;
-		/*
 		try{
 			st = connection.prepareStatement("INSERT INTO sensor(mac,location) VALUES(?,?)",Statement.RETURN_GENERATED_KEYS);
 			st.setObject(1, mac);
@@ -84,7 +83,7 @@ public class DatabaseManager {
 			System.out.println(" Could not add the sensor ");
 			e.printStackTrace();
 			return 0;
-		}*/
+		}
 		return id;               
     }
 	
@@ -125,19 +124,26 @@ public class DatabaseManager {
 		return id;
 	}
 	
-	public int addRoute(int id, List<Point> route, boolean isReal){
+	public int addRoute( List<Point> route, boolean isReal,long start,long finish){
+		int id = 0;
 		try{
 			
-			st = connection.prepareStatement("INSERT INTO route(eventid,route,isreal) VALUES(?,?,?)");
-			st.setObject(1, id);
+			st = connection.prepareStatement("INSERT INTO route(route,isreal,starttime,finishtime) VALUES(?,?,?,?)");
 			int size = route.size();
 			PGpoint[] points = new PGpoint[size];
 			for(int i = 0; i < size ; i++)
 				points[i] = new PGpoint(route.get(i).x,route.get(i).y);
 			PGpath path = new PGpath(points,true);
-			st.setObject(2, path);
-			st.setObject(3, isReal);
+			st.setObject(1, path);
+			st.setObject(2, isReal);
+			Timestamp s = new Timestamp(start);
+			Timestamp f = new Timestamp(finish);
+			st.setObject(3, s);
+			st.setObject(4, f);
 			st.executeUpdate();
+			ResultSet res = st.getGeneratedKeys();
+			res.next();
+			id = res.getInt(1);
 			st.close();
 		}catch(SQLException e){
 			System.out.println(" Could not add the route ");
@@ -159,7 +165,7 @@ public List<List<Point>> getRoutes(){
 		}
 		ResultSet rs1 = null;
 		try {
-			PreparedStatement stmt1 = connection.prepareStatement("SELECT eventid FROM route ");
+			PreparedStatement stmt1 = connection.prepareStatement("SELECT starttime FROM route ");
 			rs1 = stmt1.executeQuery();
 		} catch (SQLException e3) {
 			// TODO Auto-generated catch block
@@ -181,9 +187,17 @@ public List<List<Point>> getRoutes(){
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		ResultSet rs4 = null;
+		try {
+			PreparedStatement stmt4 = connection.prepareStatement("SELECT finishtime FROM route ");
+			rs4 = stmt4.executeQuery();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		try{
 		
-		while(rs1.next() && rs2.next() && rs3.next())
+		while(rs1.next() && rs2.next() && rs3.next() && rs4.next())
 		{			
 			ArrayList<Point> pointList = new ArrayList();
 			PGpath path = (PGpath) rs2.getObject(1);
@@ -205,7 +219,7 @@ public List<List<Point>> getRoutes(){
 	public List<Sensor> getSensors(){
 		
 		ArrayList<Sensor> list = new ArrayList();
-		return list;/*
+		//return list;/*
 		try {
 			stmt = connection.createStatement();
 		} catch (SQLException e4) {
@@ -249,7 +263,7 @@ public List<List<Point>> getRoutes(){
 		catch(SQLException e){	
 			e.printStackTrace();
 		}
-		return list;*/
+		return list;
 	
 }
 	
