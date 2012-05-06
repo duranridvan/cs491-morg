@@ -15,11 +15,13 @@ import org.eclipse.ui.part.ViewPart;
 import com.aselsan.targettracking.gis.GISEventManager;
 import com.aselsan.targettracking.sensornetwork.RealSensorNetwork;
 import com.aselsan.targettracking.sensornetwork.SensorNetwork;
+import com.aselsan.targettracking.sensornetwork.SensorNetworkManager;
 
 public class ComSelectView extends ViewPart  {
 
 	ArrayList<Button> buttons;
 	public static final String ID = "com.aselsan.targettracking.comselectview";
+	
 	public ComSelectView() {
 		// TODO Auto-generated constructor stub
 	}
@@ -42,8 +44,7 @@ public class ComSelectView extends ViewPart  {
 				
 				@Override
 				public void widgetSelected(SelectionEvent e) {
-					SensorNetwork net = new RealSensorNetwork(s2);
-					net.start();
+					SensorNetworkManager.getInstance().setCom(s2);
 				}
 				
 				@Override
