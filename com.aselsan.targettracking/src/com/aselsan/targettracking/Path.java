@@ -9,24 +9,25 @@ import org.eclipse.swt.graphics.Point;
 
 public class Path {
 	
-	ArrayList<Point> points;
-	String startTime, finishTime;
+	private ArrayList<Point> points;
+	private String startTime;
+	private String finishTime;
 	
 	public Path(){
-		points = new ArrayList<Point>();
-		startTime = DateUtils.now();
+		setPoints(new ArrayList<Point>());
+		setStartTime(DateUtils.now());
 	}
 	
 	public void addPoint(Point p){
-		points.add(p);
+		getPoints().add(p);
 	}
 	public void finishPath(){
-		finishTime = DateUtils.now();
+		setFinishTime(DateUtils.now());
 	}
 	
 	public void draw(GC gc){
 		Point pre = null;
-		for(Point p : points){
+		for(Point p : getPoints()){
 			if(pre!=null){
 				gc.setLineWidth(4);
             	gc.drawLine(pre.x, pre.y, p.x, p.y);
@@ -34,6 +35,30 @@ public class Path {
 			}
 			pre = p;
 		}
+	}
+
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getFinishTime() {
+		return finishTime;
+	}
+
+	public void setFinishTime(String finishTime) {
+		this.finishTime = finishTime;
+	}
+
+	public ArrayList<Point> getPoints() {
+		return points;
+	}
+
+	public void setPoints(ArrayList<Point> points) {
+		this.points = points;
 	}
 
 	public static class DateUtils {
@@ -50,6 +75,10 @@ public class Path {
 		  //  System.out.println("Now : " + DateUtils.now());
 		  //}
 		}
+
+	
+
+	
 }
 
 
