@@ -1,5 +1,9 @@
 package com.aselsan.targettracking.sensornetwork;
 
+import com.aselsan.targettracking.gis.GISController;
+import com.aselsan.targettracking.gis.GISEventManager;
+import com.aselsan.targettracking.joystickmanager.JoystickEventManager;
+
 public class SensorNetworkManager {
 	private static SensorNetworkManager sNetworkManager = null;
 	SensorNetwork sN;
@@ -27,7 +31,9 @@ public class SensorNetworkManager {
 	public void start(){
 		if(option==0){
 			sN = new SimulationSensorNetwork();
+			sN.start();
 			isRun = true;
+			JoystickEventManager.getInstance().addListener(GISController.getInstance());
 		}else{
 			if(com != null){
 				sN = new RealSensorNetwork(com);
@@ -43,6 +49,9 @@ public class SensorNetworkManager {
 		if(option == 1){
 			((RealSensorNetwork)sN).stop();
 		}
-		isRun = false;
+		else{
+			isRun = false;
+			JoystickEventManager.getInstance().removeListener(GISController.getInstance());
+		}
 	}
 }

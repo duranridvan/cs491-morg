@@ -27,6 +27,7 @@ public class GISEventManager {
 	}
 	
 	public void positionChanged(Point p){
+		System.out.println(p);
 		for(GISEventListener l : listeners)
 			l.positionChanged(p);
 	}

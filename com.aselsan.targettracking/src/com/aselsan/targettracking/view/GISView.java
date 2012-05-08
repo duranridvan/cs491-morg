@@ -23,6 +23,7 @@ import org.eclipse.ui.part.ViewPart;
 import com.aselsan.targettracking.Activator;
 import com.aselsan.targettracking.gis.GISController;
 import com.aselsan.targettracking.sensornetwork.Sensor;
+import com.aselsan.targettracking.sensornetwork.SensorManager;
 
 
 
@@ -31,7 +32,7 @@ public class GISView extends ViewPart{
 	public static final String ID = "com.aselsan.targettracking.gisview";
 	private Image bgimage,sensorImage,cursorImage, alarmImage;
 	private Canvas canvas;
-	private Collection<Sensor> sensors = null;
+	//private Collection<Sensor> sensors = null;
 	//private List<Point[]> lines;
 	private Point cursorPosition;
 	private Image drawingArea=null;
@@ -41,7 +42,7 @@ public class GISView extends ViewPart{
 		alarmImage = Activator.getImageDescriptor("images/sensorAlarm.gif").createImage();
 		bgimage = Activator.getImageDescriptor("images/grass2.jpg").createImage();
 		cursorImage = Activator.getImageDescriptor("images/drawcursor.gif").createImage();
-		sensors = new ArrayList<Sensor>();
+		//sensors = new ArrayList<Sensor>();
 		GISController.getInstance().setView(this);
 		//lines = new ArrayList<Point[]>();
 	}
@@ -71,7 +72,7 @@ public class GISView extends ViewPart{
 			@Override
 			public void paintControl(PaintEvent e) {
 
-	            for(Sensor s : sensors){
+	            for(Sensor s : SensorManager.getInstance().getSensorList()){
 	            	placeSensor(e.gc, s);
 	            }
 	            
@@ -115,7 +116,7 @@ public class GISView extends ViewPart{
 		cursorPosition = p;
 	}
 	public void updateSensorList(Collection<Sensor> sensorlist){
-		sensors = sensorlist;	
+		//sensors = sensorlist;	
 	}
 	public synchronized void update() {
 		Display.getDefault().syncExec(new Runnable() {

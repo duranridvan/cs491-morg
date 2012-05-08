@@ -12,6 +12,7 @@ import com.aselsan.targettracking.databasemanager.DatabaseManager;
 import com.aselsan.targettracking.joystickmanager.JoystickEventListener;
 import com.aselsan.targettracking.joystickmanager.JoystickEventManager;
 import com.aselsan.targettracking.sensornetwork.Alarm;
+import com.aselsan.targettracking.sensornetwork.Sensor;
 import com.aselsan.targettracking.sensornetwork.SensorEventListener;
 import com.aselsan.targettracking.sensornetwork.SensorEventManager;
 import com.aselsan.targettracking.sensornetwork.SensorManager;
@@ -37,6 +38,9 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 		path = new Path();
 		simulatedPath = new Path();
 		currentPosition = new Point(0,0);
+		for(Sensor s : sensorManager.getSensorList()){
+			s.isAlarm = false;
+		}
 		view.update();
 	}
 	
@@ -80,6 +84,7 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 		Point newPoint = new Point(currentPosition.x+x,currentPosition.y+y);
 		if(isButtonPressed){
 			simulatedPath.addPoint(newPoint);
+			em.positionChanged(newPoint);
 		}
 		currentPosition = newPoint;
 		if(view!=null)

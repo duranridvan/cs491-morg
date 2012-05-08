@@ -35,7 +35,7 @@ public class SimulationSensorNetwork extends SensorNetwork implements
 			int sY = list.get(i).getLocation().y;
 			distancesToSensors[i] = Math.sqrt((sY-pY)*(sY-pY)+(sX-pX)*(sX-pX)); 
 		}
-		ArrayList<Alarm> alarms = new ArrayList();
+		ArrayList<Alarm> alarms = new ArrayList<Alarm>();
 		for(int i=0; i<distancesToSensors.length; i++){
 			if(distancesToSensors[i] < tresholdDistance){
 				System.out.println(p + " " + distancesToSensors[i]);
@@ -46,11 +46,10 @@ public class SimulationSensorNetwork extends SensorNetwork implements
 				list.get(i).isAlarm = false;
 		}
 		eventManager.alarm(alarms);
-		System.out.println("anayin ammi");
 	}
 	
 	public void start(){
-		//eventManager.addListener(..);
+		GISEventManager.getInstance().addListener(this);
 	}
 
 }

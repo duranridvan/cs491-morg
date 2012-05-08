@@ -125,11 +125,10 @@ public class DatabaseManager {
 		return id;
 	}
 	
-	public int addRoute( Path path, boolean isReal){
-		int id = 0;
+	public void addRoute( Path path, boolean isReal){
 		try{
 			
-			st = connection.prepareStatement("INSERT INTO route(route,isreal,starttime,finishtime) VALUES(?,?,?,?)");
+			st = connection.prepareStatement("INSERT INTO route(route,isreal,starttime,finishtime) VALUES(?,?,?,?)",Statement.RETURN_GENERATED_KEYS);
 			ArrayList<Point> pointsList = path.getPoints();
 			int size = pointsList.size();
 			PGpoint[] points = new PGpoint[size];
@@ -141,16 +140,11 @@ public class DatabaseManager {
 			st.setObject(3, path.getStartTime());
 			st.setObject(4, path.getFinishTime());
 			st.executeUpdate();
-			ResultSet res = st.getGeneratedKeys();
-			res.next();
-			id = res.getInt(1);
 			st.close();
 		}catch(SQLException e){
 			System.out.println(" Could not add the route ");
 			e.printStackTrace();
-			return 0;
 		}
-		return id;
 		
 	}
 	

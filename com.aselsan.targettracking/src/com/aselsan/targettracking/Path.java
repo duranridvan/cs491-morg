@@ -20,9 +20,10 @@ public class Path {
 	
 	public void addPoint(Point p){
 		getPoints().add(p);
+		setFinishTime(DateUtils.now());
 	}
 	public void finishPath(){
-		setFinishTime(DateUtils.now());
+		
 	}
 	
 	public void draw(GC gc){
