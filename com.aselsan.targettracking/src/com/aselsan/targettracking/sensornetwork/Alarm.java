@@ -5,9 +5,9 @@ public class Alarm {
 	public int strength;
 	public long timestamp;
 	
-	public Alarm(int sid, int s,long ts){
+	public Alarm(int sid, int d,long ts){
 		sensorId=sid;
-		strength=s;
+		strength=d;
 		timestamp=ts;
 	}
 	

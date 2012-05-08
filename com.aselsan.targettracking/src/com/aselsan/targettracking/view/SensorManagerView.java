@@ -16,8 +16,10 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.ui.part.ViewPart;
 
+import com.aselsan.targettracking.databasemanager.DatabaseManager;
 import com.aselsan.targettracking.sensornetwork.Sensor;
 import com.aselsan.targettracking.sensornetwork.SensorManager;
 
@@ -104,7 +106,6 @@ public class SensorManagerView extends ViewPart implements SensorManager.Listene
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				// Handle the selection event
-				
 				final Shell shell = new Shell();
 				shell.setVisible(false);
 				shell.setLayout(new GridLayout(2, false));
