@@ -1,7 +1,7 @@
 package com.aselsan.targettracking.joystickmanager;
 
 public class Joystick {
-	protected JoystickEventManager joystickEventManager;
+	protected static JoystickEventManager joystickEventManager;
 	public Joystick(){
 		joystickEventManager = JoystickEventManager.getInstance();
 	}

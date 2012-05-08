@@ -23,9 +23,19 @@ public class SoftwareJoystick extends Joystick implements MouseListener, MouseMo
 	private SoftwareJoystickView view;
 	private int width,height;
 	private static SoftwareJoystick instance = null;
+	public static int curX, curY;
 	public static SoftwareJoystick getInstance(){
-		if(instance == null)
+		if(instance == null){
 			instance = new SoftwareJoystick();
+			curX = 0;
+			curY = 0;
+			new Timer().schedule(new TimerTask() {				
+				@Override
+				public void run() {
+					joystickEventManager.move(curX,curY);
+				}
+			}, 500);
+		}
 		return instance;
 	}
 	public void setview(SoftwareJoystickView view){
@@ -46,17 +56,9 @@ public class SoftwareJoystick extends Joystick implements MouseListener, MouseMo
 	@Override
 	public void mouseMove(MouseEvent e) {
 		// TODO Auto-generated method stub
-		final MouseEvent a = e;
 		if(mousePressed){
-			new Timer().schedule(new TimerTask() {				
-				@Override
-				public void run() {
-					int x = (a.x - width/2) / (width/10);
-					int y = (a.y - height/2) / (height/10);
-					joystickEventManager.move(x,y);
-				}
-			}, 200);
-
+			curX = (e.x - width/2) / (width/10);
+			curY = (e.y - height/2) / (height/10);
 		}
 	}
 
