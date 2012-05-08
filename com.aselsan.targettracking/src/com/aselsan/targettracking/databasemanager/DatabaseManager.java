@@ -18,6 +18,7 @@ import org.eclipse.swt.graphics.Point;
 import org.postgresql.geometric.PGpath;
 import org.postgresql.geometric.PGpoint;
 
+import com.aselsan.targettracking.Path;
 import com.aselsan.targettracking.sensornetwork.Alarm;
 import com.aselsan.targettracking.sensornetwork.Sensor;
 
@@ -124,22 +125,21 @@ public class DatabaseManager {
 		return id;
 	}
 	
-	public int addRoute( List<Point> route, boolean isReal,long start,long finish){
+	public int addRoute( Path path, boolean isReal){
 		int id = 0;
 		try{
 			
 			st = connection.prepareStatement("INSERT INTO route(route,isreal,starttime,finishtime) VALUES(?,?,?,?)");
-			int size = route.size();
+			ArrayList<Point> pointsList = path.getPoints();
+			int size = pointsList.size();
 			PGpoint[] points = new PGpoint[size];
 			for(int i = 0; i < size ; i++)
-				points[i] = new PGpoint(route.get(i).x,route.get(i).y);
-			PGpath path = new PGpath(points,true);
-			st.setObject(1, path);
+				points[i] = new PGpoint(pointsList.get(i).x,pointsList.get(i).y);
+			PGpath pathData = new PGpath(points,true);
+			st.setObject(1, pathData);
 			st.setObject(2, isReal);
-			Timestamp s = new Timestamp(start);
-			Timestamp f = new Timestamp(finish);
-			st.setObject(3, s);
-			st.setObject(4, f);
+			st.setObject(3, path.getStartTime());
+			st.setObject(4, path.getFinishTime());
 			st.executeUpdate();
 			ResultSet res = st.getGeneratedKeys();
 			res.next();
