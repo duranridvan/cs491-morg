@@ -22,6 +22,7 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 	GISView view;
 	private SensorManager sensorManager;
 	public Path path;
+	public Path simulatedPath;
 	private boolean isButtonPressed = false;
 	private Point currentPosition;
 	private long ltime = 0;
@@ -34,6 +35,7 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 	}
 	public void clean(){
 		path = new Path();
+		simulatedPath = new Path();
 		currentPosition = new Point(0,0);
 		view.update();
 	}
@@ -50,6 +52,7 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 		currentPosition = new Point(0, 0);
 		em = GISEventManager.getInstance();
 		path = new Path();
+		simulatedPath = new Path();
 	}
 	
 	public void setView(GISView view){
@@ -73,18 +76,11 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 	}
 	@Override
 	public void move(int x, int y) {
-		long ctime = System.currentTimeMillis();
+		//long ctime = System.currentTimeMillis();
 		Point newPoint = new Point(currentPosition.x+x,currentPosition.y+y);
 		if(isButtonPressed){
-			if(view!=null)
-				view.drawLine(currentPosition,newPoint);
-			if(ctime - ltime >= 500){
-				em.positionChanged(newPoint);
-				ltime = ctime;
-			}
+			simulatedPath.addPoint(newPoint);
 		}
-		if(view!=null)
-			view.updateCursorPosition(newPoint);
 		currentPosition = newPoint;
 		if(view!=null)
 			view.update();

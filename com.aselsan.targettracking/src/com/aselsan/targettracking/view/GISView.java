@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
@@ -75,6 +76,9 @@ public class GISView extends ViewPart{
 	            }
 	            
 	            GISController.getInstance().path.draw(e.gc);
+	            e.gc.setForeground(new Color(Display.getCurrent(), 255,255,0));
+	            GISController.getInstance().simulatedPath.draw(e.gc);
+	            e.gc.setForeground(new Color(Display.getCurrent(), 0,0,0));
 	            
 	            int cx = cursorPosition.x - cursorImage.getBounds().width/2;
 	            int cy = cursorPosition.y - cursorImage.getBounds().height/2;
