@@ -1,6 +1,10 @@
 package com.aselsan.targettracking.joystickmanager;
 
 
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.MouseListener;
@@ -10,6 +14,7 @@ import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.part.ViewPart;
 
+import com.aselsan.targettracking.sensornetwork.Alarm;
 import com.aselsan.targettracking.view.SoftwareJoystickView;
 
 public class SoftwareJoystick extends Joystick implements MouseListener, MouseMoveListener{
@@ -41,10 +46,17 @@ public class SoftwareJoystick extends Joystick implements MouseListener, MouseMo
 	@Override
 	public void mouseMove(MouseEvent e) {
 		// TODO Auto-generated method stub
+		final MouseEvent a = e;
 		if(mousePressed){
-			int x = (e.x - width/2) / (width/10);
-			int y = (e.y - height/2) / (height/10);
-			joystickEventManager.move(x,y);
+			new Timer().schedule(new TimerTask() {				
+				@Override
+				public void run() {
+					int x = (a.x - width/2) / (width/10);
+					int y = (a.y - height/2) / (height/10);
+					joystickEventManager.move(x,y);
+				}
+			}, 200);
+
 		}
 	}
 
