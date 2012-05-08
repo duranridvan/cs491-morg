@@ -5,9 +5,10 @@ public class SensorNetworkManager {
 	SensorNetwork sN;
 	String com;
 	boolean isRun;
-	int o;
+	int option;
 	public SensorNetworkManager(){
 		isRun = false;
+		option = 0;
 		
 	}
 	public static SensorNetworkManager getInstance(){
@@ -16,20 +17,22 @@ public class SensorNetworkManager {
 		return sNetworkManager;
 	}
 	
+	public void setOption(int option){
+		this.option = option;
+	}
+	
 	public void setCom(String com){
 		this.com = com;
 	}
-	public void start(int option){
+	public void start(){
 		if(option==0){
 			sN = new SimulationSensorNetwork();
 			isRun = true;
-			o = option;
 		}else{
 			if(com != null){
 				sN = new RealSensorNetwork(com);
 				sN.start();
 				isRun = true;
-				o = option;
 			}
 		}
 	}
@@ -37,7 +40,7 @@ public class SensorNetworkManager {
 		return isRun; 
 	}
 	public void stop(){
-		if(o == 1){
+		if(option == 1){
 			((RealSensorNetwork)sN).stop();
 		}
 		isRun = false;

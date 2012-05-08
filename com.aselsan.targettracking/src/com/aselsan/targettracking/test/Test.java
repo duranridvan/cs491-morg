@@ -41,8 +41,29 @@ public class Test {
 		}
 	}
 	
+	public static void f3(){
+		try {
+			Scanner scan = new Scanner(new File("guzeel.txt"));
+			
+			while(scan.hasNext()){
+				String str = scan.next();
+				if(str.equals("Point")){
+					String s = scan.next();
+					int a = Integer.parseInt(s.substring(1,s.length()-1));
+					s = scan.next();
+					
+					int b = Integer.parseInt(s.substring(0,s.length()-1));
+					System.out.println(a + " " + b );
+				}
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public static void main(String[] args) throws FileNotFoundException {
-		f2();
+		f3();
 		return;/*
 		Scanner scan = new Scanner(new File("left.txt"));
 		PrintStream out = new PrintStream(new File("leftout.txt"));

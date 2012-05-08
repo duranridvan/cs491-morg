@@ -74,7 +74,7 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 		Point newPoint = new Point(currentPosition.x+x,currentPosition.y+y);
 		if(isButtonPressed){
 			if(view!=null)
-			view.drawLine(currentPosition,newPoint);
+				view.drawLine(currentPosition,newPoint);
 			if(ctime - ltime >= 500){
 				em.positionChanged(newPoint);
 				ltime = ctime;

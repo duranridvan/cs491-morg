@@ -116,6 +116,14 @@
                   label="Stop"
                   style="push">
             </command>
+            <separator
+                  name="com.aselsan.targettracking.separator1">
+            </separator>
+            <command
+                  commandId="org.eclipse.ui.perspectives.showPerspective"
+                  label="Real"
+                  style="push">
+            </command>
          </toolbar>
       </menuContribution>
    </extension>
@@ -145,6 +153,15 @@
             defaultHandler="com.aselsan.targettracking.CommandStop"
             id="com.aselsan.targettracking.commandstop"
             name="Stop">
+      </command>
+      <command
+            defaultHandler="com.aselsan.targettracking.CommandReal"
+            id="com.aselsan.targettracking.switchreal"
+            name="Real">
+      </command>
+      <command
+            id="com.aselsan.targettracking.switchSimulation"
+            name="Simulation">
       </command>
    </extension>
    <extension

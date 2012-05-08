@@ -12,6 +12,8 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Collection;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 
@@ -22,10 +24,12 @@ public class RealSensorNetwork extends SensorNetwork
 	private static String comport;
 	private static RealSensorNetwork instance = null;
 	private Thread t;
+	SerialPort serialPort;
     public RealSensorNetwork(String c)
     {
         super();
         comport=c;
+        serialPort = null;
         
     }
 	public static RealSensorNetwork getInstance(){
@@ -47,7 +51,7 @@ public class RealSensorNetwork extends SensorNetwork
             
             if ( commPort instanceof SerialPort )
             {
-                SerialPort serialPort = (SerialPort) commPort;
+                serialPort = (SerialPort) commPort;
                 serialPort.setSerialPortParams(38400,SerialPort.DATABITS_8,SerialPort.STOPBITS_1,SerialPort.PARITY_NONE);
                 
                 InputStream in = serialPort.getInputStream();
@@ -57,6 +61,7 @@ public class RealSensorNetwork extends SensorNetwork
                 t.start();
                 
                 serialPort.addEventListener(new SerialReader(in));
+                
                 serialPort.notifyOnDataAvailable(true);
 
             }
@@ -100,10 +105,24 @@ public class RealSensorNetwork extends SensorNetwork
                         String s = new String(buffer,start+1,len);
                       //  
                         Scanner scan = new Scanner(s);
+                        if(list.size() == 0){
+                        	new Timer().schedule(new TimerTask() {
+								
+								@Override
+								public void run() {
+									// TODO Auto-generated method stub
+									eventManager.alarm(list);
+									list = new ArrayList<Alarm>();
+								}
+							}, 200);
+                        }
+                        Alarm a = new Alarm(scan.nextInt(), scan.nextInt()-20, t);
+                        list.add(a);
+                        /*
                         if(t-prev<200){
                         	Alarm a = new Alarm(scan.nextInt(), scan.nextInt()-20, t);
-                        	System.out.print(list);
-                        	System.out.println(" " + a.sensorId + " " + a.strength );
+                        	
+                        	
                         	list.add(a);
                         }else{
                         	//System.out.println("!!" + list.size());
@@ -115,7 +134,7 @@ public class RealSensorNetwork extends SensorNetwork
                         	list.add(new Alarm(scan.nextInt(), scan.nextInt(), t));
                         	
                         }
-                        
+                        */
                     	//while ( ( data = in.read()) > -1 );
                     }
                     len++;
@@ -169,10 +188,11 @@ public class RealSensorNetwork extends SensorNetwork
     public static class SerialWriter implements Runnable 
     {
         OutputStream out;
-        
+        public boolean finish;
         public SerialWriter ( OutputStream out )
         {
             this.out = out;
+            finish = false;
         }
         
         public void run ()
@@ -180,7 +200,7 @@ public class RealSensorNetwork extends SensorNetwork
             try
             {                
                 int c = 0;
-                while ( ( c = System.in.read()) > -1 )
+                while (!finish && ( c = System.in.read()) > -1 )
                 {
                     this.out.write(c);
                 }                
@@ -207,7 +227,9 @@ public class RealSensorNetwork extends SensorNetwork
     }
     
     public void stop(){
-    	t.stop();
+    	if(serialPort!=null){
+    		serialPort.close();
+    	}
     }
 
 
