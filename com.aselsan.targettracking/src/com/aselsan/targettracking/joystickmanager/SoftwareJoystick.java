@@ -18,7 +18,7 @@ import com.aselsan.targettracking.sensornetwork.Alarm;
 import com.aselsan.targettracking.view.SoftwareJoystickView;
 
 public class SoftwareJoystick extends Joystick implements MouseListener, MouseMoveListener{
-	private boolean mousePressed;
+	private static boolean mousePressed;
 	private boolean buttonPressed;
 	private SoftwareJoystickView view;
 	private int width,height;
@@ -32,6 +32,7 @@ public class SoftwareJoystick extends Joystick implements MouseListener, MouseMo
 			new Timer().scheduleAtFixedRate(new TimerTask() {				
 				@Override
 				public void run() {
+					if(mousePressed)
 					joystickEventManager.move(curX,curY);
 				}
 			}, 0,500);
@@ -56,10 +57,10 @@ public class SoftwareJoystick extends Joystick implements MouseListener, MouseMo
 	@Override
 	public void mouseMove(MouseEvent e) {
 		// TODO Auto-generated method stub
-		if(mousePressed){
 			curX = (e.x - width/2) / (width/10);
 			curY = (e.y - height/2) / (height/10);
-		}
+			curX *= 5;
+			curY *= 5;
 	}
 
 	
