@@ -8,6 +8,7 @@ import org.eclipse.ui.part.ViewPart;
 
 import com.aselsan.targettracking.Path;
 import com.aselsan.targettracking.algorithm.AlgorithmEventListener;
+import com.aselsan.targettracking.databasemanager.DatabaseManager;
 import com.aselsan.targettracking.joystickmanager.JoystickEventListener;
 import com.aselsan.targettracking.joystickmanager.JoystickEventManager;
 import com.aselsan.targettracking.sensornetwork.Alarm;
@@ -28,7 +29,9 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 	private static GISController instance=null;
 
 	
-	
+	public void saveCurrent(){
+		DatabaseManager.getInstance().addRoute(path, true);
+	}
 	public void clean(){
 		path = new Path();
 		currentPosition = new Point(0,0);
