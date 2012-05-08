@@ -29,12 +29,12 @@ public class SoftwareJoystick extends Joystick implements MouseListener, MouseMo
 			instance = new SoftwareJoystick();
 			curX = 0;
 			curY = 0;
-			new Timer().schedule(new TimerTask() {				
+			new Timer().scheduleAtFixedRate(new TimerTask() {				
 				@Override
 				public void run() {
 					joystickEventManager.move(curX,curY);
 				}
-			}, 500);
+			}, 0,500);
 		}
 		return instance;
 	}
