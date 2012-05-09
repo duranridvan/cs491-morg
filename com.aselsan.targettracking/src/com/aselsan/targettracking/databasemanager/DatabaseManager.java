@@ -148,9 +148,9 @@ public class DatabaseManager {
 		
 	}
 	
-public List<List<Point>> getRoutes(){
+public List<Path> getRoutes(){
 		
-		List<List<Point>> list = new ArrayList();
+		List<Path> list = new ArrayList();
 		try {
 			stmt = connection.createStatement();
 		} catch (SQLException e4) {
@@ -193,13 +193,15 @@ public List<List<Point>> getRoutes(){
 		
 		while(rs1.next() && rs2.next() && rs3.next() && rs4.next())
 		{			
-			ArrayList<Point> pointList = new ArrayList();
-			PGpath path = (PGpath) rs2.getObject(1);
-			PGpoint[] pointArray = path.points;
+			Path path = new Path();
+			PGpath pathData = (PGpath) rs2.getObject(1);
+			PGpoint[] pointArray = pathData.points;
 			int size = pointArray.length;
 			for(int i = 0; i< size ; i++)
-				pointList.add(new Point((int)pointArray[i].x,(int) pointArray[i].y));
-			list.add(pointList);
+				path.addPoint(new Point((int)pointArray[i].x,(int) pointArray[i].y));
+			path.setFinishTime((String)rs4.getObject(1));
+			path.setStartTime((String)rs1.getObject(1));		
+			list.add(path);
 							
 		}
 		}

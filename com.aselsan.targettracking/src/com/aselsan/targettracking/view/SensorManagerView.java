@@ -1,8 +1,10 @@
 package com.aselsan.targettracking.view;
 
+import java.awt.Scrollbar;
 import java.sql.SQLException;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
@@ -14,6 +16,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
+import org.eclipse.swt.widgets.ScrollBar;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.ToolBar;
@@ -27,6 +30,7 @@ public class SensorManagerView extends ViewPart implements SensorManager.Listene
 	public static final String ID = "com.aselsan.targettracking.sensormanagerview";
 	//private org.eclipse.swt.graphics.Image image;
 	private GridLayout gridLayout;
+	private ScrollBar scroll;
 	private Button button;
 	private Button deleteButton;
 	private GridData gridData;
@@ -55,7 +59,7 @@ public class SensorManagerView extends ViewPart implements SensorManager.Listene
 		gridLayout.numColumns = 1;
 		parent.setLayout(gridLayout);
 		gridData = new GridData();
-		sensorList = new List(parent, SWT.BORDER | SWT.MULTI);
+		sensorList = new List(parent, SWT.BORDER | SWT.MULTI );
 		gridData.horizontalSpan = 2;
 		gridData.horizontalAlignment = SWT.FILL;
 		gridData.grabExcessHorizontalSpace = true;

@@ -61,6 +61,10 @@ public class Path {
 	public void setPoints(ArrayList<Point> points) {
 		this.points = points;
 	}
+	
+	public String toString(){
+		return "Start = " + startTime + " Finish = " + finishTime;
+	}
 
 	public static class DateUtils {
 		  public static final String DATE_FORMAT_NOW = "yyyy-MM-dd HH:mm:ss";
