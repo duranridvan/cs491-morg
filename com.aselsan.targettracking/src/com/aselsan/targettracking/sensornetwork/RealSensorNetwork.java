@@ -39,7 +39,6 @@ public class RealSensorNetwork extends SensorNetwork
 	}
     void connect ( String portName ) throws Exception
     {
-    	System.out.println("dasa");
         CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier(portName);
         if ( portIdentifier.isCurrentlyOwned() )
         {

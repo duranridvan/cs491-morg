@@ -13,7 +13,7 @@ public class RealPerspective implements IPerspectiveFactory {
 
 	@Override
 	public void createInitialLayout(IPageLayout layout) {
-		System.out.println("real");
+		//System.out.println("real");
 		String editorArea = layout.getEditorArea();
 		layout.setEditorAreaVisible(false);
 		layout.setFixed(true);

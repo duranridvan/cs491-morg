@@ -14,7 +14,7 @@ public class SimulationSensorNetwork extends SensorNetwork implements
 	public final double tresholdDistance = 200;
 	private static SimulationSensorNetwork instance = null;
 	public SimulationSensorNetwork() {
-		System.out.println("HOP");
+		
 	}
 	
 	public static SimulationSensorNetwork getInstance(){

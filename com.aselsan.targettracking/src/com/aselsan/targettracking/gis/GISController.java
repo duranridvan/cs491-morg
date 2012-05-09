@@ -37,6 +37,7 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 	
 	public void updatePath(Path newPath){
 		path = newPath;
+		simulatedPath = new Path();
 		if(view != null)
 			view.update();
 	}

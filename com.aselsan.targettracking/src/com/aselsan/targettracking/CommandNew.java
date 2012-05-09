@@ -14,7 +14,7 @@ public class CommandNew extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 	//	new CommandStop().execute(event);
-		System.out.println("clean!!");
+//		System.out.println("clean!!");
 		GISController.getInstance().clean();
 		// TODO Auto-generated method stub
 		return null;

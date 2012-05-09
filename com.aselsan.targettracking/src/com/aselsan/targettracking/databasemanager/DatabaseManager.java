@@ -336,7 +336,6 @@ public List<Alarm> getAlarms(){
 		while(rs1.next() && rs2.next() && rs3.next())
 		{			
 			Alarm a = new Alarm(rs2.getInt(1), rs3.getInt(1), rs1.getTimestamp(1).getTime());
-			System.out.println(a);
 			list.add(a);				
 		}
 		}

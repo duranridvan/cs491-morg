@@ -20,7 +20,6 @@ public class CommandStart extends AbstractHandler {
 		
 		if(SensorNetworkManager.getInstance().isRunning()) return null;
 		SensorNetworkManager.getInstance().start();
-		System.out.println("asdfafdada");
 		return null;
 		
 		/*
