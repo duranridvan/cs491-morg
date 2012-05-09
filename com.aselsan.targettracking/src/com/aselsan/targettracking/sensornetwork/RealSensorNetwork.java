@@ -12,8 +12,6 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Collection;
-import java.util.Timer;
-import java.util.TimerTask;
 
 
 
@@ -104,6 +102,7 @@ public class RealSensorNetwork extends SensorNetwork
                         String s = new String(buffer,start+1,len);
                       //  
                         Scanner scan = new Scanner(s);
+                        /*
                         if(list.size() == 0){
                         	new Timer().schedule(new TimerTask() {
 								
@@ -116,10 +115,10 @@ public class RealSensorNetwork extends SensorNetwork
 							}, 200);
                         }
                         Alarm a = new Alarm(scan.nextInt(), scan.nextInt()-20, t);
-                        list.add(a);
-                        /*
+                        list.add(a);*/
+                        
                         if(t-prev<200){
-                        	Alarm a = new Alarm(scan.nextInt(), scan.nextInt()-20, t);
+                        	Alarm a = new Alarm(scan.nextInt(), scan.nextInt(), t);
                         	
                         	
                         	list.add(a);
@@ -130,10 +129,10 @@ public class RealSensorNetwork extends SensorNetwork
                         	System.out.println("geldim");
                         	prev = t;
                         	list = new ArrayList<Alarm>();
-                        	list.add(new Alarm(scan.nextInt(), scan.nextInt(), t));
+                        	list.add(new Alarm(scan.nextInt(), scan.nextInt()-20, t));
                         	
                         }
-                        */
+                        
                     	//while ( ( data = in.read()) > -1 );
                     }
                     len++;

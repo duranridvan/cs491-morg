@@ -21,6 +21,10 @@ public class Algorithm implements SensorEventListener {
 		for(Alarm a:alarms){
 			s = SensorManager.getInstance().getSensor((a.sensorId));
 			if(s!=null){
+				/*x+=( a.strength)*s.getLocation().x;
+				y+=(a.strength)*s.getLocation().y;
+				sSum+=(a.strength);*/
+				
 				x+=Math.log( a.strength)*s.getLocation().x;
 				y+=Math.log(a.strength)*s.getLocation().y;
 				sSum+=Math.log(a.strength);
