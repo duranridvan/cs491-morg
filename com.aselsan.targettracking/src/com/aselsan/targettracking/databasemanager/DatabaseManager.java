@@ -211,6 +211,41 @@ public List<Path> getRoutes(){
 		return list;
 	
 }
+
+	public Path getPath(String start,String finish){
+		ResultSet rs1 = null;
+		try {
+			String str = "SELECT route FROM route where starttime = " + "'" + start + "'" +" and finishtime = " +"'" + finish + "'" ;
+			PreparedStatement stmt6 = connection.prepareStatement(str);
+			rs1 = stmt6.executeQuery();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			rs1.next();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}			
+		Path path = new Path();
+		PGpath pathData = null;
+		try {
+			pathData = (PGpath) rs1.getObject(1);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		PGpoint[] pointArray = pathData.points;
+		int size = pointArray.length;
+		for(int i = 0; i< size ; i++)
+		{
+			path.addPoint(new Point((int)pointArray[i].x,(int) pointArray[i].y));
+		}
+		path.setFinishTime(finish);
+		path.setStartTime(start);		
+		return path;
+	}
 	
 	public List<Sensor> getSensors(){
 		

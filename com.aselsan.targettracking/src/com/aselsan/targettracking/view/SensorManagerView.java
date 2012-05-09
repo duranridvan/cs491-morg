@@ -53,13 +53,14 @@ public class SensorManagerView extends ViewPart implements SensorManager.Listene
 	
 	
 	public void createPartControl(final Composite parent) {
+
 		
 		//parent.setBackgroundImage(image);
 		gridLayout = new GridLayout();
 		gridLayout.numColumns = 1;
 		parent.setLayout(gridLayout);
 		gridData = new GridData();
-		sensorList = new List(parent, SWT.BORDER | SWT.MULTI );
+		sensorList = new List(parent, SWT.BORDER | SWT.MULTI | SWT.V_SCROLL);
 		gridData.horizontalSpan = 2;
 		gridData.horizontalAlignment = SWT.FILL;
 		gridData.grabExcessHorizontalSpace = true;
@@ -215,6 +216,7 @@ public class SensorManagerView extends ViewPart implements SensorManager.Listene
 				shell.setVisible(true);
 			}
 		});
+
 	}
 
 	/**

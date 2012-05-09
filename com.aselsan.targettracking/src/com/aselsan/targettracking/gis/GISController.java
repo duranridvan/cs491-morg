@@ -34,6 +34,12 @@ public class GISController implements SensorManager.Listener, JoystickEventListe
 	public void saveCurrent(){
 		DatabaseManager.getInstance().addRoute(path, true);
 	}
+	
+	public void updatePath(Path newPath){
+		path = newPath;
+		if(view != null)
+			view.update();
+	}
 	public void clean(){
 		path = new Path();
 		simulatedPath = new Path();
